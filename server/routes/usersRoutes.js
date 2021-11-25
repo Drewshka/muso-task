@@ -3,17 +3,17 @@ const express = require("express"),
   {
     getAllUsers,
     getSingleUser,
-    // getUserByGig,
     postSingleUser,
-    // deleteInventoryItem,
     editUserDetails,
+    // getUserByGig,
+    // deleteInventoryItem,
   } = require("../controllers/usersControllers");
 
 router.get("/", getAllUsers);
 router.get("/:id", getSingleUser);
-// router.get("/gigs/:id", getUserByGig);
 router.post("/", postSingleUser);
-// router.delete("/:id", deleteInventoryItem);
 router.put("/:id", editUserDetails);
+// router.get("/gigs/:id", getUserByGig);
+// router.delete("/:id", deleteInventoryItem);
 
 module.exports = router;
