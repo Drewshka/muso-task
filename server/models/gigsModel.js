@@ -7,7 +7,7 @@ const fs = require("fs"),
 let gigsData = [];
 
 const getGigsData = () => {
-  fs.readFile("./data/gigs.json", (err, data) => {
+  fs.readFile(gigsFile, (err, data) => {
     if (err) {
       console.log(err);
       return;

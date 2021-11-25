@@ -1,153 +1,129 @@
 const fs = require("fs"),
   path = require("path"),
-  warehousesFile = path.join(__dirname, "../data/warehouses.json"),
-  warehousesTestFile = path.join(__dirname, "../data/warehouses-testing.json"),
-  inventoriesFile = path.join(__dirname, "../data/inventories.json"),
-  inventoriesTestFile = path.join(
-    __dirname,
-    "../data/inventories-testing.json"
-  ),
+  usersFile = path.join(__dirname, "../data/users.json"),
+  usersTestFile = path.join(__dirname, "../data/users-testing.json"),
+  gigsFile = path.join(__dirname, "../data/gigs.json"),
+  gigsTestFile = path.join(__dirname, "../data/gigs-testing.json"),
   { v4: uuidv4 } = require("uuid");
 
-let warehousesData = [];
-let inventoriesData = [];
-const getWarehousesData = () => {
-  fs.readFile(warehousesFile, "utf-8", (err, data) => {
-    if (err) {
-      console.log(err);
-      return;
-    }
-    warehousesData = JSON.parse(data);
-  });
-};
-const getInventoriesData = () => {
-  fs.readFile(inventoriesFile, "utf-8", (err, data) => {
-    if (err) {
-      console.log(err);
-      return;
-    }
-    inventoriesData = JSON.parse(data);
-  });
-};
-getWarehousesData();
-getInventoriesData();
+let usersData = [];
+let gigsData = [];
 
-class Warehouse {
-  constructor(
-    name,
-    address,
-    city,
-    country,
-    contactName,
-    contactPosition,
-    contactPhone,
-    contactEmail
-  ) {
+const getUsersData = () => {
+  fs.readFile(usersFile, "utf-8", (err, data) => {
+    if (err) {
+      console.log(err);
+      return;
+    }
+    usersData = JSON.parse(data);
+  });
+};
+const getGigsData = () => {
+  fs.readFile(gigsFile, "utf-8", (err, data) => {
+    if (err) {
+      console.log(err);
+      return;
+    }
+    gigsData = JSON.parse(data);
+  });
+};
+getUsersData();
+getGigsData();
+
+class User {
+  constructor(name, address, city, country, phone, email, instrument, bio) {
     this.id = uuidv4();
     this.name = name;
     this.address = address;
     this.city = city;
     this.country = country;
-    this.contact = {
-      name: contactName,
-      position: contactPosition,
-      phone: contactPhone,
-      email: contactEmail,
-    };
+    this.phone = phone;
+    this.email = email;
+    this.instrument = instrument;
+    this.bio = bio;
   }
 }
 
-const deleteInventory = (warehouseID) => {
-  getInventoriesData();
-  let newInventoriesData = inventoriesData.filter(
-    (item) => item.warehouseID !== warehouseID
-  );
-  fs.writeFile(
-    inventoriesTestFile,
-    JSON.stringify(newInventoriesData),
-    (err) => {
-      if (err) {
-        console.log(err);
-        return;
-      }
-    }
-  );
-  return newInventoriesData;
+// const deleteGig = (userID) => {
+//   getGigsData();
+//   let newGigsData = gigsData.filter((gig) => gig.userID !== userID);
+//   fs.writeFile(gigsTestFile, JSON.stringify(newGigsData), (err) => {
+//     if (err) {
+//       console.log(err);
+//       return;
+//     }
+//   });
+//   return newGigsData;
+// };
+
+// const deleteUserWithGigs = (userID) => {
+//   getUsersData();
+//   let newUsersData = usersData.filter((user) => user.id !== userID);
+
+//   fs.writeFile(usersTestFile, JSON.stringify(newUsersData), (err) => {
+//     if (err) {
+//       console.log(err);
+//       return;
+//     }
+//   });
+//   let newGigsData = deleteGig(userID);
+//   let returnArray = [newUsersData, newGigsData];
+//   returnArray = JSON.stringify(returnArray);
+//   return returnArray;
+// };
+
+const getAllUsers = () => {
+  getUsersData();
+  return JSON.stringify(usersData);
 };
 
-const deleteWarehouseWithInventory = (warehouseID) => {
-  getWarehousesData();
-  let newWarehousesData = warehousesData.filter(
-    (warehouse) => warehouse.id !== warehouseID
-  );
-
-  fs.writeFile(warehousesTestFile, JSON.stringify(newWarehousesData), (err) => {
-    if (err) {
-      console.log(err);
-      return;
-    }
+const getSingleUser = (userID) => {
+  getUsersData();
+  let singleUser = usersData.find((user) => {
+    return user.id === userID;
   });
-  let newInventoriesData = deleteInventory(warehouseID);
-  let returnArray = [newWarehousesData, newInventoriesData];
-  returnArray = JSON.stringify(returnArray);
-  return returnArray;
+  return singleUser;
 };
 
-const getAllWarehouses = () => {
-  getWarehousesData();
-  return JSON.stringify(warehousesData);
-};
-
-const getSingleWarehouse = (warehouseID) => {
-  getWarehousesData();
-  let singleWarehouse = warehousesData.find((warehouse) => {
-    return warehouse.id === warehouseID;
-  });
-  return(singleWarehouse);
-};
-
-const postSingleWarehouse = (warehouseData) => {
-  getWarehousesData();
-  let { name, address, city, country, contactName, position, phone, email } =
-    warehouseData;
-  let addWarehouse = new Warehouse(
+const postSingleUser = (userData) => {
+  getUsersData();
+  let { name, address, city, country, phone, email, instrument, bio } =
+    userData;
+  let addUser = new User(
     name,
     address,
     city,
     country,
-    contactName,
-    position,
     phone,
-    email
+    email,
+    instrument,
+    bio
   );
-  warehousesData.push(addWarehouse);
-  fs.writeFileSync(
-    "./data/testwarehouses.json",
-    JSON.stringify(warehousesData)
-  );
-  return JSON.stringify(warehousesData);
+  usersData.push(addUser);
+  fs.writeFileSync(usersTestFile, JSON.stringify(usersData));
+  return JSON.stringify(usersData);
 };
 
-const editWarehouseDetails = (edits, warehouseID) => {
-  getWarehousesData();
-  let targetIndex = warehousesData.indexOf(
-    warehousesData.find((warehouse) => warehouse.id === warehouseID)
+const editUserDetails = (edits, userID) => {
+  getUsersData();
+  let targetIndex = usersData.indexOf(
+    usersData.find((user) => user.id === userID)
   );
-  warehousesData[targetIndex] = edits;
-  fs.writeFile(warehousesTestFile, JSON.stringify(warehousesData), (err) => {
+  usersData[targetIndex] = edits;
+  fs.writeFile(usersTestFile, JSON.stringify(usersData), (err) => {
     if (err) {
       console.log(err);
       return;
     }
   });
-  return JSON.stringify(warehousesData);
+  return JSON.stringify(usersData);
 };
 
 module.exports = {
-  Warehouse,
-  getAllWarehouses,
-  getSingleWarehouse,
-  postSingleWarehouse,
-  deleteWarehouseWithInventory,
-  editWarehouseDetails,
+  User,
+  getAllUsers,
+  getSingleUser,
+  postSingleUser,
+  // deleteUserWithGigs,
+  editUserDetails,
 };
