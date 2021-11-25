@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const PORT = 8080;
-const usersRoutes = require("./routes/usersRoutes");
+// const usersRoutes = require("./routes/usersRoutes");
 const gigsRoutes = require("./routes/gigsRoutes");
 
 const cors = require("cors");
@@ -16,7 +16,7 @@ app.use(cors());
 app.use(morgan("dev"));
 
 // Routes
-app.use("/users", usersRoutes);
+// app.use("/users", usersRoutes);
 app.use("/gigs", gigsRoutes);
 
 app.listen(PORT, () => {
