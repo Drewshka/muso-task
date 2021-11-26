@@ -1,0 +1,21 @@
+// @use "../../styles/partials/variables" as *;
+// @use "../../styles/partials/mixins" as *;
+
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.header {
+  &__title {
+    @include font("Avenir Next Regular", 600, 26px, 20px, $primary);
+  }
+
+  &__link {
+    list-style-type: none;
+
+    &-one,
+    &-two,
+    &-three {
+      @include font("Avenir Next Regular", 600, 13px, 10px, $primary2);
+    }
+  }
+}
