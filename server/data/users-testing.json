@@ -11,6 +11,17 @@
     "bio": "I'm a guitarist and also play piano."
   },
   {
+    "id": "5bf7bd6c-2b16-4129-bddc-9d37ff8539e9",
+    "name": "Ben",
+    "address": "503 Broadway",
+    "city": "New York",
+    "country": "USA",
+    "phone": "+1 (646) 223-1234",
+    "email": "ben@test.com",
+    "instrument": "Piano",
+    "bio": "I'm a pianist."
+  },
+  {
     "id": "5bf7bd6c-2b16-4129-bddc-9d37ff8539e8",
     "name": "Jacky",
     "address": "503 Rue Laval",

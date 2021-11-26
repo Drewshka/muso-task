@@ -1,8 +1,6 @@
 const express = require("express"),
   router = express.Router(),
   {
-    // getGigsByUser,
-    // getAllGigs,
     listGigs,
     getSingleGig,
     postGig,
@@ -11,8 +9,6 @@ const express = require("express"),
     getGigsByUser,
   } = require("../controllers/gigsControllers");
 
-// router.get("/users/:id", getGigsByUser);
-// router.get("/", getAllGigs);
 router.get("/", listGigs);
 router.get("/:id", getSingleGig);
 router.get("/users/:id", getGigsByUser);
