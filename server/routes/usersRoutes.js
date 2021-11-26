@@ -16,8 +16,10 @@ const express = require("express"),
 //   router.post("/", postSingleUser);
 
 router.get("/", listUsers);
-router.post("/", postUser);
 router.get("/:id", getSingleUser);
+// router.get("/gigs/:id", getSingleUser);
+
+router.post("/", postUser);
 router.put("/:id", editUserDetails);
 router.delete("/:id", deleteUser);
 

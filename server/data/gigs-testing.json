@@ -50,5 +50,18 @@
     "address": "ship",
     "date": "01/01/2022",
     "time": "12:00pm"
+  },
+  {
+    "id": "9b4f79ea-0e6c-4e59-8e05-afd933d0b3d4",
+    "userID": "1",
+    "userName": "Andrew",
+    "gigName": "Jazz quartet",
+    "description": "Jazz gigs in need of vocals",
+    "category": "Performance",
+    "status": "Open",
+    "venue": "The Rex",
+    "address": "459 Queen St. West, Toronto, ON",
+    "date": "01/01/2021",
+    "time": "7:00pm"
   }
 ]

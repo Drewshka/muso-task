@@ -222,6 +222,13 @@ const getOneById = (id) => {
   return gig;
 };
 
+//TODO CHECK THIS!
+const getGigsByUser = (userID) => {
+  const gigsArray = getAll();
+  let filteredGig = gigsArray.filter((gig) => gig.userID === userID);
+  return filteredGig;
+};
+
 const remove = (id) => {
   const gigsArray = getAll();
   const gigIndex = gigsArray.findIndex((gig) => gig.id === id);
@@ -247,7 +254,7 @@ const update = (id, data) => {
   }
 };
 
-module.exports = { getAll, add, getOneById, remove, update };
+module.exports = { getAll, add, getOneById, remove, update, getGigsByUser };
 
 // module.exports = {
 //   SingleGig,

@@ -62,17 +62,17 @@ exports.getSingleGig = (req, res, next) => {
   }
 };
 
-// exports.getInventoryByWarehouse = (req, res, next) => {
-//   const warehouseID = req.params.id;
-//   let filteredInventory = gigModel.getInventoryByWarehouse(warehouseID);
-//   if (filteredInventory === [] || filteredInventory === undefined) {
-//     const err = new Error("That warehouse doesn't exist");
-//     err.status = 404;
-//     next(err);
-//   } else {
-//     res.json(filteredInventory);
-//   }
-// };
+exports.getInventoryByWarehouse = (req, res, next) => {
+  const warehouseID = req.params.id;
+  let filteredInventory = gigModel.getInventoryByWarehouse(warehouseID);
+  if (filteredInventory === [] || filteredInventory === undefined) {
+    const err = new Error("That warehouse doesn't exist");
+    err.status = 404;
+    next(err);
+  } else {
+    res.json(filteredInventory);
+  }
+};
 
 exports.editGigDetails = (req, res, next) => {
   let gigID = req.params.id;
@@ -134,6 +134,30 @@ exports.getSingleGig = (req, res, next) => {
     res.json(gig);
   }
 };
+
+exports.getGigsByUser = (req, res, next) => {
+  const userID = req.params.id;
+  let filteredGig = Gig.getGigsByUser(userID);
+  if (filteredGig === [] || filteredGig === undefined) {
+    const err = new Error("That user doesn't exist");
+    err.status = 404;
+    next(err);
+  } else {
+    res.json(filteredGig);
+  }
+};
+
+// exports.getInventoryByWarehouse = (req, res, next) => {
+//   const warehouseID = req.params.id;
+//   let filteredInventory = gigModel.getInventoryByWarehouse(warehouseID);
+//   if (filteredInventory === [] || filteredInventory === undefined) {
+//     const err = new Error("That warehouse doesn't exist");
+//     err.status = 404;
+//     next(err);
+//   } else {
+//     res.json(filteredInventory);
+//   }
+// };
 
 exports.deleteGig = (req, res, next) => {
   const updatedArray = Gig.remove(req.params.id);

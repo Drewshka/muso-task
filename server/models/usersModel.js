@@ -1,5 +1,5 @@
 /*
-// *Old code
+*Old code
 
 const fs = require("fs"),
   path = require("path"),
@@ -47,33 +47,33 @@ class User {
   }
 }
 
-// const deleteGig = (userID) => {
-//   getGigsData();
-//   let newGigsData = gigsData.filter((gig) => gig.userID !== userID);
-//   fs.writeFile(gigsTestFile, JSON.stringify(newGigsData), (err) => {
-//     if (err) {
-//       console.log(err);
-//       return;
-//     }
-//   });
-//   return newGigsData;
-// };
+const deleteGig = (userID) => {
+  getGigsData();
+  let newGigsData = gigsData.filter((gig) => gig.userID !== userID);
+  fs.writeFile(gigsTestFile, JSON.stringify(newGigsData), (err) => {
+    if (err) {
+      console.log(err);
+      return;
+    }
+  });
+  return newGigsData;
+};
 
-// const deleteUserWithGigs = (userID) => {
-//   getUsersData();
-//   let newUsersData = usersData.filter((user) => user.id !== userID);
+const deleteUserWithGigs = (userID) => {
+  getUsersData();
+  let newUsersData = usersData.filter((user) => user.id !== userID);
 
-//   fs.writeFile(usersTestFile, JSON.stringify(newUsersData), (err) => {
-//     if (err) {
-//       console.log(err);
-//       return;
-//     }
-//   });
-//   let newGigsData = deleteGig(userID);
-//   let returnArray = [newUsersData, newGigsData];
-//   returnArray = JSON.stringify(returnArray);
-//   return returnArray;
-// };
+  fs.writeFile(usersTestFile, JSON.stringify(newUsersData), (err) => {
+    if (err) {
+      console.log(err);
+      return;
+    }
+  });
+  let newGigsData = deleteGig(userID);
+  let returnArray = [newUsersData, newGigsData];
+  returnArray = JSON.stringify(returnArray);
+  return returnArray;
+};
 
 const getAllUsers = () => {
   getUsersData();

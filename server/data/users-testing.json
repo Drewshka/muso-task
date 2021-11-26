@@ -20,5 +20,16 @@
     "email": "jacky@test.com",
     "instrument": "Vocalist",
     "bio": "I'm a vocalist."
+  },
+  {
+    "id": "1",
+    "name": "Andrew",
+    "address": "503 Broadway",
+    "city": "Toronto",
+    "country": "Canada",
+    "phone": "+1 (646) 123-1234",
+    "email": "andrew@test.com",
+    "instrument": "Guitar",
+    "bio": "I'm a guitarist and also play piano."
   }
 ]
