@@ -1,19 +1,19 @@
 const express = require("express"),
   router = express.Router(),
   {
-    getAllGigs,
+    listGigs,
     getSingleGig,
-    getGigsByUser,
-    postSingleGig,
+    postGig,
     deleteGig,
-    editGig,
+    editGigDetails,
+    getGigsByUser,
   } = require("../controllers/gigsControllers");
 
-router.get("/", getAllGigs);
+router.get("/", listGigs);
 router.get("/:id", getSingleGig);
 router.get("/users/:id", getGigsByUser);
-router.post("/", postSingleGig);
+router.post("/", postGig);
 router.delete("/:id", deleteGig);
-router.put("/:id", editGig);
+router.put("/:id", editGigDetails);
 
 module.exports = router;
