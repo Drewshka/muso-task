@@ -1,6 +1,7 @@
 exports.up = function (knex) {
   return knex.schema.createTable("gigs", function (table) {
     table.increments("id");
+    table.integer("userID").unsigned().notNullable();
     // table.string("name").notNullable();
     table.string("address").notNullable();
     table.string("gigName");

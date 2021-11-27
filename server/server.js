@@ -3,6 +3,8 @@ const app = express();
 const PORT = 8080;
 const usersRoutes = require("./routes/usersRoutes");
 const gigsRoutes = require("./routes/gigsRoutes");
+// const database = require("./knexfile");
+// const knex = require("knex")(database);
 
 const cors = require("cors");
 const morgan = require("morgan");

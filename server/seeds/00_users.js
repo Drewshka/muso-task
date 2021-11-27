@@ -35,10 +35,10 @@ exports.seed = function (knex) {
       bio: "I'm a vocalist.",
     },
   ];
-  return knex("table_name")
+  return knex("users")
     .del()
     .then(function () {
       // Inserts seed entries
-      return knex("table_name").insert(users);
+      return knex("users").insert(users);
     });
 };

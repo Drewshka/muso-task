@@ -1,16 +1,15 @@
 // Update with your config settings.
 
 module.exports = {
-  development: {
-    client: "mysql",
-    connection: {
-      // filename: "./dev.sqlite3",
-      username: "root",
-      password: "rootroot",
-      database: "muso-task",
-      host: "127.0.0.1",
-      charset: "utf8",
-    },
+  client: "mysql",
+  connection: {
+    // filename: "./dev.sqlite3",
+    port: "3306",
+    user: "root",
+    password: "rootroot",
+    database: "musicians",
+    host: "127.0.0.1",
+    charset: "utf8",
   },
 
   // staging: {

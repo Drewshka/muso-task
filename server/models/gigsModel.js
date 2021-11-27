@@ -3,6 +3,10 @@ const fs = require("fs"),
   gigsFile = path.join(__dirname, "../data/gigs.json"),
   gigsTestFile = path.join(__dirname, "../data/gigs-testing.json"),
   { v4: uuidv4 } = require("uuid");
+// const database = require("../knexfile");
+// const knex = require("knex");
+const database = require("../knexfile");
+const knex = require("knex")(database);
 
 class SingleGig {
   constructor(
@@ -31,9 +35,25 @@ class SingleGig {
   }
 }
 
-const getAll = () => {
-  const data = fs.readFileSync(gigsFile);
-  return JSON.parse(data);
+// const getAll = () => {
+//   const data = fs.readFileSync(gigsFile);
+//   return JSON.parse(data);
+// };
+
+const getAll = async () => {
+  // const data = fs.readFileSync(gigsFile);
+  // return JSON.parse(data);
+
+  try {
+    const data = await knex.select("*").from("gigs");
+    console.log(data);
+    // return JSON.parse(data);
+    return data;
+  } catch (error) {
+    console.log(error);
+    return error;
+    // return JSON.parse(error);
+  }
 };
 
 const add = (obj) => {
@@ -94,13 +114,3 @@ const update = (id, data) => {
 };
 
 module.exports = { getAll, add, getOneById, remove, update, getGigsByUser };
-
-// module.exports = {
-//   SingleGig,
-//   getSingleGig,
-//   getAllGigs,
-//   editGigDetails,
-//   deleteGig,
-//   postGig,
-//   // getInventoryByWarehouse,
-// };
