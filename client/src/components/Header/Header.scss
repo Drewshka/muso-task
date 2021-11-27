@@ -5,17 +5,21 @@
 @use "../../styles/partials/variables" as *;
 
 .header {
+  padding: 0 1rem;
   &__title {
     @include font("Avenir Next Regular", 600, 26px, 20px, $primary);
   }
 
   &__link {
     list-style-type: none;
+    @include flex(space-evenly, center, row);
+    padding: 0;
 
     &-one,
     &-two,
     &-three {
       @include font("Avenir Next Regular", 600, 13px, 10px, $primary2);
+      // padding: 0.5rem 0;
     }
   }
 }
