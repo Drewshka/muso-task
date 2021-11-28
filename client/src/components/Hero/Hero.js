@@ -15,7 +15,7 @@ function Hero({ user }) {
           <p>{user.email}</p>
           <p>{user.phone}</p>
           <p>{user.bio}</p>
-          <button>Post a Gig</button>
+          {/* <button>Post a Gig</button> */}
         </article>
       </section>
     </div>
