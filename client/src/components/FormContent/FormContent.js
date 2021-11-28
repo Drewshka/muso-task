@@ -136,6 +136,91 @@ function FormContent() {
                 {this.state.nameError}
               </div> */}
         </div>
+        <div className="form__container-address">
+          <h4 className="form__container-address-title">Address</h4>
+          <input
+            className="form__container-address-input"
+            type="text"
+            id="address"
+            name="address"
+            placeholder="Please add the address"
+            // value={this.state.name}
+            // onChange={this.handleChange}
+          />
+          {/* <div
+                className="form__container-name-error"
+                id="nameError"
+                name="nameError"
+              >
+                <img
+                  src={error}
+                  alt="error"
+                  id="error-icon"
+                  style={{
+                    visibility: this.state.nameError ? "visible" : "hidden",
+                  }}
+                />
+                {this.state.nameError}
+              </div> */}
+        </div>
+        <div className="form__container-date">
+          <h4 className="form__container-date-title">Date</h4>
+          <label id="date">Please select date of gig: </label>
+          <input
+            type="date"
+            name="date"
+            className="form__container-date-input"
+            id="date"
+            placeholder="Please add the address"
+            // value={this.state.name}
+            // onChange={this.handleChange}>
+          />
+
+          {/* <div
+                className="form__container-name-error"
+                id="nameError"
+                name="nameError"
+              >
+                <img
+                  src={error}
+                  alt="error"
+                  id="error-icon"
+                  style={{
+                    visibility: this.state.nameError ? "visible" : "hidden",
+                  }}
+                />
+                {this.state.nameError}
+              </div> */}
+        </div>
+        <div className="form__container-time">
+          <h4 className="form__container-time-title">Time</h4>
+          <label id="time">Please select time of gig: </label>
+          <input
+            type="date"
+            name="date"
+            className="form__container-date-input"
+            id="date"
+            placeholder="Please add the address"
+            // value={this.state.name}
+            // onChange={this.handleChange}>
+          />
+
+          {/* <div
+                className="form__container-name-error"
+                id="nameError"
+                name="nameError"
+              >
+                <img
+                  src={error}
+                  alt="error"
+                  id="error-icon"
+                  style={{
+                    visibility: this.state.nameError ? "visible" : "hidden",
+                  }}
+                />
+                {this.state.nameError}
+              </div> */}
+        </div>
       </form>
     </div>
   );
