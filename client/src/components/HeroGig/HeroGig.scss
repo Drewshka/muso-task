@@ -1,0 +1,11 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.heroGig {
+  padding: 0 1rem;
+
+  &__curr-gig__card {
+    border: 1px solid black;
+    background-color: lightblue;
+  }
+}

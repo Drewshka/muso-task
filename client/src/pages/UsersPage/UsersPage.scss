@@ -1,0 +1,10 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.users {
+  padding: 0 1rem;
+
+  &__card {
+    border: 1px solid black;
+  }
+}
