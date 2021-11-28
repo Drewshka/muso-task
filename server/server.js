@@ -4,6 +4,7 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 const usersRoutes = require("./routes/usersRoutes");
 const gigsRoutes = require("./routes/gigsRoutes");
+const authRoutes = require("./routes/authRoutes");
 // *session id on server session cookie on client
 const session = require("express-session");
 // *add http headers, small layer of security
@@ -69,6 +70,7 @@ passport.deserializeUser((user, cb) => {
 // Routes
 app.use("/users", usersRoutes);
 app.use("/gigs", gigsRoutes);
+app.use("/", authRoutes);
 
 app.listen(PORT, () => {
   console.log(`Express server is up and running on Port ${PORT}!`);
