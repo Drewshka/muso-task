@@ -3,6 +3,7 @@ import "./UsersPage.scss";
 import React, { Component } from "react";
 import Hero from "../../components/Hero/Hero";
 import UsersList from "../../components/UsersList/UsersList";
+import FormModal from "../../components/FormModal/FormModal";
 import axios from "axios";
 const apiURL = "http://localhost:8080";
 const usersURL = `${apiURL}/users`;
@@ -13,7 +14,21 @@ export default class UsersPage extends Component {
   state = {
     users: [],
     selectedUser: null,
+    showModal: false,
   };
+
+  showModalHandler = (event) => {
+    this.setState({ showModal: true });
+  };
+
+  hideModalHandler = (event) => {
+    this.setState({ showModal: false });
+  };
+
+  // openModal = () => this.setState({ isOpen: true });
+  // closeModal = () => this.setState({ isOpen: false });
+
+  // handleSubmit(name) =>
 
   fetchUserDetails = () => {
     // *sets default user to first in the array
@@ -83,6 +98,14 @@ export default class UsersPage extends Component {
     return (
       <section className="users">
         <h1 className="users__title">Users Page</h1>
+        <button type="button" onClick={this.showModalHandler}>
+          Post a Gig
+        </button>
+        <FormModal
+          showModal={this.state.showModal}
+          hideModalHandler={this.hideModalHandler}
+        ></FormModal>
+
         <Hero user={this.state.selectedUser} />
         <UsersList users={filteredUsers} />
 
