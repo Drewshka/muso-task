@@ -15,12 +15,6 @@ export default class UsersPage extends Component {
     selectedUser: null,
   };
 
-  //   componentDidMount() {
-  //     axios.get(usersURL).then((r) => {
-  //       this.setState({ usersData: JSON.parse(r.data) });
-  //     });
-  //   }
-
   fetchUserDetails = () => {
     // *sets default user to first in the array
     let currUserId = this.props.match.params.id
@@ -69,7 +63,7 @@ export default class UsersPage extends Component {
   }
 
   render() {
-    // *filter variable -> filters out video from users list which is being displayed in hero
+    // *filter variable -> filters out user from users list which is being displayed in hero
     const filteredUsers = this.state.selectedUser
       ? this.state.users.filter(
           (user) => user.id !== this.state.selectedUser.id

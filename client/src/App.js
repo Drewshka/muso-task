@@ -17,6 +17,7 @@ function App() {
           <Route path="/users" exact component={UsersPage} />
           <Route path="/users/:id" component={UsersPage} />
           <Route path="/gigs" exact component={GigsPage} />
+          <Route path="/gigs/:id" component={GigsPage} />
           <Route path="/contact" component={ContactUsPage} />
 
           {/* <Route path="/:id" component={HomePage} /> */}
