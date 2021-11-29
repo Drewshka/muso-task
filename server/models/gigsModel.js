@@ -9,8 +9,8 @@ const knex = require("knex")(database);
 
 class SingleGig {
   constructor(
-    userID,
     // userName,
+    userID,
     gigName,
     description,
     category,
@@ -21,8 +21,8 @@ class SingleGig {
     time
   ) {
     // this.id = uuidv4();
-    this.userID = userID;
     // this.userName = userName;
+    this.userID = userID;
     this.gigName = gigName;
     this.description = description;
     this.category = category;
