@@ -104,6 +104,7 @@ export default class UsersPage extends Component {
         <FormModal
           showModal={this.state.showModal}
           hideModalHandler={this.hideModalHandler}
+          user={this.state.selectedUser}
         ></FormModal>
 
         <Hero user={this.state.selectedUser} />

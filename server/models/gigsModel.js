@@ -6,24 +6,24 @@ const fs = require("fs"),
 
 class SingleGig {
   constructor(
-    userID,
-    userName,
+    // userID,
+    // userName,
+    // status,
     gigName,
     description,
     category,
-    status,
     venue,
     address,
     date,
     time
   ) {
     this.id = uuidv4();
-    this.userID = userID;
-    this.userName = userName;
+    // this.userID = userID;
+    // this.userName = userName;
+    // this.status = status;
     this.gigName = gigName;
     this.description = description;
     this.category = category;
-    this.status = status;
     this.venue = venue;
     this.address = address;
     this.date = date;
@@ -32,19 +32,24 @@ class SingleGig {
 }
 
 const getAll = () => {
-  const data = fs.readFileSync(gigsFile);
+  const data = fs.readFileSync(gigsTestFile);
   return JSON.parse(data);
 };
+
+// const getAll = () => {
+//   const data = fs.readFileSync(gigsFile);
+//   return JSON.parse(data);
+// };
 
 const add = (obj) => {
   const gigsArray = getAll();
   const gig = new SingleGig(
-    obj.userID,
-    obj.userName,
+    // obj.userID,
+    // obj.userName,
+    // obj.status,
     obj.gigName,
     obj.description,
     obj.category,
-    obj.status,
     obj.venue,
     obj.address,
     obj.date,
@@ -61,7 +66,6 @@ const getOneById = (id) => {
   return gig;
 };
 
-//TODO CHECK THIS!
 const getGigsByUser = (userID) => {
   const gigsArray = getAll();
   let filteredGig = gigsArray.filter((gig) => gig.userID === userID);
@@ -94,13 +98,3 @@ const update = (id, data) => {
 };
 
 module.exports = { getAll, add, getOneById, remove, update, getGigsByUser };
-
-// module.exports = {
-//   SingleGig,
-//   getSingleGig,
-//   getAllGigs,
-//   editGigDetails,
-//   deleteGig,
-//   postGig,
-//   // getInventoryByWarehouse,
-// };

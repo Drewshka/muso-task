@@ -5,7 +5,9 @@ import FormContent from "../FormContent/FormContent";
 
 export default class FormModal extends Component {
   render() {
-    const formContent = <FormContent></FormContent>;
+    console.log(this.props);
+
+    const formContent = <FormContent user={this.props.user}></FormContent>;
     const modal = this.props.showModal ? <div>{formContent}</div> : null;
     return <div>{modal}</div>;
   }
