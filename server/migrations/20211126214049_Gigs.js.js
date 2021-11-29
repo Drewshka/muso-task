@@ -6,6 +6,11 @@ exports.up = function (knex) {
     table.string("address").notNullable();
     table.string("gigName");
     table.string("description");
+    table.string("category");
+    table.string("status");
+    table.string("venue");
+    table.string("date");
+    table.string("time");
     table
       .foreign("userID")
       .references("id")
