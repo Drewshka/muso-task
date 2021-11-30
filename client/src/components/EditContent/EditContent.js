@@ -1,5 +1,5 @@
-import { withRouter } from "react-router-dom";
 import "./EditContent.scss";
+import { withRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Component } from "react";
 import axios from "axios";
@@ -12,19 +12,16 @@ const initialState = {
   address: "",
   date: "",
   time: "",
-  // category: "",
   nameError: "",
   descriptionError: "",
   venueError: "",
   addressError: "",
   dateError: "",
   timeError: "",
-  // categoryError: "",
 };
 
 // TODO: MAKE MODAL POSITION ABSOLUTE SO IT DOESN'T PUSH THE OTHER ELEMENTS BELOW IT.
 
-// function FormContent() {
 class EditContent extends Component {
   state = initialState;
 
@@ -37,78 +34,81 @@ class EditContent extends Component {
     });
   };
 
-  validate = () => {
-    let nameError = "";
-    let descriptionError = "";
-    let venueError = "";
-    let addressError = "";
-    let timeError = "";
+  // validate = () => {
+  //   let nameError = "";
+  //   let descriptionError = "";
+  //   let venueError = "";
+  //   let addressError = "";
+  //   let timeError = "";
 
-    if (!this.state.name) {
-      nameError = `This field is required`;
-    }
+  //   if (!this.state.name) {
+  //     nameError = `This field is required`;
+  //   }
 
-    if (!this.state.description) {
-      descriptionError = "This field is required";
-    }
+  //   if (!this.state.description) {
+  //     descriptionError = "This field is required";
+  //   }
 
-    if (!this.state.venue) {
-      venueError = "This field is required";
-    }
+  //   if (!this.state.venue) {
+  //     venueError = "This field is required";
+  //   }
 
-    if (!this.state.address) {
-      addressError = "This field is required";
-    }
+  //   if (!this.state.address) {
+  //     addressError = "This field is required";
+  //   }
 
-    if (!this.state.time) {
-      timeError = "This field is required";
-    }
+  //   if (!this.state.time) {
+  //     timeError = "This field is required";
+  //   }
 
-    if (
-      nameError ||
-      descriptionError ||
-      venueError ||
-      addressError ||
-      timeError
-    ) {
-      this.setState({
-        nameError,
-        descriptionError,
-        venueError,
-        addressError,
-        timeError,
-      });
-      return false;
-    }
+  //   if (
+  //     nameError ||
+  //     descriptionError ||
+  //     venueError ||
+  //     addressError ||
+  //     timeError
+  //   ) {
+  //     this.setState({
+  //       nameError,
+  //       descriptionError,
+  //       venueError,
+  //       addressError,
+  //       timeError,
+  //     });
+  //     return false;
+  //   }
 
-    return true;
-  };
+  //   return true;
+  // };
 
   handleSubmit = (event) => {
     event.preventDefault();
 
     console.log(this.state);
 
-    const isValid = this.validate();
-    if (isValid) {
-      console.log(this.state);
-      // clear form
-      this.setState(initialState);
-      this.props.history.push("/");
-    }
+    // const isValid = this.validate();
+    // if (isValid) {
+    //   console.log(this.state);
+    //   // clear form
+    //   this.setState(initialState);
+    //   this.props.history.push("/");
+    // }
+
+    let currGigId = this.props.gig.id;
 
     axios
 
-      .post(`${apiUrl}/gigs`, {
-        userName: this.props.user.name,
-        userID: this.props.user.id,
-        gigName: event.target.name.value,
-        description: event.target.description.value,
-        category: event.target.category.value,
-        venue: event.target.venue.value,
-        address: event.target.address.value,
-        date: event.target.date.value,
-        time: event.target.time.value,
+      .put(`${apiUrl}/gigs/${currGigId}`, {
+        userName: this.props.gig.userName,
+        userID: this.props.gig.userID,
+        gigName: event.target.name.value || this.props.gig.gigName,
+        description:
+          event.target.description.value || this.props.gig.description,
+        category: event.target.category.value || this.props.gig.category,
+        venue: event.target.venue.value || this.props.gig.venue,
+        address: event.target.address.value || this.props.gig.address,
+        date: event.target.date.value || this.props.gig.date,
+        time: event.target.time.value || this.props.gig.time,
       })
       .then((response) => {
         console.log("response: ", response.data);
@@ -116,15 +116,15 @@ class EditContent extends Component {
       .catch((error) => {
         console.log(error.message);
       });
+    // console.log(this.props.gig.id);
 
     console.log("handle submit!");
 
-    //   this.props.history.push("/");
+    this.props.history.push("/gigs");
   };
 
   render() {
-    // console.log(this.props.user.id);
-    // console.log(this.props.user.name);
+    console.log(this.props.gig.category);
 
     return (
       <div className="edit">
@@ -326,5 +326,3 @@ class EditContent extends Component {
 }
 
 export default withRouter(EditContent);
-
-// export default FormContent;

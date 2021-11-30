@@ -64,11 +64,11 @@ export default class GigsPage extends Component {
       });
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps, prevState) {
     if (prevProps.match.params.id !== this.props.match.params.id) {
       this.fetchGigDetails();
     }
-    //* check if gig is still being displayed
+    //* update state to show gigs list after deletion
   }
 
   render() {
