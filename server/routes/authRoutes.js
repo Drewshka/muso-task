@@ -34,7 +34,7 @@ router.get("/check-auth", (req, res) => {
   res.status(200).json(req.user);
 });
 
-//* JWT code below
+//* JWT code below (not for github login)
 const jsonSecretKey = "secret";
 router.use((req, res, next) => {
   // Signup and login are public URLs that don't require a token

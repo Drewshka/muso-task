@@ -115,7 +115,7 @@ class App extends Component {
   render() {
     // const { isLoggedIn, isSignedUp } = this.state;
 
-    // // Handle the Signup/Login
+    // //* Handle the Signup/Login
     // if (!isSignedUp) return this.renderSignUp();
     // if (!isLoggedIn) return this.renderLogin();
 
