@@ -68,6 +68,7 @@ export default class GigsPage extends Component {
     if (prevProps.match.params.id !== this.props.match.params.id) {
       this.fetchGigDetails();
     }
+    //* check if gig is still being displayed
   }
 
   render() {

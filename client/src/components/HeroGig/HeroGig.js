@@ -60,6 +60,7 @@ function HeroGig({ gig, history }) {
         //   selectedGig: data,
         // });
         history.push("/gigs");
+        // history.push("/");
       })
       .catch((error) => {
         console.error("There was an error!", error);
