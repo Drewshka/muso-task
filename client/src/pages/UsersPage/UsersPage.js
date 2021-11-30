@@ -8,7 +8,6 @@ import axios from "axios";
 const apiURL = "http://localhost:8080";
 const usersURL = `${apiURL}/users`;
 
-// import Photo from "../../assets/images/Upload-video-bike.jpg";
 // export default function GigsPage() {
 export default class UsersPage extends Component {
   state = {

@@ -1,5 +1,5 @@
 import { withRouter } from "react-router-dom";
-import "./EditContent.scss";
+import "./EditGig.scss";
 import { Link } from "react-router-dom";
 import { Component } from "react";
 import axios from "axios";
@@ -25,7 +25,7 @@ const initialState = {
 // TODO: MAKE MODAL POSITION ABSOLUTE SO IT DOESN'T PUSH THE OTHER ELEMENTS BELOW IT.
 
 // function FormContent() {
-class EditContent extends Component {
+class EditGig extends Component {
   state = initialState;
 
   handleChange = (event) => {
@@ -325,6 +325,4 @@ class EditContent extends Component {
   }
 }
 
-export default withRouter(EditContent);
-
-// export default FormContent;
+export default withRouter(EditGig);
