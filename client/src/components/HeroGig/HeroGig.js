@@ -14,6 +14,7 @@ function HeroGig({ gig }) {
           <p>{gig.category}</p>
           <p>{gig.venue}</p>
           <p>{gig.description}</p>
+          <p>Posted by: {gig.userName}</p>
           {/* <p>User ID: {gig.userID}</p> */}
         </article>
       </section>

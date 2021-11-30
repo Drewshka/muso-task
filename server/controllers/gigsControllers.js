@@ -6,9 +6,9 @@ exports.listGigs = (req, res) => {
 
 exports.postGig = (req, res, next) => {
   if (
-    // !req.body.userID ||
-    // !req.body.userName ||
     // !req.body.status ||
+    !req.body.userID ||
+    !req.body.userName ||
     !req.body.gigName ||
     !req.body.description ||
     !req.body.category ||

@@ -6,8 +6,8 @@ const fs = require("fs"),
 
 class SingleGig {
   constructor(
-    // userID,
-    // userName,
+    userID,
+    userName,
     // status,
     gigName,
     description,
@@ -18,8 +18,8 @@ class SingleGig {
     time
   ) {
     this.id = uuidv4();
-    // this.userID = userID;
-    // this.userName = userName;
+    this.userID = userID;
+    this.userName = userName;
     // this.status = status;
     this.gigName = gigName;
     this.description = description;
@@ -44,8 +44,8 @@ const getAll = () => {
 const add = (obj) => {
   const gigsArray = getAll();
   const gig = new SingleGig(
-    // obj.userID,
-    // obj.userName,
+    obj.userID,
+    obj.userName,
     // obj.status,
     obj.gigName,
     obj.description,
