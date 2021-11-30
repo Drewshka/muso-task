@@ -7,7 +7,12 @@ export default class EditModal extends Component {
   render() {
     console.log(this.props);
 
-    const editContent = <EditContent gig={this.props.gig}></EditContent>;
+    const editContent = (
+      <EditContent
+        gig={this.props.gig}
+        hideEditModalHandler={this.props.hideEditModalHandler}
+      ></EditContent>
+    );
     const modal = this.props.showModal ? <div>{editContent}</div> : null;
     return <div>{modal}</div>;
   }

@@ -124,7 +124,7 @@ class EditContent extends Component {
   };
 
   render() {
-    console.log(this.props.gig.category);
+    console.log(this.props);
 
     return (
       <div className="edit">
@@ -188,7 +188,7 @@ class EditContent extends Component {
                   value="Performance"
                   onChange={this.handleChange}
                 />
-                <label for="Performance" id="Performance">
+                <label htmlFor="Performance" id="Performance">
                   Performance
                 </label>
               </div>
@@ -200,7 +200,7 @@ class EditContent extends Component {
                   value="Recording"
                   onChange={this.handleChange}
                 />
-                <label for="Recording" id="Recording">
+                <label htmlFor="Recording" id="Recording">
                   Recording
                 </label>
               </div>
@@ -212,7 +212,7 @@ class EditContent extends Component {
                   value="Education"
                   onChange={this.handleChange}
                 />
-                <label for="Education" id="Education">
+                <label htmlFor="Education" id="Education">
                   Education
                 </label>
               </div>
@@ -308,16 +308,17 @@ class EditContent extends Component {
             >
               Submit
             </button>
-            <Link to="/">
-              <button
-                className="edit__container-button-cancel"
-                type="cancel"
-                id="cancel"
-                value="cancel"
-              >
-                Cancel
-              </button>
-            </Link>
+            {/* <Link to="/"> */}
+            <button
+              onClick={this.props.hideEditModalHandler}
+              className="edit__container-button-cancel"
+              type="cancel"
+              id="cancel"
+              value="cancel"
+            >
+              Cancel
+            </button>
+            {/* </Link> */}
           </div>
         </form>
       </div>

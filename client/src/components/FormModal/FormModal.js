@@ -7,7 +7,12 @@ export default class FormModal extends Component {
   render() {
     console.log(this.props);
 
-    const formContent = <FormContent user={this.props.user}></FormContent>;
+    const formContent = (
+      <FormContent
+        user={this.props.user}
+        hideModalHandler={this.props.hideModalHandler}
+      ></FormContent>
+    );
     const modal = this.props.showModal ? <div>{formContent}</div> : null;
     return <div>{modal}</div>;
   }

@@ -69,6 +69,11 @@ export default class GigsPage extends Component {
       this.fetchGigDetails();
     }
     //* update state to show gigs list after deletion
+    // if (prevState.gigs !== this.state.gigs) {
+    //   return this.state.gigs;
+    // }
+    console.log(prevState.gigs);
+    console.log(this.state.gigs);
   }
 
   render() {
