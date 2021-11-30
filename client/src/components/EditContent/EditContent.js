@@ -1,5 +1,5 @@
+import "./EditContent.scss";
 import { withRouter } from "react-router-dom";
-import "./FormContent.scss";
 import { Link } from "react-router-dom";
 import { Component } from "react";
 import axios from "axios";
@@ -12,20 +12,17 @@ const initialState = {
   address: "",
   date: "",
   time: "",
-  // category: "",
   nameError: "",
   descriptionError: "",
   venueError: "",
   addressError: "",
   dateError: "",
   timeError: "",
-  // categoryError: "",
 };
 
 // TODO: MAKE MODAL POSITION ABSOLUTE SO IT DOESN'T PUSH THE OTHER ELEMENTS BELOW IT.
 
-// function FormContent() {
-class FormContent extends Component {
+class EditContent extends Component {
   state = initialState;
 
   handleChange = (event) => {
@@ -37,78 +34,81 @@ class FormContent extends Component {
     });
   };
 
-  validate = () => {
-    let nameError = "";
-    let descriptionError = "";
-    let venueError = "";
-    let addressError = "";
-    let timeError = "";
+  // validate = () => {
+  //   let nameError = "";
+  //   let descriptionError = "";
+  //   let venueError = "";
+  //   let addressError = "";
+  //   let timeError = "";
 
-    if (!this.state.name) {
-      nameError = `This field is required`;
-    }
+  //   if (!this.state.name) {
+  //     nameError = `This field is required`;
+  //   }
 
-    if (!this.state.description) {
-      descriptionError = "This field is required";
-    }
+  //   if (!this.state.description) {
+  //     descriptionError = "This field is required";
+  //   }
 
-    if (!this.state.venue) {
-      venueError = "This field is required";
-    }
+  //   if (!this.state.venue) {
+  //     venueError = "This field is required";
+  //   }
 
-    if (!this.state.address) {
-      addressError = "This field is required";
-    }
+  //   if (!this.state.address) {
+  //     addressError = "This field is required";
+  //   }
 
-    if (!this.state.time) {
-      timeError = "This field is required";
-    }
+  //   if (!this.state.time) {
+  //     timeError = "This field is required";
+  //   }
 
-    if (
-      nameError ||
-      descriptionError ||
-      venueError ||
-      addressError ||
-      timeError
-    ) {
-      this.setState({
-        nameError,
-        descriptionError,
-        venueError,
-        addressError,
-        timeError,
-      });
-      return false;
-    }
+  //   if (
+  //     nameError ||
+  //     descriptionError ||
+  //     venueError ||
+  //     addressError ||
+  //     timeError
+  //   ) {
+  //     this.setState({
+  //       nameError,
+  //       descriptionError,
+  //       venueError,
+  //       addressError,
+  //       timeError,
+  //     });
+  //     return false;
+  //   }
 
-    return true;
-  };
+  //   return true;
+  // };
 
   handleSubmit = (event) => {
     event.preventDefault();
 
     console.log(this.state);
 
-    const isValid = this.validate();
-    if (isValid) {
-      console.log(this.state);
-      // clear form
-      this.setState(initialState);
-      this.props.history.push("/");
-    }
+    // const isValid = this.validate();
+    // if (isValid) {
+    //   console.log(this.state);
+    //   // clear form
+    //   this.setState(initialState);
+    //   this.props.history.push("/");
+    // }
+
+    let currGigId = this.props.gig.id;
 
     axios
 
-      .post(`${apiUrl}/gigs`, {
-        userName: this.props.user.name,
-        userID: this.props.user.id,
-        gigName: event.target.name.value,
-        description: event.target.description.value,
-        category: event.target.category.value,
-        venue: event.target.venue.value,
-        address: event.target.address.value,
-        date: event.target.date.value,
-        time: event.target.time.value,
+      .put(`${apiUrl}/gigs/${currGigId}`, {
+        userName: this.props.gig.userName,
+        userID: this.props.gig.userID,
+        gigName: event.target.name.value || this.props.gig.gigName,
+        description:
+          event.target.description.value || this.props.gig.description,
+        category: event.target.category.value || this.props.gig.category,
+        venue: event.target.venue.value || this.props.gig.venue,
+        address: event.target.address.value || this.props.gig.address,
+        date: event.target.date.value || this.props.gig.date,
+        time: event.target.time.value || this.props.gig.time,
       })
       .then((response) => {
         console.log("response: ", response.data);
@@ -116,30 +116,30 @@ class FormContent extends Component {
       .catch((error) => {
         console.log(error.message);
       });
+    // console.log(this.props.gig.id);
 
     console.log("handle submit!");
 
-    //   this.props.history.push("/");
+    this.props.history.push("/");
   };
 
   render() {
-    // console.log(this.props.user.id);
-    // console.log(this.props.user.name);
+    console.log(this.props);
 
     return (
-      <div className="form">
-        <h1>Post a Gig!</h1>
+      <div className="edit">
+        <h1>What would you like to change?</h1>
         <form
-          className="form__container"
-          id="form__container"
+          className="edit__container"
+          id="edit__container"
           name="myForm"
           action="POST"
           onSubmit={this.handleSubmit}
         >
-          <div className="form__container-name">
-            <h4 className="form__container-name-title">Gig Name</h4>
+          <div className="edit__container-name">
+            <h4 className="edit__container-name-title">Name</h4>
             <input
-              className="form__container-name-input"
+              className="edit__container-name-input"
               type="text"
               id="name"
               name="name"
@@ -148,19 +148,19 @@ class FormContent extends Component {
               onChange={this.handleChange}
             />
             <div
-              className="form__container-name-error"
+              className="edit__container-name-error"
               id="nameError"
               name="nameError"
             >
               {this.state.nameError}
             </div>
           </div>
-          <div className="form__container-description">
-            <h4 className="form__container-description-title">
+          <div className="edit__container-description">
+            <h4 className="edit__container-description-title">
               Gig Description
             </h4>
             <textarea
-              className="form__container-description-input"
+              className="edit__container-description-input"
               type="text"
               id="description"
               name="description"
@@ -169,7 +169,7 @@ class FormContent extends Component {
               onChange={this.handleChange}
             />
             <div
-              className="form__container-description-error"
+              className="edit__container-description-error"
               id="descriptionError"
               name="descriptionError"
             >
@@ -177,10 +177,10 @@ class FormContent extends Component {
             </div>
           </div>
 
-          <div className="form__container-category">
-            <h4 className="form__container-category-title">Category</h4>
-            <div className="form__container-category-list">
-              <div className="form__container-category-list-container">
+          <div className="edit__container-category">
+            <h4 className="edit__container-category-title">Category</h4>
+            <div className="edit__container-category-list">
+              <div className="edit__container-category-list-container">
                 <input
                   type="radio"
                   id="Performance"
@@ -192,7 +192,7 @@ class FormContent extends Component {
                   Performance
                 </label>
               </div>
-              <div className="form__container-category-list-container2">
+              <div className="edit__container-category-list-container2">
                 <input
                   type="radio"
                   id="Recording"
@@ -204,7 +204,7 @@ class FormContent extends Component {
                   Recording
                 </label>
               </div>
-              <div className="form__container-category-list-container3">
+              <div className="edit__container-category-list-container3">
                 <input
                   type="radio"
                   id="Education"
@@ -219,10 +219,10 @@ class FormContent extends Component {
             </div>
           </div>
 
-          <div className="form__container-venue">
-            <h4 className="form__container-venue-title">Venue</h4>
+          <div className="edit__container-venue">
+            <h4 className="edit_container-venue-title">Venue</h4>
             <input
-              className="form__container-venue-input"
+              className="edit__container-venue-input"
               type="text"
               id="venue"
               name="venue"
@@ -231,17 +231,17 @@ class FormContent extends Component {
               onChange={this.handleChange}
             />
             <div
-              className="form__container-venue-error"
+              className="edit__container-venue-error"
               id="venueError"
               name="venueError"
             >
               {this.state.venueError}
             </div>
           </div>
-          <div className="form__container-address">
-            <h4 className="form__container-address-title">Address</h4>
+          <div className="edit__container-address">
+            <h4 className="edit__container-address-title">Address</h4>
             <input
-              className="form__container-address-input"
+              className="edit__container-address-input"
               type="text"
               id="address"
               name="address"
@@ -250,20 +250,20 @@ class FormContent extends Component {
               onChange={this.handleChange}
             />
             <div
-              className="form__container-address-error"
+              className="edit__container-address-error"
               id="addressError"
               name="addressError"
             >
               {this.state.addressError}
             </div>
           </div>
-          <div className="form__container-date">
+          <div className="edit__container-date">
             <h4 className="form__container-date-title">Date</h4>
             <label id="date">Please select date of gig: </label>
             <input
               type="date"
               name="date"
-              className="form__container-date-input"
+              className="edit__container-date-input"
               id="date"
               placeholder="Please add the address"
               value={this.state.date}
@@ -271,15 +271,15 @@ class FormContent extends Component {
             />
 
             <div
-              className="form__container-date-error"
+              className="edit__container-date-error"
               id="dateError"
               name="dateError"
             >
               {this.state.dateError}
             </div>
           </div>
-          <div className="form__container-time">
-            <h4 className="form__container-time-title">Time</h4>
+          <div className="edit__container-time">
+            <h4 className="edit__container-time-title">Time</h4>
             <label id="time">Please select time of gig: </label>
             <input
               type="time"
@@ -291,7 +291,7 @@ class FormContent extends Component {
               onChange={this.handleChange}
             />
             <div
-              className="form__container-time-error"
+              className="edit__container-time-error"
               id="timeError"
               name="timeError"
             >
@@ -299,9 +299,9 @@ class FormContent extends Component {
             </div>
           </div>
 
-          <div className="form__container-button">
+          <div className="edit__container-button">
             <button
-              className="form__container-button-submit"
+              className="edit__container-button-submit"
               type="submit"
               id="submit"
               value="submit"
@@ -310,8 +310,8 @@ class FormContent extends Component {
             </button>
             {/* <Link to="/"> */}
             <button
-              onClick={this.props.hideModalHandler}
-              className="form__container-button-cancel"
+              onClick={this.props.hideEditModalHandler}
+              className="edit__container-button-cancel"
               type="cancel"
               id="cancel"
               value="cancel"
@@ -326,6 +326,4 @@ class FormContent extends Component {
   }
 }
 
-export default withRouter(FormContent);
-
-// export default FormContent;
+export default withRouter(EditContent);

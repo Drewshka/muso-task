@@ -1,17 +1,26 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import "./GigsPage.scss";
 import React, { Component } from "react";
 import GigsList from "../../components/GigsList/GigsList";
 import HeroGig from "../../components/HeroGig/HeroGig";
+import EditModal from "../../components/EditModal/EditModal";
 import axios from "axios";
 const apiURL = "http://localhost:8080";
 const gigsURL = `${apiURL}/gigs`;
 
-// export default function GigsPage() {
 export default class GigsPage extends Component {
   state = {
     gigs: [],
     selectedGig: null,
+    showModal: false,
+  };
+
+  showEditModalHandler = (event) => {
+    this.setState({ showModal: true });
+  };
+
+  hideEditModalHandler = (event) => {
+    this.setState({ showModal: false });
   };
 
   fetchGigDetails = () => {
@@ -55,10 +64,16 @@ export default class GigsPage extends Component {
       });
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps, prevState) {
     if (prevProps.match.params.id !== this.props.match.params.id) {
       this.fetchGigDetails();
     }
+    //* update state to show gigs list after deletion
+    // if (prevState.gigs !== this.state.gigs) {
+    //   return this.state.gigs;
+    // }
+    console.log(prevState.gigs);
+    console.log(this.state.gigs);
   }
 
   render() {
@@ -67,8 +82,6 @@ export default class GigsPage extends Component {
       ? this.state.gigs.filter((gig) => gig.id !== this.state.selectedGig.id)
       : this.state.gigs;
 
-    const gigs = this.state.gigs;
-
     if (this.state.selectedGig === null) {
       return <p>Loading...</p>;
     }
@@ -76,6 +89,17 @@ export default class GigsPage extends Component {
     return (
       <section className="gigs">
         <h1>Gigs Page</h1>
+
+        <button type="button" onClick={this.showEditModalHandler}>
+          Edit Gig
+        </button>
+
+        <EditModal
+          showModal={this.state.showModal}
+          hideEditModalHandler={this.hideEditModalHandler}
+          gig={this.state.selectedGig}
+        ></EditModal>
+
         <HeroGig gig={this.state.selectedGig} />
         <GigsList gigs={filteredGigs} />
       </section>
