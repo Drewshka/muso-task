@@ -24,11 +24,6 @@ export default class UsersPage extends Component {
     this.setState({ showModal: false });
   };
 
-  // openModal = () => this.setState({ isOpen: true });
-  // closeModal = () => this.setState({ isOpen: false });
-
-  // handleSubmit(name) =>
-
   fetchUserDetails = () => {
     // *sets default user to first in the array
     let currUserId = this.props.match.params.id
@@ -108,29 +103,6 @@ export default class UsersPage extends Component {
 
         <Hero user={this.state.selectedUser} />
         <UsersList users={filteredUsers} />
-
-        {/* <UsersList users={this.state.users} /> */}
-        {/* <article className="users__current"></article> */}
-        {/* {usersList.map((user) => {
-          return (
-            <Link
-              to={`/${user.id}`}
-              key={user.id}
-              style={{ textDecoration: "none" }}
-            >
-              <article className="users__card">
-                <h3>{user.name}</h3>
-                <p>{user.address}</p>
-                <p>{user.city}</p>
-                <p>{user.country}</p>
-                <p>{user.instrument}</p>
-                <p>{user.email}</p>
-                <p>{user.phone}</p>
-                <p>{user.bio}</p>
-              </article>
-            </Link>
-          );
-        })} */}
       </section>
     );
   }

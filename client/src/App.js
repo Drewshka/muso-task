@@ -6,7 +6,6 @@ import HomePage from "./pages/HomePage/HomePage";
 import GigsPage from "./pages/GigsPage/GigsPage";
 import UsersPage from "./pages/UsersPage/UsersPage";
 import ContactUsPage from "./pages/ContactUsPage/ContactUsPage";
-// import EditGig from "./pages/EditGig/EditGig";
 
 function App() {
   return (
@@ -21,7 +20,6 @@ function App() {
           <Route path="/gigs/:id" component={GigsPage} />
           <Route path="/contact" component={ContactUsPage} />
 
-          {/* <Route path="/gigs/update" component={EditGig} /> */}
           {/* <Route path="/:id" component={HomePage} /> */}
         </Switch>
       </Router>

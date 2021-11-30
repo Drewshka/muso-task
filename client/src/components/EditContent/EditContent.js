@@ -120,7 +120,7 @@ class EditContent extends Component {
 
     console.log("handle submit!");
 
-    this.props.history.push("/gigs");
+    this.props.history.push("/");
   };
 
   render() {

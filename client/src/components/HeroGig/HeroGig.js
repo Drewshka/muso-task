@@ -59,7 +59,7 @@ function HeroGig({ gig, history }) {
         // this.setState({
         //   selectedGig: data,
         // });
-        history.push("/gigs");
+        history.push("/");
         // history.push("/");
       })
       .catch((error) => {
@@ -92,9 +92,9 @@ function HeroGig({ gig, history }) {
             style={customStyles}
             contentLabel="Example Modal"
           >
-            <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Edit Gig</h2>
+            <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Delete Gig</h2>
             <button onClick={closeModal}>close</button>
-            <div>Would you like to delete this gig?</div>
+            <div>Are you sure you'd like to delete this gig?</div>
             <form>
               <button onClick={handleClick}>Delete Gig</button>
             </form>
