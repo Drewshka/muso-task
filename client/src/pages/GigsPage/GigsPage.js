@@ -3,7 +3,7 @@ import "./GigsPage.scss";
 import React, { Component } from "react";
 import GigsList from "../../components/GigsList/GigsList";
 import HeroGig from "../../components/HeroGig/HeroGig";
-// import EditModal from "../../components/FormModal/FormModal";
+import EditModal from "../../components/EditModal/EditModal";
 import axios from "axios";
 const apiURL = "http://localhost:8080";
 const gigsURL = `${apiURL}/gigs`;
@@ -12,16 +12,16 @@ export default class GigsPage extends Component {
   state = {
     gigs: [],
     selectedGig: null,
-    // showModal: false,
+    showModal: false,
   };
 
-  // showEditModalHandler = (event) => {
-  //   this.setState({ showModal: true });
-  // };
+  showEditModalHandler = (event) => {
+    this.setState({ showModal: true });
+  };
 
-  // hideEditModalHandler = (event) => {
-  //   this.setState({ showModal: false });
-  // };
+  hideEditModalHandler = (event) => {
+    this.setState({ showModal: false });
+  };
 
   fetchGigDetails = () => {
     // *sets default user to first in the array
@@ -88,11 +88,11 @@ export default class GigsPage extends Component {
           Edit Gig
         </button>
 
-        {/* <EditModal
+        <EditModal
           showModal={this.state.showModal}
           hideEditModalHandler={this.hideEditModalHandler}
           gig={this.state.selectedGig}
-        ></EditModal> */}
+        ></EditModal>
 
         <HeroGig gig={this.state.selectedGig} />
         <GigsList gigs={filteredGigs} />
