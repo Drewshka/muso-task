@@ -1,16 +1,16 @@
 exports.up = function (knex) {
   return knex.schema.createTable("gigs", function (table) {
+    // table.string("name").notNullable();
     table.increments("id");
     table.integer("userID").unsigned().notNullable();
-    // table.string("name").notNullable();
+    table.string("gigName").notNullable();
+    table.string("description").notNullable();
+    table.string("category").notNullable();
+    // table.string("status");
+    table.string("venue").notNullable();
     table.string("address").notNullable();
-    table.string("gigName");
-    table.string("description");
-    table.string("category");
-    table.string("status");
-    table.string("venue");
-    table.string("date");
-    table.string("time");
+    table.string("date").notNullable();
+    table.string("time").notNullable();
     table
       .foreign("userID")
       .references("id")

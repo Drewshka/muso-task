@@ -73,12 +73,12 @@ const add = async (obj) => {
   // const gigsArray = getAll();
   try {
     const gig = new SingleGig(
-      obj.userID,
+      // obj.status,
       // obj.userName,
+      obj.userID,
       obj.gigName,
       obj.description,
       obj.category,
-      obj.status,
       obj.venue,
       obj.address,
       obj.date,
@@ -87,29 +87,24 @@ const add = async (obj) => {
 
     const data = await knex("gigs").insert(gig);
     console.log(data);
-    // return JSON.parse(data);
+
     return data;
   } catch (error) {
     console.log(error);
     return error;
-    // return JSON.parse(error);
   }
 };
 
 const getOneById = async (id) => {
-  // const gigsArray = getAll();
   try {
     const data = await knex.select("*").where("id", id).from("gigs");
     console.log(data);
-    // return JSON.parse(data);
+
     return data;
   } catch (error) {
     console.log(error);
     return error;
   }
-
-  // const gig = gigsArray.find((gig) => gig.id === id);
-  // return gig;
 };
 
 const getGigsByUser = async (userID) => {

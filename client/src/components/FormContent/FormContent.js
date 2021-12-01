@@ -1,6 +1,6 @@
 import { withRouter } from "react-router-dom";
 import "./FormContent.scss";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { Component } from "react";
 import axios from "axios";
 const apiUrl = "http://localhost:8080";
@@ -117,13 +117,16 @@ class FormContent extends Component {
         console.log(error.message);
       });
 
+    console.log(event.target.venue.value);
+
     console.log("handle submit!");
 
     //   this.props.history.push("/");
   };
 
   render() {
-    console.log(this.props.user[0]);
+    // console.log(this.props.user[0]);
+    console.log(this.state.venue);
     // console.log(this.props.user.name);
 
     return (
