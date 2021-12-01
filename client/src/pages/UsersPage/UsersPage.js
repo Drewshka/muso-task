@@ -4,6 +4,7 @@ import React, { Component } from "react";
 import Hero from "../../components/Hero/Hero";
 import UsersList from "../../components/UsersList/UsersList";
 import FormModal from "../../components/FormModal/FormModal";
+import SignUpModal from "../../components/SignUpModal/SignUpModal";
 import axios from "axios";
 const apiURL = "http://localhost:8080";
 const usersURL = `${apiURL}/users`;
@@ -14,6 +15,7 @@ export default class UsersPage extends Component {
     users: [],
     selectedUser: null,
     showModal: false,
+    showSignUpModal: false,
   };
 
   showModalHandler = (event) => {
@@ -22,6 +24,14 @@ export default class UsersPage extends Component {
 
   hideModalHandler = (event) => {
     this.setState({ showModal: false });
+  };
+
+  showSignUpModalHandler = (event) => {
+    this.setState({ showSignUpModal: true });
+  };
+
+  hideSignUpModalHandler = (event) => {
+    this.setState({ showSignUpModal: false });
   };
 
   fetchUserDetails = () => {
@@ -97,11 +107,18 @@ export default class UsersPage extends Component {
         <button type="button" onClick={this.showModalHandler}>
           Post a Gig
         </button>
+        <button type="button" onClick={this.showSignUpModalHandler}>
+          User Sign-up
+        </button>
         <FormModal
           showModal={this.state.showModal}
           hideModalHandler={this.hideModalHandler}
           user={this.state.selectedUser}
         ></FormModal>
+        <SignUpModal
+          showSignUpModal={this.state.showSignUpModal}
+          hideModalHandler={this.hideSignUpModalHandler}
+        ></SignUpModal>
 
         <Hero user={this.state.selectedUser} />
 
