@@ -23,17 +23,6 @@ class User {
   }
 }
 
-// let usersData = [];
-// let gigsData = [];
-
-// *old code
-// const getAllUsers = () => {
-//   const data = fs.readFileSync(usersFile);
-//   // return JSON.parse(data);
-//   usersData = JSON.parse(data);
-//   return usersData;
-// };
-
 const getAllUsers = async () => {
   try {
     const data = await knex.select("*").from("users");
@@ -44,13 +33,6 @@ const getAllUsers = async () => {
     return error;
   }
 };
-// *old code
-// const getAllGigs = () => {
-//   const data = fs.readFileSync(gigsFile);
-//   // return JSON.parse(data);
-//   gigsData = JSON.parse(data);
-//   return gigsData;
-// };
 
 const getAllGigs = async () => {
   try {
@@ -86,31 +68,6 @@ const add = async (obj) => {
     return error;
   }
 };
-// *old code
-// const add = (obj) => {
-//   const usersArray = getAllUsers();
-//   const user = new User(
-//     obj.name,
-//     obj.address,
-//     obj.city,
-//     obj.country,
-//     obj.phone,
-//     obj.email,
-//     obj.instrument,
-//     obj.bio
-//     // obj.date,
-//     // obj.time
-//   );
-//   usersArray.push(user);
-//   fs.writeFileSync(usersTestFile, JSON.stringify(usersArray));
-//   return usersArray;
-// };
-// *old code
-// const getOneById = (id) => {
-//   const usersArray = getAllUsers();
-//   const user = usersArray.find((user) => user.id === id);
-//   return user;
-// };
 
 const getOneById = async (id) => {
   // const usersArray = getAllUsers();
@@ -123,18 +80,6 @@ const getOneById = async (id) => {
     return error;
   }
 };
-// *old code
-// const remove = (userID) => {
-//   getAllGigs();
-//   let newGigsData = gigsData.filter((gig) => gig.userID !== userID);
-//   fs.writeFile(gigsTestFile, JSON.stringify(newGigsData), (err) => {
-//     if (err) {
-//       console.log(err);
-//       return;
-//     }
-//   });
-//   return newGigsData;
-// };
 
 const remove = async (userID) => {
   try {
@@ -146,22 +91,6 @@ const remove = async (userID) => {
     return error;
   }
 };
-
-// const removeUserWithGigs = (userID) => {
-//   getAllUsers();
-//   let newUsersData = usersData.filter((user) => user.id !== userID);
-
-//   fs.writeFile(usersTestFile, JSON.stringify(newUsersData), (err) => {
-//     if (err) {
-//       console.log(err);
-//       return;
-//     }
-//   });
-//   let newGigsData = remove(userID);
-//   let returnArray = [newUsersData, newGigsData];
-//   returnArray = JSON.stringify(returnArray);
-//   return returnArray;
-// };
 
 //TODO: check this
 const removeUserWithGigs = async (id, userID) => {
@@ -189,22 +118,6 @@ const update = async (id, data) => {
     return error;
   }
 };
-
-//*old code
-// const update = (id, data) => {
-//   console.log("data parameter", data);
-//   const usersArray = getAllUsers();
-//   const usersIndex = usersArray.findIndex((user) => user.id === id);
-
-//   if (usersIndex !== -1) {
-//     usersArray.splice(usersIndex, 1, {
-//       id: id,
-//       ...data,
-//     });
-//     fs.writeFileSync(usersTestFile, JSON.stringify(usersArray));
-//     return usersArray;
-//   }
-// };
 
 module.exports = {
   getAllUsers,
