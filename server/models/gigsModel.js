@@ -4,11 +4,13 @@ const fs = require("fs"),
   gigsTestFile = path.join(__dirname, "../data/gigs-testing.json"),
   { v4: uuidv4 } = require("uuid");
 
+const database = require("../knexfile");
+const knex = require("knex")(database);
+
 class SingleGig {
   constructor(
+    // userName,
     userID,
-    userName,
-    // status,
     gigName,
     description,
     category,
@@ -17,10 +19,9 @@ class SingleGig {
     date,
     time
   ) {
-    this.id = uuidv4();
+    // this.id = uuidv4();
+    // this.userName = userName;
     this.userID = userID;
-    this.userName = userName;
-    // this.status = status;
     this.gigName = gigName;
     this.description = description;
     this.category = category;
@@ -31,69 +32,89 @@ class SingleGig {
   }
 }
 
-const getAll = () => {
-  const data = fs.readFileSync(gigsTestFile);
-  return JSON.parse(data);
-};
-
-// const getAll = () => {
-//   const data = fs.readFileSync(gigsFile);
-//   return JSON.parse(data);
-// };
-
-const add = (obj) => {
-  const gigsArray = getAll();
-  const gig = new SingleGig(
-    obj.userID,
-    obj.userName,
-    // obj.status,
-    obj.gigName,
-    obj.description,
-    obj.category,
-    obj.venue,
-    obj.address,
-    obj.date,
-    obj.time
-  );
-  gigsArray.push(gig);
-  fs.writeFileSync(gigsTestFile, JSON.stringify(gigsArray));
-  return gigsArray;
-};
-
-const getOneById = (id) => {
-  const gigsArray = getAll();
-  const gig = gigsArray.find((gig) => gig.id === id);
-  return gig;
-};
-
-const getGigsByUser = (userID) => {
-  const gigsArray = getAll();
-  let filteredGig = gigsArray.filter((gig) => gig.userID === userID);
-  return filteredGig;
-};
-
-const remove = (id) => {
-  const gigsArray = getAll();
-  const gigIndex = gigsArray.findIndex((gig) => gig.id === id);
-  if (gigIndex !== -1) {
-    gigsArray.splice(gigIndex, 1);
-    fs.writeFileSync(gigsTestFile, JSON.stringify(gigsArray));
-    return gigsArray;
+const getAll = async () => {
+  try {
+    const data = await knex.select("*").from("gigs");
+    console.log(data);
+    // return JSON.parse(data);
+    return data;
+  } catch (error) {
+    console.log(error);
+    return error;
   }
 };
 
-const update = (id, data) => {
-  console.log("data parameter", data);
-  const gigsArray = getAll();
-  const gigsIndex = gigsArray.findIndex((gig) => gig.id === id);
+const add = async (obj) => {
+  // const gigsArray = getAll();
+  try {
+    const gig = new SingleGig(
+      // obj.status,
+      // obj.userName,
+      obj.userID,
+      obj.gigName,
+      obj.description,
+      obj.category,
+      obj.venue,
+      obj.address,
+      obj.date,
+      obj.time
+    );
 
-  if (gigsIndex !== -1) {
-    gigsArray.splice(gigsIndex, 1, {
-      id: id,
-      ...data,
-    });
-    fs.writeFileSync(gigsTestFile, JSON.stringify(gigsArray));
-    return gigsArray;
+    const data = await knex("gigs").insert(gig);
+    console.log(data);
+
+    return data;
+  } catch (error) {
+    console.log(error);
+    return error;
+  }
+};
+
+const getOneById = async (id) => {
+  try {
+    const data = await knex.select("*").where("id", id).from("gigs");
+
+    console.log(data);
+
+    return data;
+  } catch (error) {
+    console.log(error);
+    return error;
+  }
+};
+
+const getGigsByUser = async (userID) => {
+  try {
+    const data = await knex.select("*").where("userID", userID).from("gigs");
+    console.log(data);
+    return data;
+  } catch (error) {
+    console.log(error);
+    return error;
+  }
+};
+
+const remove = async (id) => {
+  try {
+    const data = await knex("gigs").where("id", id).del();
+    console.log(data);
+    return data;
+  } catch (error) {
+    console.log(error);
+    return error;
+  }
+};
+
+const update = async (id, data) => {
+  console.log("data parameter", data);
+
+  try {
+    const result = await knex("gigs").where("id", id).update(data);
+    console.log(result);
+    return result;
+  } catch (error) {
+    console.log(error);
+    return error;
   }
 };
 

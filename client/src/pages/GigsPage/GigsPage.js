@@ -72,8 +72,8 @@ export default class GigsPage extends Component {
     // if (prevState.gigs !== this.state.gigs) {
     //   return this.state.gigs;
     // }
-    console.log(prevState.gigs);
-    console.log(this.state.gigs);
+    // console.log(prevState.gigs);
+    // console.log(this.state.gigs);
   }
 
   render() {

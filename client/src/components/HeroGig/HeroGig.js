@@ -18,7 +18,9 @@ const customStyles = {
 };
 
 function HeroGig({ gig, history }) {
-  console.log(gig);
+  // console.log(...gig);
+  console.log(gig[0].id);
+
   // this.props.history.push("/");
   console.log(history);
 
@@ -44,7 +46,7 @@ function HeroGig({ gig, history }) {
   const handleClick = (event) => {
     event.preventDefault();
 
-    let currGigId = gig.id;
+    let currGigId = gig[0].id;
     // let commentId = event.target.id;
 
     axios
@@ -73,33 +75,37 @@ function HeroGig({ gig, history }) {
     <div className="heroGig">
       <section className="heroGig__curr-gig">
         <h1>Current Gig</h1>
-        <article className="heroGig__curr-gig__card">
-          <h3>{gig.gigName}</h3>
-          <p>{gig.address}</p>
-          <p>{gig.date}</p>
-          <p>{gig.time}</p>
-          <p>{gig.category}</p>
-          <p>{gig.venue}</p>
-          <p>{gig.description}</p>
-          <p>Posted by: {gig.userName}</p>
-          {/* <p>User ID: {gig.userID}</p> */}
+        {gig.map((gigProp, i) => {
+          return (
+            <article key={i} className="heroGig__curr-gig__card">
+              <h3>{gigProp.gigName}</h3>
+              <p>{gigProp.address}</p>
+              <p>{gigProp.date}</p>
+              <p>{gigProp.time}</p>
+              <p>{gigProp.category}</p>
+              <p>{gigProp.venue}</p>
+              <p>{gigProp.description}</p>
+              <p>Posted by: {gigProp.userID}</p>
+              {/* <p>User ID: {gig.userID}</p> */}
 
-          <button onClick={openModal}>Delete Gig</button>
-          <Modal
-            isOpen={modalIsOpen}
-            onAfterOpen={afterOpenModal}
-            onRequestClose={closeModal}
-            style={customStyles}
-            contentLabel="Example Modal"
-          >
-            <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Delete Gig</h2>
-            <button onClick={closeModal}>close</button>
-            <div>Are you sure you'd like to delete this gig?</div>
-            <form>
-              <button onClick={handleClick}>Delete Gig</button>
-            </form>
-          </Modal>
-        </article>
+              <button onClick={openModal}>Delete Gig</button>
+              <Modal
+                isOpen={modalIsOpen}
+                onAfterOpen={afterOpenModal}
+                onRequestClose={closeModal}
+                style={customStyles}
+                contentLabel="Example Modal"
+              >
+                <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Delete Gig</h2>
+                <button onClick={closeModal}>close</button>
+                <div>Are you sure you'd like to delete this gig?</div>
+                <form>
+                  <button onClick={handleClick}>Delete Gig</button>
+                </form>
+              </Modal>
+            </article>
+          );
+        })}
       </section>
     </div>
   );

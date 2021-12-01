@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import "./UsersPage.scss";
 import React, { Component } from "react";
 import Hero from "../../components/Hero/Hero";
@@ -89,6 +89,8 @@ export default class UsersPage extends Component {
       return <p>Loading...</p>;
     }
 
+    // const props = { user: this.state.selectedUser };
+
     return (
       <section className="users">
         <h1 className="users__title">Users Page</h1>
@@ -102,6 +104,9 @@ export default class UsersPage extends Component {
         ></FormModal>
 
         <Hero user={this.state.selectedUser} />
+
+        {/* <Hero {...props} /> */}
+
         <UsersList users={filteredUsers} />
       </section>
     );

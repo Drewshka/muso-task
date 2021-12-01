@@ -94,21 +94,21 @@ class EditContent extends Component {
     //   this.props.history.push("/");
     // }
 
-    let currGigId = this.props.gig.id;
+    let currGigId = this.props.gig[0].id;
 
     axios
 
       .put(`${apiUrl}/gigs/${currGigId}`, {
-        userName: this.props.gig.userName,
-        userID: this.props.gig.userID,
-        gigName: event.target.name.value || this.props.gig.gigName,
+        userName: this.props.gig[0].userName,
+        userID: this.props.gig[0].userID,
+        gigName: event.target.name.value || this.props.gig[0].gigName,
         description:
-          event.target.description.value || this.props.gig.description,
-        category: event.target.category.value || this.props.gig.category,
-        venue: event.target.venue.value || this.props.gig.venue,
-        address: event.target.address.value || this.props.gig.address,
-        date: event.target.date.value || this.props.gig.date,
-        time: event.target.time.value || this.props.gig.time,
+          event.target.description.value || this.props.gig[0].description,
+        category: event.target.category.value || this.props.gig[0].category,
+        venue: event.target.venue.value || this.props.gig[0].venue,
+        address: event.target.address.value || this.props.gig[0].address,
+        date: event.target.date.value || this.props.gig[0].date,
+        time: event.target.time.value || this.props.gig[0].time,
       })
       .then((response) => {
         console.log("response: ", response.data);
