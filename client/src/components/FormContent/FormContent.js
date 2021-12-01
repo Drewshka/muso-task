@@ -100,8 +100,8 @@ class FormContent extends Component {
     axios
 
       .post(`${apiUrl}/gigs`, {
-        userName: this.props.user.name,
-        userID: this.props.user.id,
+        userName: this.props.user[0].name,
+        userID: this.props.user[0].id,
         gigName: event.target.name.value,
         description: event.target.description.value,
         category: event.target.category.value,
@@ -123,7 +123,7 @@ class FormContent extends Component {
   };
 
   render() {
-    // console.log(this.props.user.id);
+    console.log(this.props.user[0]);
     // console.log(this.props.user.name);
 
     return (

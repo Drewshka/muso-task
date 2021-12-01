@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import "./UsersPage.scss";
 import React, { Component } from "react";
 import Hero from "../../components/Hero/Hero";
@@ -89,8 +89,7 @@ export default class UsersPage extends Component {
       return <p>Loading...</p>;
     }
 
-    // console.log(...this.state.selectedUser);
-    const props = { user: this.state.selectedUser };
+    // const props = { user: this.state.selectedUser };
 
     return (
       <section className="users">
@@ -104,9 +103,9 @@ export default class UsersPage extends Component {
           user={this.state.selectedUser}
         ></FormModal>
 
-        {/* <Hero user={this.state.selectedUser} /> */}
+        <Hero user={this.state.selectedUser} />
 
-        <Hero {...props} />
+        {/* <Hero {...props} /> */}
 
         <UsersList users={filteredUsers} />
       </section>
