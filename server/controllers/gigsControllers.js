@@ -11,12 +11,12 @@ exports.listGigs = async (req, res) => {
 
 exports.postGig = async (req, res, next) => {
   if (
+    // !req.body.status ||
     !req.body.userID ||
     // !req.body.userName ||
     !req.body.gigName ||
     !req.body.description ||
     !req.body.category ||
-    !req.body.status ||
     !req.body.venue ||
     !req.body.address ||
     !req.body.date ||

@@ -14,7 +14,6 @@ class SingleGig {
     gigName,
     description,
     category,
-    status,
     venue,
     address,
     date,
@@ -26,7 +25,6 @@ class SingleGig {
     this.gigName = gigName;
     this.description = description;
     this.category = category;
-    this.status = status;
     this.venue = venue;
     this.address = address;
     this.date = date;

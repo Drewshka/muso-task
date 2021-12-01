@@ -1,0 +1,9 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.hero {
+  &__curr-user__card {
+    border: 1px solid black;
+    background-color: beige;
+  }
+}

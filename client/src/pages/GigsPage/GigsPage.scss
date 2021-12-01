@@ -1,0 +1,19 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.gigs {
+  padding: 0 1rem;
+
+  &__table {
+    border: 1px solid black;
+    margin: 0 auto;
+
+    &--headers-category {
+      padding: 0 1rem;
+    }
+
+    &--data {
+      background-color: beige;
+    }
+  }
+}
