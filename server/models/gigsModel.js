@@ -96,9 +96,6 @@ const add = async (obj) => {
     return error;
     // return JSON.parse(error);
   }
-  // gigsArray.push(gig);
-  // fs.writeFileSync(gigsTestFile, JSON.stringify(gigsArray));
-  // return gigsArray;
 };
 
 const getOneById = async (id) => {
