@@ -41,96 +41,99 @@ class EditUserContent extends Component {
     });
   };
 
-  validate = () => {
-    let nameError = "";
-    let addressError = "";
-    let cityError = "";
-    let countryError = "";
-    let phoneError = "";
-    let emailError = "";
-    let instrumentError = "";
-    let bioError = "";
+  //   validate = () => {
+  //     let nameError = "";
+  //     let addressError = "";
+  //     let cityError = "";
+  //     let countryError = "";
+  //     let phoneError = "";
+  //     let emailError = "";
+  //     let instrumentError = "";
+  //     let bioError = "";
 
-    if (!this.state.name) {
-      nameError = `This field is required`;
-    }
+  //     if (!this.state.name) {
+  //       nameError = `This field is required`;
+  //     }
 
-    if (!this.state.address) {
-      addressError = "This field is required";
-    }
+  //     if (!this.state.address) {
+  //       addressError = "This field is required";
+  //     }
 
-    if (!this.state.city) {
-      cityError = "This field is required";
-    }
+  //     if (!this.state.city) {
+  //       cityError = "This field is required";
+  //     }
 
-    if (!this.state.country) {
-      countryError = "This field is required";
-    }
+  //     if (!this.state.country) {
+  //       countryError = "This field is required";
+  //     }
 
-    if (!this.state.phone) {
-      phoneError = "This field is required";
-    }
+  //     if (!this.state.phone) {
+  //       phoneError = "This field is required";
+  //     }
 
-    if (!this.state.email) {
-      emailError = "This field is required";
-    }
+  //     if (!this.state.email) {
+  //       emailError = "This field is required";
+  //     }
 
-    if (!this.state.instrument) {
-      instrumentError = "This field is required";
-    }
+  //     if (!this.state.instrument) {
+  //       instrumentError = "This field is required";
+  //     }
 
-    if (!this.state.bio) {
-      bioError = "This field is required";
-    }
+  //     if (!this.state.bio) {
+  //       bioError = "This field is required";
+  //     }
 
-    if (
-      nameError ||
-      addressError ||
-      cityError ||
-      countryError ||
-      phoneError ||
-      emailError ||
-      instrumentError ||
-      bioError
-    ) {
-      this.setState({
-        nameError,
-        addressError,
-        cityError,
-        countryError,
-        phoneError,
-        emailError,
-        instrumentError,
-        bioError,
-      });
-      return false;
-    }
+  //     if (
+  //       nameError ||
+  //       addressError ||
+  //       cityError ||
+  //       countryError ||
+  //       phoneError ||
+  //       emailError ||
+  //       instrumentError ||
+  //       bioError
+  //     ) {
+  //       this.setState({
+  //         nameError,
+  //         addressError,
+  //         cityError,
+  //         countryError,
+  //         phoneError,
+  //         emailError,
+  //         instrumentError,
+  //         bioError,
+  //       });
+  //       return false;
+  //     }
 
-    return true;
-  };
+  //     return true;
+  //   };
 
   handleSubmit = (event) => {
     event.preventDefault();
 
     let phone = event.target.phone.value;
     let email = event.target.email.value;
+    let defaultPhone = this.props.user[0].phone;
+    let defaultEmail = this.props.user[0].email;
 
-    console.log(this.state);
+    console.log(this.props);
 
-    const isValid = this.validate();
-    if (isValid) {
-      console.log(this.state);
-      // clear form
-      this.setState(initialState);
-      this.props.history.push("/");
-    }
+    // const isValid = this.validate();
+    // if (isValid) {
+    //   console.log(this.state);
+    //   // clear form
+    //   this.setState(initialState);
+    //   this.props.history.push("/");
+    // }
 
+    //TODO need to fix form validation so that if we edit users and leave phone and email fields blank, validator won't return false for default phone and email fields
     const validatePhoneNumber = (number) => {
       const isValidPhoneNumber = validator.isMobilePhone(number);
       return isValidPhoneNumber;
     };
 
-    if (!validatePhoneNumber(phone)) {
+    if (!validatePhoneNumber(phone || defaultPhone)) {
       alert("Please enter a valid phone number");
       return false;
     }
@@ -142,26 +145,29 @@ class EditUserContent extends Component {
       return isValidEmail;
     };
 
-    if (!validateEmail(email)) {
+    if (!validateEmail(email || defaultEmail)) {
       alert("Please enter a valid email");
       return false;
     }
 
-    console.log(validateEmail(email));
+    // console.log(validateEmail(email));
+
+    let currUserId = this.props.user[0].id;
 
     axios
 
-      .post(`${apiUrl}/users`, {
+      .put(`${apiUrl}/users/${currUserId}`, {
         // userName: this.props.user[0].name,
         // userID: this.props.user[0].id,
-        name: event.target.name.value,
-        address: event.target.address.value,
-        city: event.target.city.value,
-        country: event.target.country.value,
-        phone: event.target.phone.value || null,
-        email: event.target.email.value || null,
-        instrument: event.target.instrument.value,
-        bio: event.target.bio.value,
+        name: event.target.name.value || this.props.user[0].name,
+        address: event.target.address.value || this.props.user[0].address,
+        city: event.target.city.value || this.props.user[0].city,
+        country: event.target.country.value || this.props.user[0].country,
+        phone: event.target.phone.value || this.props.user[0].phone,
+        email: event.target.email.value || this.props.user[0].email,
+        instrument:
+          event.target.instrument.value || this.props.user[0].instrument,
+        bio: event.target.bio.value || this.props.user[0].bio,
       })
       .then((response) => {
         console.log("response: ", response.data);
@@ -176,20 +182,21 @@ class EditUserContent extends Component {
   };
 
   render() {
+    // console.log(this.props.user[0]);
     return (
-      <div className="signUp">
+      <div className="editUser">
         <h1>Edit User Details</h1>
         <form
-          className="signUp__container"
-          id="signUp__container"
+          className="editUser__container"
+          id="editUser__container"
           name="myForm"
           action="POST"
           onSubmit={this.handleSubmit}
         >
-          <div className="signUp__container-name">
-            <h4 className="signUp__container-name-title">Enter your name</h4>
+          <div className="editUser__container-name">
+            <h4 className="editUser__container-name-title">Enter your name</h4>
             <input
-              className="signUp__container-name-input"
+              className="editUser__container-name-input"
               type="text"
               id="name"
               name="name"
@@ -198,19 +205,19 @@ class EditUserContent extends Component {
               onChange={this.handleChange}
             />
             <div
-              className="signUp__container-name-error"
+              className="editUser__container-name-error"
               id="nameError"
               name="nameError"
             >
               {this.state.nameError}
             </div>
           </div>
-          <div className="signUp__container-address">
-            <h4 className="signUp__container-address-title">
+          <div className="editUser__container-address">
+            <h4 className="editUser__container-address-title">
               What's your address?
             </h4>
             <input
-              className="signUp__container-address-input"
+              className="editUser__container-address-input"
               type="text"
               id="address"
               name="address"
@@ -219,7 +226,7 @@ class EditUserContent extends Component {
               onChange={this.handleChange}
             />
             <div
-              className="signUp__container-address-error"
+              className="editUser__container-address-error"
               id="addressError"
               name="addressError"
             >
@@ -227,10 +234,12 @@ class EditUserContent extends Component {
             </div>
           </div>
 
-          <div className="signUp__container-city">
-            <h4 className="signUp__container-city-title">What's your city?</h4>
+          <div className="editUser__container-city">
+            <h4 className="editUser__container-city-title">
+              What's your city?
+            </h4>
             <input
-              className="signUp__container-city-input"
+              className="editUser__container-city-input"
               type="text"
               id="city"
               name="city"
@@ -239,7 +248,7 @@ class EditUserContent extends Component {
               onChange={this.handleChange}
             />
             <div
-              className="signUp__container-city-error"
+              className="editUser__container-city-error"
               id="cityError"
               name="cityError"
             >
@@ -247,12 +256,12 @@ class EditUserContent extends Component {
             </div>
           </div>
 
-          <div className="signUp__container-country">
-            <h4 className="signUp__container-country-title">
+          <div className="editUser__container-country">
+            <h4 className="editUser__container-country-title">
               Enter your country
             </h4>
             <input
-              className="signUp__container-country-input"
+              className="editUser__container-country-input"
               type="text"
               id="country"
               name="country"
@@ -261,7 +270,7 @@ class EditUserContent extends Component {
               onChange={this.handleChange}
             />
             <div
-              className="signUp__container-country-error"
+              className="editUser__container-country-error"
               id="countryError"
               name="countryError"
             >
@@ -269,12 +278,12 @@ class EditUserContent extends Component {
             </div>
           </div>
 
-          <div className="signUp__container-phone">
-            <h4 className="signUp__container-phone-title">
+          <div className="editUser__container-phone">
+            <h4 className="editUser__container-phone-title">
               What's your phone number?
             </h4>
             <input
-              className="signUp__container-phone-input"
+              className="editUser__container-phone-input"
               type="text"
               id="phone"
               name="phone"
@@ -283,7 +292,7 @@ class EditUserContent extends Component {
               onChange={this.handleChange}
             />
             <div
-              className="signUp__container-phone-error"
+              className="editUser__container-phone-error"
               id="phoneError"
               name="phoneError"
             >
@@ -291,13 +300,13 @@ class EditUserContent extends Component {
             </div>
           </div>
 
-          <div className="signUp__container-email">
-            <h4 className="signUp__container-email-title">Email</h4>
+          <div className="editUser__container-email">
+            <h4 className="editUser__container-email-title">Email</h4>
             <label id="email">Please enter your email </label>
             <input
               type="text"
               name="email"
-              className="signUp__container-email-input"
+              className="editUser__container-email-input"
               id="email"
               placeholder="Please add the address"
               value={this.state.email}
@@ -305,7 +314,7 @@ class EditUserContent extends Component {
             />
 
             <div
-              className="signUp__container-email-error"
+              className="editUser__container-email-error"
               id="emailError"
               name="emailError"
             >
@@ -313,22 +322,22 @@ class EditUserContent extends Component {
             </div>
           </div>
 
-          <div className="signUp__container-instrument">
-            <h4 className="signUp__container-instrument-title">Instrument</h4>
+          <div className="editUser__container-instrument">
+            <h4 className="editUser__container-instrument-title">Instrument</h4>
             <label id="instrument">
               Please tell us what instrument you play
             </label>
             <input
               type="instrument"
               name="instrument"
-              className="signUp__container-instrument-input"
+              className="editUser__container-instrument-input"
               id="instrument"
               placeholder="Please add your instrument"
               value={this.state.instrument}
               onChange={this.handleChange}
             />
             <div
-              className="signUp__container-instrument-error"
+              className="editUser__container-instrument-error"
               id="instrumentError"
               name="instrumentError"
             >
@@ -336,12 +345,12 @@ class EditUserContent extends Component {
             </div>
           </div>
 
-          <div className="signUp__container-bio">
-            <h4 className="signUp__container-bio-title">
+          <div className="editUser__container-bio">
+            <h4 className="editUser__container-bio-title">
               Give us a brief bio about yourself
             </h4>
             <textarea
-              className="signUp__container-bio-input"
+              className="editUser__container-bio-input"
               type="text"
               id="bio"
               name="bio"
@@ -350,7 +359,7 @@ class EditUserContent extends Component {
               onChange={this.handleChange}
             />
             <div
-              className="signUp__container-bio-error"
+              className="editUser__container-bio-error"
               id="bioError"
               name="bioError"
             >
@@ -358,9 +367,9 @@ class EditUserContent extends Component {
             </div>
           </div>
 
-          <div className="signUp__container-button">
+          <div className="editUser__container-button">
             <button
-              className="signUp__container-button-submit"
+              className="editUser__container-button-submit"
               type="submit"
               id="submit"
               value="submit"
@@ -370,7 +379,7 @@ class EditUserContent extends Component {
             {/* <Link to="/"> */}
             <button
               onClick={this.props.hideModalHandler}
-              className="signUp__container-button-cancel"
+              className="editUser__container-button-cancel"
               type="cancel"
               id="cancel"
               value="cancel"
