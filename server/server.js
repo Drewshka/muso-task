@@ -17,6 +17,11 @@ app.use(express.json());
 app.use(cors());
 app.use(morgan("dev"));
 
+require("dotenv").config();
+// require("dotenv").config({
+//   path: `.env.local`,
+// });
+
 // Routes
 app.use("/users", usersRoutes);
 app.use("/gigs", gigsRoutes);
