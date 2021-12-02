@@ -120,7 +120,7 @@ export default class UsersPage extends Component {
           hideModalHandler={this.hideSignUpModalHandler}
         ></SignUpModal>
 
-        <Hero user={this.state.selectedUser} />
+        <Hero user={this.state.selectedUser} users={this.state.users} />
 
         {/* <Hero {...props} /> */}
 
