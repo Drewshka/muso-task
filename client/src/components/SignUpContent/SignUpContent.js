@@ -1,6 +1,8 @@
 import { withRouter } from "react-router-dom";
 import "./SignUpContent.scss";
 import { Component } from "react";
+import validator from "validator";
+
 import axios from "axios";
 const apiUrl = "http://localhost:8080";
 // import { Link } from "react-router-dom";
@@ -110,6 +112,9 @@ class SignUpContent extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
 
+    let phone = event.target.phone.value;
+    let email = event.target.email.value;
+
     console.log(this.state);
 
     const isValid = this.validate();
@@ -120,6 +125,30 @@ class SignUpContent extends Component {
       this.props.history.push("/");
     }
 
+    const validatePhoneNumber = (number) => {
+      const isValidPhoneNumber = validator.isMobilePhone(number);
+      return isValidPhoneNumber;
+    };
+
+    if (!validatePhoneNumber(phone)) {
+      alert("Please enter a valid phone number");
+      return false;
+    }
+
+    console.log(validatePhoneNumber(phone));
+
+    const validateEmail = (Email) => {
+      const isValidEmail = validator.isEmail(Email);
+      return isValidEmail;
+    };
+
+    if (!validateEmail(email)) {
+      alert("Please enter a valid email");
+      return false;
+    }
+
+    console.log(validateEmail(email));
+
     axios
 
       .post(`${apiUrl}/users`, {
@@ -129,8 +158,8 @@ class SignUpContent extends Component {
         address: event.target.address.value,
         city: event.target.city.value,
         country: event.target.country.value,
-        phone: event.target.phone.value,
-        email: event.target.email.value,
+        phone: event.target.phone.value || null,
+        email: event.target.email.value || null,
         instrument: event.target.instrument.value,
         bio: event.target.bio.value,
       })
@@ -140,8 +169,6 @@ class SignUpContent extends Component {
       .catch((error) => {
         console.log(error.message);
       });
-
-    // console.log(event.target.venue.value);
 
     console.log("handle submit!");
 
@@ -268,7 +295,7 @@ class SignUpContent extends Component {
             <h4 className="signUp__container-email-title">Email</h4>
             <label id="email">Please enter your email </label>
             <input
-              type="email"
+              type="text"
               name="email"
               className="signUp__container-email-input"
               id="email"
