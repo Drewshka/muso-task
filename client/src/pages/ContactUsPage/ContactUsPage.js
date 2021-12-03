@@ -51,9 +51,10 @@ const center = {
 };
 
 export default function ContactUsPage() {
-  console.log(process.env.REACT_APP_GOOGLE_MAPS_API_KEY);
+  console.log(process.env);
+
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: "AIzaSyAFFlPainlupwi0o73o7I_P0A8QRWjpSdo",
+    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
     libraries,
   });
   const [markers, setMarkers] = React.useState([]);
@@ -112,7 +113,7 @@ export default function ContactUsPage() {
               setSelected(marker);
             }}
             icon={{
-              url: `/bear.svg`,
+              url: `/error-24px.svg`,
               origin: new window.google.maps.Point(0, 0),
               anchor: new window.google.maps.Point(15, 15),
               scaledSize: new window.google.maps.Size(30, 30),
