@@ -18,7 +18,7 @@ export default function HomePage() {
           <h1>Recording and studio work</h1>
         </div>
         <div>
-          <h1>Teaching opportunities</h1>
+          <h1>Teaching opportunities...</h1>
         </div>
         {/* <img src="https://via.placeholder.com/1600x300" alt="placeholder" />
         <img src="https://via.placeholder.com/1600x300" alt="placeholder" />
