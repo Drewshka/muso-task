@@ -87,9 +87,9 @@ export default function ContactUsPage() {
   return (
     <div>
       <h1>
-        Bears{" "}
+        Venues{" "}
         <span role="img" aria-label="tent">
-          ⛺️
+          🚊
         </span>
       </h1>
 
@@ -113,7 +113,7 @@ export default function ContactUsPage() {
               setSelected(marker);
             }}
             icon={{
-              url: `/error-24px.svg`,
+              url: `/guitar.svg`,
               origin: new window.google.maps.Point(0, 0),
               anchor: new window.google.maps.Point(15, 15),
               scaledSize: new window.google.maps.Size(30, 30),
