@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import "./UsersPage.scss";
 import React, { Component } from "react";
 import Hero from "../../components/Hero/Hero";
@@ -8,7 +8,6 @@ import axios from "axios";
 const apiURL = "http://localhost:8080";
 const usersURL = `${apiURL}/users`;
 
-// import Photo from "../../assets/images/Upload-video-bike.jpg";
 // export default function GigsPage() {
 export default class UsersPage extends Component {
   state = {
@@ -24,11 +23,6 @@ export default class UsersPage extends Component {
   hideModalHandler = (event) => {
     this.setState({ showModal: false });
   };
-
-  // openModal = () => this.setState({ isOpen: true });
-  // closeModal = () => this.setState({ isOpen: false });
-
-  // handleSubmit(name) =>
 
   fetchUserDetails = () => {
     // *sets default user to first in the array
@@ -95,6 +89,8 @@ export default class UsersPage extends Component {
       return <p>Loading...</p>;
     }
 
+    // const props = { user: this.state.selectedUser };
+
     return (
       <section className="users">
         <h1 className="users__title">Users Page</h1>
@@ -104,33 +100,14 @@ export default class UsersPage extends Component {
         <FormModal
           showModal={this.state.showModal}
           hideModalHandler={this.hideModalHandler}
+          user={this.state.selectedUser}
         ></FormModal>
 
         <Hero user={this.state.selectedUser} />
-        <UsersList users={filteredUsers} />
 
-        {/* <UsersList users={this.state.users} /> */}
-        {/* <article className="users__current"></article> */}
-        {/* {usersList.map((user) => {
-          return (
-            <Link
-              to={`/${user.id}`}
-              key={user.id}
-              style={{ textDecoration: "none" }}
-            >
-              <article className="users__card">
-                <h3>{user.name}</h3>
-                <p>{user.address}</p>
-                <p>{user.city}</p>
-                <p>{user.country}</p>
-                <p>{user.instrument}</p>
-                <p>{user.email}</p>
-                <p>{user.phone}</p>
-                <p>{user.bio}</p>
-              </article>
-            </Link>
-          );
-        })} */}
+        {/* <Hero {...props} /> */}
+
+        <UsersList users={filteredUsers} />
       </section>
     );
   }
