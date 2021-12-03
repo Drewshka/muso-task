@@ -99,7 +99,7 @@ export default function ContactUsPage() {
       <GoogleMap
         id="map"
         mapContainerStyle={mapContainerStyle}
-        zoom={8}
+        zoom={12}
         center={center}
         options={options}
         onClick={onMapClick}
