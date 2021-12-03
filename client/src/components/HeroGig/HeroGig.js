@@ -32,7 +32,7 @@ function HeroGig({ gig, history }) {
   }
 
   function afterOpenModal() {
-    // references are now sync'd and can be accessed.
+    // *references are now sync'd and can be accessed.
     subtitle.style.color = "#f00";
   }
 
@@ -76,6 +76,7 @@ function HeroGig({ gig, history }) {
       <section className="heroGig__curr-gig">
         <h1>Current Gig</h1>
         {gig.map((gigProp, i) => {
+          console.log(gigProp);
           return (
             <article key={i} className="heroGig__curr-gig__card">
               <h3>{gigProp.gigName}</h3>
@@ -85,7 +86,7 @@ function HeroGig({ gig, history }) {
               <p>{gigProp.category}</p>
               <p>{gigProp.venue}</p>
               <p>{gigProp.description}</p>
-              <p>Posted by: {gigProp.userID}</p>
+              <p>Posted by: {gigProp.email}</p>
               {/* <p>User ID: {gig.userID}</p> */}
 
               <button onClick={openModal}>Delete Gig</button>

@@ -1,7 +1,69 @@
+import { withRouter } from "react-router-dom";
 import "./Hero.scss";
+// import React from "react";
+import React, { useState } from "react";
+import Modal from "react-modal";
+import axios from "axios";
+const apiUrl = "http://localhost:8080";
 
-function Hero({ user }) {
-  console.log(...user);
+const customStyles = {
+  content: {
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+  },
+};
+
+function Hero({ user, users, history }) {
+  // console.log(...user);
+
+  let subtitle;
+  const [modalIsOpen, setIsOpen] = React.useState(false);
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function afterOpenModal() {
+    // *references are now sync'd and can be accessed.
+    subtitle.style.color = "#f00";
+  }
+
+  Modal.setAppElement(document.getElementById("root"));
+
+  function closeModal() {
+    setIsOpen(false);
+  }
+
+  // *DELETE GIG
+  const handleClick = (event) => {
+    event.preventDefault();
+
+    let currUserId = user[0].id;
+
+    axios
+      .delete(`${apiUrl}/users/${currUserId}`)
+      .then((response) => {
+        console.log(response.data);
+
+        return axios.get(`${apiUrl}/users`);
+      })
+      .then(({ data }) => {
+        console.log("Single Gig: ", data);
+        // this.setState({
+        //   selectedUser: data,
+        // });
+        history.push("/");
+      })
+      .catch((error) => {
+        console.error("There was an error!", error);
+      });
+
+    alert("Deleted successfully");
+  };
 
   return (
     <section className="hero">
@@ -17,6 +79,24 @@ function Hero({ user }) {
             <p>{userProp.email}</p>
             <p>{userProp.phone}</p>
             <p>{userProp.bio}</p>
+
+            <button onClick={openModal}>Delete User</button>
+            <Modal
+              isOpen={modalIsOpen}
+              onAfterOpen={afterOpenModal}
+              onRequestClose={closeModal}
+              style={customStyles}
+              contentLabel="Example Modal"
+            >
+              <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Delete User</h2>
+              <button onClick={closeModal}>close</button>
+              <div>
+                Are you sure you'd like to delete this user and relevent gigs?
+              </div>
+              <form>
+                <button onClick={handleClick}>Delete User</button>
+              </form>
+            </Modal>
           </article>
         );
       })}
@@ -24,7 +104,8 @@ function Hero({ user }) {
   );
 }
 
-export default Hero;
+export default withRouter(Hero);
+// export default Hero;
 
 // *old code before mapping
 // const props = { user: this.state.selectedUser };

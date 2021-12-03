@@ -67,6 +67,11 @@ passport.deserializeUser((user, cb) => {
   cb(null, user);
 });
 
+require("dotenv").config();
+// require("dotenv").config({
+//   path: `.env.local`,
+// });
+
 // Routes
 app.use("/users", usersRoutes);
 app.use("/gigs", gigsRoutes);

@@ -1,25 +1,6 @@
 const User = require("../models/usersModel");
 const Gig = require("../models/usersModel");
 
-// exports.deleteUser = (req, res, next) => {
-//   const updatedArray = User.remove(req.params.id);
-//   if (!updatedArray) {
-//     const err = new Error("Please provide a valid ID.");
-//     err.status = 400;
-//     next(err);
-//   } else {
-//     res.json(updatedArray);
-//   }
-// };
-
-// exports.listUsers = (req, res) => {
-//   res.json(User.getAllUsers());
-// };
-
-// exports.listGigs = (req, res) => {
-//   res.json(Gig.getAllGigs());
-// };
-
 exports.listUsers = async (req, res) => {
   const result = await User.getAllUsers();
   res.json(result);
