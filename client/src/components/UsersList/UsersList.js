@@ -2,11 +2,12 @@ import "./UsersList.scss";
 import { Link } from "react-router-dom";
 
 function UsersList({ users }) {
-  console.log(users);
+  // console.log(...users);
   return (
     <section className="list">
       <h3 className="list__header">Users List</h3>
       {users.map((user) => {
+        // console.log(user);
         return (
           <Link
             to={`/users/${user.id}`}
