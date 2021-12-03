@@ -6,8 +6,8 @@ import HomePage from "./pages/HomePage/HomePage";
 import GigsPage from "./pages/GigsPage/GigsPage";
 import UsersPage from "./pages/UsersPage/UsersPage";
 import ContactUsPage from "./pages/ContactUsPage/ContactUsPage";
-import axios from "axios";
-import Map from "../src/components/Map/Map";
+// import axios from "axios";
+// import Map from "../src/components/Map/Map";
 
 // function App() {
 class App extends Component {

@@ -85,7 +85,7 @@ function HeroGig({ gig, history }) {
               <p>{gigProp.category}</p>
               <p>{gigProp.venue}</p>
               <p>{gigProp.description}</p>
-              <p>Posted by: {gigProp.userID}</p>
+              <p>Posted by: {gigProp.email}</p>
               {/* <p>User ID: {gig.userID}</p> */}
 
               <button onClick={openModal}>Delete Gig</button>

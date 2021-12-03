@@ -47,6 +47,7 @@ const getAll = async () => {
   }
 };
 
+//* old code
 // const getAll = async () => {
 //   try {
 //     const data = await knex.select("*").from("gigs");
@@ -103,6 +104,7 @@ const getOneById = async (id) => {
   }
 };
 
+//* old code
 // const getOneById = async (id) => {
 //   try {
 //     const data = await knex.select("*").where("id", id).from("gigs");

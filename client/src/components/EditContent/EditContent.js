@@ -1,6 +1,6 @@
 import "./EditContent.scss";
 import { withRouter } from "react-router-dom";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { Component } from "react";
 import axios from "axios";
 const apiUrl = "http://localhost:8080";

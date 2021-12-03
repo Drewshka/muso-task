@@ -1,9 +1,27 @@
+// import usePlacesAutocomplete, {
+//   getGeocode,
+//   getLatLng,
+// } from "use-places-autocomplete";
+// import {
+//   Combobox,
+//   ComboboxInput,
+//   ComboboxPopover,
+//   ComboboxList,
+//   ComboboxOption,
+// } from "@reach/combobox";
+// import { formatRelative } from "date-fns";
+
 import { withRouter } from "react-router-dom";
 import "./FormContent.scss";
-// import { Link } from "react-router-dom";
 import { Component } from "react";
 import axios from "axios";
 const apiUrl = "http://localhost:8080";
+
+// const libraries = ["places"];
+// const mapContainerStyle = {
+//   height: "100vh",
+//   width: "100vw",
+// };
 
 const initialState = {
   name: "",
@@ -124,10 +142,10 @@ class FormContent extends Component {
     //   this.props.history.push("/");
   };
 
+  //* Google Auto complete input code
+
   render() {
-    // console.log(this.props.user[0]);
-    console.log(this.state.venue);
-    // console.log(this.props.user.name);
+    // console.log(this.state.venue);
 
     return (
       <div className="form">

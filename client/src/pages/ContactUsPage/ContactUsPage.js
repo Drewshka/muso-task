@@ -11,8 +11,8 @@
 //     );
 //   }
 // }
-
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import {
   GoogleMap,
   useLoadScript,
@@ -50,8 +50,26 @@ const center = {
   lng: -79.3832,
 };
 
-export default function ContactUsPage() {
-  console.log(process.env);
+const apiURL = "http://localhost:8080";
+const gigsURL = `${apiURL}/gigs`;
+
+export default function ContactUsPage(props) {
+  // console.log(process.env);
+  const [data, setData] = useState({});
+
+  console.log(data);
+
+  useEffect(() => {
+    axios
+      .get(gigsURL)
+      .then(function (response) {
+        // console.log(response.data);
+        setData(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }, []);
 
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
