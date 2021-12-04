@@ -1,7 +1,7 @@
 exports.seed = function (knex) {
   const gigs = [
     {
-      id: "1",
+      id: "11",
       userID: "1",
       gigName: "Jazz trio",
       description: "Jazz trio gig in need of a drummer.",
@@ -13,7 +13,7 @@ exports.seed = function (knex) {
       // status: "Open",
     },
     {
-      id: "2",
+      id: "22",
       userID: "2",
       gigName: "Jazz trio",
       description: "Jazz trio gig in need of a drummer.",
@@ -25,7 +25,7 @@ exports.seed = function (knex) {
       // status: "Open",
     },
     {
-      id: "3",
+      id: "33",
       userID: "3",
       gigName: "Jazz trio",
       description: "Jazz trio gig in need of a drummer.",
