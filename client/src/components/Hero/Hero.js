@@ -71,14 +71,38 @@ function Hero({ user, users, history }) {
       {user.map((userProp, i) => {
         return (
           <article key={i} className="hero__curr-user__card">
-            <h3>{userProp.name}</h3>
-            <p>{userProp.address}</p>
-            <p>{userProp.city}</p>
-            <p>{userProp.country}</p>
-            <p>{userProp.instrument}</p>
-            <p>{userProp.email}</p>
-            <p>{userProp.phone}</p>
-            <p>{userProp.bio}</p>
+            <h3 className="hero__curr-user__card-name">
+              <span id="hero__span"></span>
+              {userProp.name}
+            </h3>
+            <p className="hero__curr-user__card-address">
+              <span id="hero__span">Address: </span>
+              {userProp.address}
+            </p>
+            <p className="hero__curr-user__card-city">
+              <span id="hero__span">City: </span>
+              {userProp.city}
+            </p>
+            <p className="hero__curr-user__card-country">
+              <span id="hero__span">Country: </span>
+              {userProp.country}
+            </p>
+            <p className="hero__curr-user__card-instrument">
+              <span id="hero__span">Instruments: </span>
+              {userProp.instrument}
+            </p>
+            <p className="hero__curr-user__card-email">
+              <span id="hero__span">Email: </span>
+              {userProp.email}
+            </p>
+            <p className="hero__curr-user__card-phone">
+              <span id="hero__span">Phone: </span>
+              {userProp.phone}
+            </p>
+            <p className="hero__curr-user__card-bio">
+              <span id="hero__span">About: </span>
+              {userProp.bio}
+            </p>
 
             <button onClick={openModal}>Delete User</button>
             <Modal

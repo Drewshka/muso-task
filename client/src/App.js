@@ -25,7 +25,6 @@ function App() {
   return (
     <div className="App">
       <Router onUpdate={() => window.scrollTo(0, 0)}>
-        <Header />
         <ul className="App__ul">
           <li className="App__ul-item">
             <Link to="/public" style={{ textDecoration: "none" }}>
@@ -39,6 +38,7 @@ function App() {
             </Link>
           </li>
         </ul>
+        <Header />
         <AuthButton />
         <Switch>
           <Route path="/" exact component={HomePage} />

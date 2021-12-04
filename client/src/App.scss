@@ -6,10 +6,11 @@
 
   &__ul {
     list-style-type: none;
-    @include flex(center, center, row);
+    @include flex(flex-end, flex-end, column);
+    margin-bottom: 0;
 
     &-item {
-      @include font("Avenir Next Regular", 600, 13px, 20px, $primary);
+      @include font("Avenir Next Regular", 400, 13px, 15px, $primary);
       padding: 0 8px;
     }
   }

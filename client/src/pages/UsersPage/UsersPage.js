@@ -116,16 +116,30 @@ export default class UsersPage extends Component {
 
     return (
       <section className="users">
-        <h1 className="users__title">Users Page</h1>
-        <button type="button" onClick={this.showModalHandler}>
-          Post a Gig
-        </button>
-        <button type="button" onClick={this.showSignUpModalHandler}>
-          User Sign-up
-        </button>
-        <button type="button" onClick={this.showEditUserModalHandler}>
-          Edit User
-        </button>
+        <h2 className="users__title">Musicians</h2>
+        <div className="users__button">
+          <button
+            className="users__button-post"
+            type="button"
+            onClick={this.showModalHandler}
+          >
+            Post a Gig
+          </button>
+          <button
+            className="users__button-signUp"
+            type="button"
+            onClick={this.showSignUpModalHandler}
+          >
+            Sign-up
+          </button>
+          <button
+            className="users__button-edit"
+            type="button"
+            onClick={this.showEditUserModalHandler}
+          >
+            Edit User
+          </button>
+        </div>
         <FormModal
           showModal={this.state.showModal}
           hideModalHandler={this.hideModalHandler}
