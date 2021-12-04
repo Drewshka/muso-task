@@ -1,0 +1,16 @@
+@use "./styles/partials/mixins" as *;
+@use "./styles/partials/variables" as *;
+
+.App {
+  text-align: center;
+
+  &__ul {
+    list-style-type: none;
+    @include flex(center, center, row);
+
+    &-item {
+      @include font("Avenir Next Regular", 600, 13px, 20px, $primary);
+      padding: 0 8px;
+    }
+  }
+}

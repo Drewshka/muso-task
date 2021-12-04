@@ -31,33 +31,33 @@ class SingleGig {
     this.time = time;
   }
 }
-
-const getAll = async () => {
-  try {
-    const data = await knex
-      .from("gigs")
-      .innerJoin("users", "users.id", "gigs.userID");
-
-    console.log(data);
-
-    return data;
-  } catch (error) {
-    console.log(error);
-    return error;
-  }
-};
-
+//* get with user info
 // const getAll = async () => {
 //   try {
-//     const data = await knex.select("*").from("gigs");
+//     const data = await knex
+//       .from("gigs")
+//       .innerJoin("users", "users.id", "gigs.userID");
+
 //     console.log(data);
-//     // return JSON.parse(data);
+
 //     return data;
 //   } catch (error) {
 //     console.log(error);
 //     return error;
 //   }
 // };
+
+const getAll = async () => {
+  try {
+    const data = await knex.select("*").from("gigs");
+    console.log(data);
+    // return JSON.parse(data);
+    return data;
+  } catch (error) {
+    console.log(error);
+    return error;
+  }
+};
 
 const add = async (obj) => {
   // const gigsArray = getAll();
@@ -85,25 +85,13 @@ const add = async (obj) => {
   }
 };
 
-const getOneById = async (id) => {
-  try {
-    const data = await knex
-      .from("gigs")
-      .innerJoin("users", "users.id", "gigs.userID")
-      .where("gigs.id", id);
-
-    console.log(data);
-
-    return data;
-  } catch (error) {
-    console.log(error);
-    return error;
-  }
-};
-
+//* get with user info
 // const getOneById = async (id) => {
 //   try {
-//     const data = await knex.select("*").where("id", id).from("gigs");
+//     const data = await knex
+//       .from("gigs")
+//       .innerJoin("users", "users.id", "gigs.userID")
+//       .where("gigs.id", id);
 
 //     console.log(data);
 
@@ -113,6 +101,19 @@ const getOneById = async (id) => {
 //     return error;
 //   }
 // };
+
+const getOneById = async (id) => {
+  try {
+    const data = await knex.select("*").where("id", id).from("gigs");
+
+    console.log(data);
+
+    return data;
+  } catch (error) {
+    console.log(error);
+    return error;
+  }
+};
 
 const getGigsByUser = async (userID) => {
   try {

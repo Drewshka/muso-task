@@ -19,7 +19,7 @@ const customStyles = {
 
 function HeroGig({ gig, history }) {
   // console.log(...gig);
-  console.log(gig[0].id);
+  // console.log(gig[0].id);
 
   // this.props.history.push("/");
   console.log(history);
@@ -61,13 +61,13 @@ function HeroGig({ gig, history }) {
         // this.setState({
         //   selectedGig: data,
         // });
-        history.push("/");
         // history.push("/");
       })
       .catch((error) => {
         console.error("There was an error!", error);
       });
 
+    history.push("/");
     alert("Deleted successfully");
   };
 

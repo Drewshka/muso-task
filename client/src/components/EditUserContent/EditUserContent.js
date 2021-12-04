@@ -128,27 +128,27 @@ class EditUserContent extends Component {
     // }
 
     //TODO need to fix form validation so that if we edit users and leave phone and email fields blank, validator won't return false for default phone and email fields
-    const validatePhoneNumber = (number) => {
-      const isValidPhoneNumber = validator.isMobilePhone(number);
-      return isValidPhoneNumber;
-    };
+    // const validatePhoneNumber = (number) => {
+    //   const isValidPhoneNumber = validator.isMobilePhone(number);
+    //   return isValidPhoneNumber;
+    // };
 
-    if (!validatePhoneNumber(phone || defaultPhone)) {
-      alert("Please enter a valid phone number");
-      return false;
-    }
+    // if (!validatePhoneNumber(phone || defaultPhone)) {
+    //   alert("Please enter a valid phone number");
+    //   return false;
+    // }
 
-    console.log(validatePhoneNumber(phone));
+    // console.log(validatePhoneNumber(phone));
 
-    const validateEmail = (Email) => {
-      const isValidEmail = validator.isEmail(Email);
-      return isValidEmail;
-    };
+    // const validateEmail = (Email) => {
+    //   const isValidEmail = validator.isEmail(Email);
+    //   return isValidEmail;
+    // };
 
-    if (!validateEmail(email || defaultEmail)) {
-      alert("Please enter a valid email");
-      return false;
-    }
+    // if (!validateEmail(email || defaultEmail)) {
+    //   alert("Please enter a valid email");
+    //   return false;
+    // }
 
     // console.log(validateEmail(email));
 
@@ -178,7 +178,7 @@ class EditUserContent extends Component {
 
     console.log("handle submit!");
 
-    //   this.props.history.push("/");
+    this.props.history.push("/");
   };
 
   render() {

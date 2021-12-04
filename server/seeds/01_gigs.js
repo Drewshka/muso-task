@@ -6,11 +6,11 @@ exports.seed = function (knex) {
       gigName: "Jazz trio",
       description: "Jazz trio gig in need of a drummer.",
       category: "Performance",
-      // status: "Open",
       venue: "The Rex",
       address: "Somewhere, Toronto, ON",
       date: "01/01/2021",
       time: "7:00pm",
+      // status: "Open",
     },
     {
       id: "2",
@@ -18,11 +18,11 @@ exports.seed = function (knex) {
       gigName: "Jazz trio",
       description: "Jazz trio gig in need of a drummer.",
       category: "Performance",
-      // status: "Open",
       venue: "The Rex",
       address: "Somewhere, Toronto, ON",
       date: "01/01/2021",
       time: "7:00pm",
+      // status: "Open",
     },
     {
       id: "3",
@@ -30,11 +30,11 @@ exports.seed = function (knex) {
       gigName: "Jazz trio",
       description: "Jazz trio gig in need of a drummer.",
       category: "Performance",
-      // status: "Open",
       venue: "The Rex",
       address: "Somewhere, Toronto, ON",
       date: "01/01/2021",
       time: "7:00pm",
+      // status: "Open",
     },
   ];
   // Deletes ALL existing entries

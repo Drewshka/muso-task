@@ -5,9 +5,18 @@
 @use "../../styles/partials/variables" as *;
 
 .header {
-  padding: 0 1rem;
+  padding: 0 1rem 1rem;
+  // background-color: $primary3;
+
   &__title {
-    @include font("Avenir Next Regular", 600, 26px, 20px, $primary);
+    @include font("Avenir Next Regular", 600, 32px, 20px, $primary);
+    padding: 1rem 0;
+    @include tablet {
+      @include font("Avenir Next Regular", 600, 36px, 26px, $primary);
+    }
+    @include desktop {
+      @include font("Avenir Next Regular", 600, 42px, 32px, $primary);
+    }
   }
 
   &__link {
@@ -19,6 +28,12 @@
     &-two,
     &-three {
       @include font("Avenir Next Regular", 600, 13px, 10px, $primary2);
+      @include tablet {
+        @include font("Avenir Next Regular", 600, 15px, 15px, $primary2);
+      }
+      @include desktop {
+        @include font("Avenir Next Regular", 600, 18px, 15px, $primary2);
+      }
       // padding: 0.5rem 0;
     }
   }

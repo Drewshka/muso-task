@@ -1,8 +1,11 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
 .carousel-container {
   //   width: 100%;
   display: flex;
   flex-direction: column;
-  width: 38%;
+  width: 70%;
   margin: 0 auto;
   border: 1px solid black;
   border-radius: 4px;
@@ -29,6 +32,12 @@
   -ms-overflow-style: none; /* hide scrollbar in IE and Edge */
   scrollbar-width: none; /* hide scrollbar in Firefox */
   height: 35vh;
+  @include tablet {
+    height: 50vh;
+  }
+  @include desktop {
+    height: 60vh;
+  }
 }
 
 /* hide scrollbar in webkit browser */
@@ -55,6 +64,7 @@
   border-radius: 24px;
   background-color: white;
   border: 1px solid #ddd;
+  opacity: 0.3;
 }
 
 .left-arrow {
