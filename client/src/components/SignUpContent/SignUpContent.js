@@ -178,7 +178,7 @@ class SignUpContent extends Component {
   render() {
     return (
       <div className="signUp">
-        <h1>User Sign-Up</h1>
+        <h1 className="signUp__header">User Sign-Up</h1>
         <form
           className="signUp__container"
           id="signUp__container"
@@ -186,199 +186,199 @@ class SignUpContent extends Component {
           action="POST"
           onSubmit={this.handleSubmit}
         >
-          <div className="signUp__container-name">
-            <h4 className="signUp__container-name-title">Enter your name</h4>
-            <input
-              className="signUp__container-name-input"
-              type="text"
-              id="name"
-              name="name"
-              placeholder="Please name your gig"
-              value={this.state.name}
-              onChange={this.handleChange}
-            />
-            <div
-              className="signUp__container-name-error"
-              id="nameError"
-              name="nameError"
-            >
-              {this.state.nameError}
+          <article id="signUp-container1">
+            <div className="signUp__container-name">
+              <h4 className="signUp__container-name-title">Enter your name</h4>
+              <input
+                className="signUp__container-name-input"
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Please name your gig"
+                value={this.state.name}
+                onChange={this.handleChange}
+              />
+              <div
+                className="signUp__container-name-error"
+                id="nameError"
+                name="nameError"
+              >
+                {this.state.nameError}
+              </div>
             </div>
-          </div>
-          <div className="signUp__container-address">
-            <h4 className="signUp__container-address-title">
-              What's your address?
-            </h4>
-            <input
-              className="signUp__container-address-input"
-              type="text"
-              id="address"
-              name="address"
-              placeholder="Please enter your address"
-              value={this.state.address}
-              onChange={this.handleChange}
-            />
-            <div
-              className="signUp__container-address-error"
-              id="addressError"
-              name="addressError"
-            >
-              {this.state.addressError}
+            <div className="signUp__container-address">
+              <h4 className="signUp__container-address-title">
+                What's your address?
+              </h4>
+              <input
+                className="signUp__container-address-input"
+                type="text"
+                id="address"
+                name="address"
+                placeholder="Please enter your address"
+                value={this.state.address}
+                onChange={this.handleChange}
+              />
+              <div
+                className="signUp__container-address-error"
+                id="addressError"
+                name="addressError"
+              >
+                {this.state.addressError}
+              </div>
             </div>
-          </div>
 
-          <div className="signUp__container-city">
-            <h4 className="signUp__container-city-title">What's your city?</h4>
-            <input
-              className="signUp__container-city-input"
-              type="text"
-              id="city"
-              name="city"
-              placeholder="Please enter your city"
-              value={this.state.city}
-              onChange={this.handleChange}
-            />
-            <div
-              className="signUp__container-city-error"
-              id="cityError"
-              name="cityError"
-            >
-              {this.state.cityError}
+            <div className="signUp__container-city">
+              <h4 className="signUp__container-city-title">
+                What's your city?
+              </h4>
+              <input
+                className="signUp__container-city-input"
+                type="text"
+                id="city"
+                name="city"
+                placeholder="Please enter your city"
+                value={this.state.city}
+                onChange={this.handleChange}
+              />
+              <div
+                className="signUp__container-city-error"
+                id="cityError"
+                name="cityError"
+              >
+                {this.state.cityError}
+              </div>
             </div>
-          </div>
 
-          <div className="signUp__container-country">
-            <h4 className="signUp__container-country-title">
-              Enter your country
-            </h4>
-            <input
-              className="signUp__container-country-input"
-              type="text"
-              id="country"
-              name="country"
-              placeholder="Please add a country"
-              value={this.state.country}
-              onChange={this.handleChange}
-            />
-            <div
-              className="signUp__container-country-error"
-              id="countryError"
-              name="countryError"
-            >
-              {this.state.countryError}
+            <div className="signUp__container-country">
+              <h4 className="signUp__container-country-title">
+                Enter your country
+              </h4>
+              <input
+                className="signUp__container-country-input"
+                type="text"
+                id="country"
+                name="country"
+                placeholder="Please add a country"
+                value={this.state.country}
+                onChange={this.handleChange}
+              />
+              <div
+                className="signUp__container-country-error"
+                id="countryError"
+                name="countryError"
+              >
+                {this.state.countryError}
+              </div>
             </div>
-          </div>
+          </article>
 
-          <div className="signUp__container-phone">
-            <h4 className="signUp__container-phone-title">
-              What's your phone number?
-            </h4>
-            <input
-              className="signUp__container-phone-input"
-              type="text"
-              id="phone"
-              name="phone"
-              placeholder="Please add your phone number"
-              value={this.state.phone}
-              onChange={this.handleChange}
-            />
-            <div
-              className="signUp__container-phone-error"
-              id="phoneError"
-              name="phoneError"
-            >
-              {this.state.phoneError}
+          <article id="signUp-container2">
+            <div className="signUp__container-phone">
+              <h4 className="signUp__container-phone-title">Phone number</h4>
+              <input
+                className="signUp__container-phone-input"
+                type="text"
+                id="phone"
+                name="phone"
+                placeholder="Please add your phone number"
+                value={this.state.phone}
+                onChange={this.handleChange}
+              />
+              <div
+                className="signUp__container-phone-error"
+                id="phoneError"
+                name="phoneError"
+              >
+                {this.state.phoneError}
+              </div>
             </div>
-          </div>
 
-          <div className="signUp__container-email">
-            <h4 className="signUp__container-email-title">Email</h4>
-            <label id="email">Please enter your email </label>
-            <input
-              type="text"
-              name="email"
-              className="signUp__container-email-input"
-              id="email"
-              placeholder="Please add the address"
-              value={this.state.email}
-              onChange={this.handleChange}
-            />
+            <div className="signUp__container-email">
+              <h4 className="signUp__container-email-title">Email</h4>
+              <label id="email"></label>
+              <input
+                type="text"
+                name="email"
+                className="signUp__container-email-input"
+                id="email"
+                placeholder="Please add the address"
+                value={this.state.email}
+                onChange={this.handleChange}
+              />
 
-            <div
-              className="signUp__container-email-error"
-              id="emailError"
-              name="emailError"
-            >
-              {this.state.emailError}
+              <div
+                className="signUp__container-email-error"
+                id="emailError"
+                name="emailError"
+              >
+                {this.state.emailError}
+              </div>
             </div>
-          </div>
 
-          <div className="signUp__container-instrument">
-            <h4 className="signUp__container-instrument-title">Instrument</h4>
-            <label id="instrument">
-              Please tell us what instrument you play
-            </label>
-            <input
-              type="instrument"
-              name="instrument"
-              className="signUp__container-instrument-input"
-              id="instrument"
-              placeholder="Please add your instrument"
-              value={this.state.instrument}
-              onChange={this.handleChange}
-            />
-            <div
-              className="signUp__container-instrument-error"
-              id="instrumentError"
-              name="instrumentError"
-            >
-              {this.state.instrumentError}
+            <div className="signUp__container-instrument">
+              <h4 className="signUp__container-instrument-title">Instrument</h4>
+              <label id="instrument"></label>
+              <input
+                type="instrument"
+                name="instrument"
+                className="signUp__container-instrument-input"
+                id="instrument"
+                placeholder="Please add your instrument"
+                value={this.state.instrument}
+                onChange={this.handleChange}
+              />
+              <div
+                className="signUp__container-instrument-error"
+                id="instrumentError"
+                name="instrumentError"
+              >
+                {this.state.instrumentError}
+              </div>
             </div>
-          </div>
 
-          <div className="signUp__container-bio">
-            <h4 className="signUp__container-bio-title">
-              Give us a brief bio about yourself
-            </h4>
-            <textarea
-              className="signUp__container-bio-input"
-              type="text"
-              id="bio"
-              name="bio"
-              placeholder="Please enter a bio"
-              value={this.state.bio}
-              onChange={this.handleChange}
-            />
-            <div
-              className="signUp__container-bio-error"
-              id="bioError"
-              name="bioError"
-            >
-              {this.state.bioError}
+            <div className="signUp__container-bio">
+              <h4 className="signUp__container-bio-title">A brief bio</h4>
+              <textarea
+                className="signUp__container-bio-input"
+                type="text"
+                id="bio"
+                name="bio"
+                placeholder="Please enter a bio"
+                value={this.state.bio}
+                onChange={this.handleChange}
+              />
+              <div
+                className="signUp__container-bio-error"
+                id="bioError"
+                name="bioError"
+              >
+                {this.state.bioError}
+              </div>
             </div>
-          </div>
 
-          <div className="signUp__container-button">
-            <button
-              className="signUp__container-button-submit"
-              type="submit"
-              id="submit"
-              value="submit"
-            >
-              Submit
-            </button>
-            {/* <Link to="/"> */}
-            <button
-              onClick={this.props.hideModalHandler}
-              className="signUp__container-button-cancel"
-              type="cancel"
-              id="cancel"
-              value="cancel"
-            >
-              Cancel
-            </button>
-            {/* </Link> */}
-          </div>
+            <div className="signUp__container-button">
+              <button
+                className="signUp__container-button-submit"
+                type="submit"
+                id="submit"
+                value="submit"
+              >
+                Submit
+              </button>
+              {/* <Link to="/"> */}
+              <button
+                onClick={this.props.hideModalHandler}
+                className="signUp__container-button-cancel"
+                type="cancel"
+                id="cancel"
+                value="cancel"
+              >
+                Cancel
+              </button>
+              {/* </Link> */}
+            </div>
+          </article>
         </form>
       </div>
     );
