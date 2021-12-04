@@ -4,8 +4,43 @@
 .heroGig {
   padding: 0 1rem;
 
-  &__curr-gig__card {
-    border: 1px solid black;
-    background-color: lightblue;
+  &__curr-gig {
+    &-title {
+      @include font("Avenir Next Regular", 600, 22px, 15px, $primary);
+      margin-bottom: 1rem;
+      @include tablet {
+        @include font("Avenir Next Regular", 600, 26px, 20px, $primary);
+      }
+    }
+
+    &__card {
+      // border: 1px solid black;
+      // background-color: lightblue;
+      @include flex(center, flex-start, column);
+      border: 1px solid black;
+      background-color: $secondary3;
+      border-radius: 4px;
+      width: 80vw;
+      padding: 1rem;
+      margin: 0 auto;
+
+      &-name {
+        @include font("Avenir Next Regular", 600, 22px, 15px, $primary);
+        margin: 0.75rem;
+      }
+
+      &-address,
+      &-date,
+      &-time,
+      &-category,
+      &-venue,
+      &-description,
+      &-email {
+        @include font("Avenir Next Regular", 600, 14px, 15px, $primary2);
+      }
+    }
+    #heroGig__span {
+      @include font("Avenir Next Regular", 400, 14px, 15px, $primary);
+    }
   }
 }

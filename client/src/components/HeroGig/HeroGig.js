@@ -74,19 +74,43 @@ function HeroGig({ gig, history }) {
   return (
     <div className="heroGig">
       <section className="heroGig__curr-gig">
-        <h1>Current Gig</h1>
+        <h3 className="heroGig__curr-gig-title">Current Gig</h3>
         {gig.map((gigProp, i) => {
           console.log(gigProp);
           return (
             <article key={i} className="heroGig__curr-gig__card">
-              <h3>{gigProp.gigName}</h3>
-              <p>{gigProp.address}</p>
-              <p>{gigProp.date}</p>
-              <p>{gigProp.time}</p>
-              <p>{gigProp.category}</p>
-              <p>{gigProp.venue}</p>
-              <p>{gigProp.description}</p>
-              <p>Posted by: {gigProp.email}</p>
+              <h2 className="heroGig__curr-gig__card-name">
+                {gigProp.gigName}
+              </h2>
+              <p className="heroGig__curr-gig__card-address">
+                {" "}
+                <span id="heroGig__span">Address: </span>
+                {gigProp.address}
+              </p>
+              <p className="heroGig__curr-gig__card-date">
+                <span id="heroGig__span">Date: </span>
+                {gigProp.date}
+              </p>
+              <p className="heroGig__curr-gig__card-time">
+                <span id="heroGig__span">Time: </span>
+                {gigProp.time}
+              </p>
+              <p className="heroGig__curr-gig__card-category">
+                <span id="heroGig__span">Category: </span>
+                {gigProp.category}
+              </p>
+              <p className="heroGig__curr-gig__card-venue">
+                <span id="heroGig__span">Venue: </span>
+                {gigProp.venue}
+              </p>
+              <p className="heroGig__curr-gig__card-description">
+                <span id="heroGig__span">Description: </span>
+                {gigProp.description}
+              </p>
+              <p className="heroGig__curr-gig__card-email">
+                <span id="heroGig__span">Get in touch: </span>
+                {gigProp.email}
+              </p>
               {/* <p>User ID: {gig.userID}</p> */}
 
               <button onClick={openModal}>Delete Gig</button>
