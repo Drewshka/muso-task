@@ -194,7 +194,7 @@ class SignUpContent extends Component {
                 type="text"
                 id="name"
                 name="name"
-                placeholder="Please name your gig"
+                placeholder="Your name"
                 value={this.state.name}
                 onChange={this.handleChange}
               />
@@ -215,7 +215,7 @@ class SignUpContent extends Component {
                 type="text"
                 id="address"
                 name="address"
-                placeholder="Please enter your address"
+                placeholder="Your address"
                 value={this.state.address}
                 onChange={this.handleChange}
               />
@@ -237,7 +237,7 @@ class SignUpContent extends Component {
                 type="text"
                 id="city"
                 name="city"
-                placeholder="Please enter your city"
+                placeholder="Your city"
                 value={this.state.city}
                 onChange={this.handleChange}
               />
@@ -259,7 +259,7 @@ class SignUpContent extends Component {
                 type="text"
                 id="country"
                 name="country"
-                placeholder="Please add a country"
+                placeholder="Your country"
                 value={this.state.country}
                 onChange={this.handleChange}
               />
@@ -281,7 +281,7 @@ class SignUpContent extends Component {
                 type="text"
                 id="phone"
                 name="phone"
-                placeholder="Please add your phone number"
+                placeholder="Your phone number"
                 value={this.state.phone}
                 onChange={this.handleChange}
               />
@@ -302,7 +302,7 @@ class SignUpContent extends Component {
                 name="email"
                 className="signUp__container-email-input"
                 id="email"
-                placeholder="Please add the address"
+                placeholder="Your address"
                 value={this.state.email}
                 onChange={this.handleChange}
               />
@@ -324,7 +324,7 @@ class SignUpContent extends Component {
                 name="instrument"
                 className="signUp__container-instrument-input"
                 id="instrument"
-                placeholder="Please add your instrument"
+                placeholder="Your instrument"
                 value={this.state.instrument}
                 onChange={this.handleChange}
               />

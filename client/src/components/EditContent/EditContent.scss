@@ -1,0 +1,132 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+label {
+  margin-left: 4px;
+}
+
+.edit {
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 1rem;
+  background-color: cornsilk;
+
+  &__header {
+    @include font("Avenir Next Regular", 600, 26px, 26px, $primary);
+  }
+
+  &__container {
+    @include flex(space-evenly, baseline, row);
+    &-name {
+      &-title {
+        @include font("Avenir Next Regular", 600, 18px, 20px, $primary3);
+        margin-top: 0.5rem;
+        text-align: left;
+      }
+
+      &-input {
+        border-radius: 4px;
+        padding: 0 12px;
+      }
+
+      &-error {
+        @include font("Avenir Next Regular", 400, 12px, 16px, red);
+      }
+    }
+
+    &-description {
+      &-title {
+        @include font("Avenir Next Regular", 600, 18px, 20px, $primary3);
+        margin-top: 0.5rem;
+        text-align: left;
+      }
+
+      &-input {
+        border-radius: 4px;
+        padding: 0 12px;
+        resize: none;
+        height: 6rem;
+      }
+
+      &-error {
+        @include font("Avenir Next Regular", 400, 12px, 16px, red);
+      }
+    }
+
+    &-category {
+      &-title {
+        @include font("Avenir Next Regular", 600, 18px, 20px, $primary3);
+        margin-top: 0.5rem;
+        text-align: left;
+      }
+
+      &-list {
+        @include flex(center, flex-start, column);
+      }
+
+      &-input {
+        border-radius: 4px;
+        padding: 0 12px;
+        resize: none;
+        height: 6rem;
+      }
+
+      &-error {
+        @include font("Avenir Next Regular", 400, 12px, 16px, red);
+      }
+
+      #Performance,
+      #Recording,
+      #Education {
+        @include font("Avenir Next Regular", 600, 12px, 18px, $primary2);
+      }
+    }
+
+    #venue-title {
+      @include font("Avenir Next Regular", 600, 18px, 20px, $primary3);
+      margin-top: 0.5rem;
+      text-align: left;
+    }
+
+    &-venue,
+    &-address,
+    &-date,
+    &-time {
+      &-title {
+        @include font("Avenir Next Regular", 600, 18px, 20px, $primary3);
+        margin-top: 0.5rem;
+        text-align: left;
+      }
+
+      &-input {
+        border-radius: 4px;
+        padding: 0 12px;
+      }
+
+      &-error {
+        @include font("Avenir Next Regular", 400, 12px, 16px, red);
+      }
+    }
+
+    &-time-input {
+      padding: 0 2.75rem;
+    }
+
+    &-button {
+      margin-top: 1rem;
+      &-submit,
+      &-cancel {
+        @include font("Avenir Next Regular", 600, 14px, 0px, $primary4);
+        height: 3rem;
+        min-width: 6rem;
+        background-color: $primary2;
+        padding: 0 8px;
+        border-radius: 4px;
+        width: 6rem;
+        border: 1px solid $primary;
+        margin: 0 2px;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}

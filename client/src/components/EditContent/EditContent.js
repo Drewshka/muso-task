@@ -136,190 +136,197 @@ class EditContent extends Component {
           action="POST"
           onSubmit={this.handleSubmit}
         >
-          <div className="edit__container-name">
-            <h4 className="edit__container-name-title">Name</h4>
-            <input
-              className="edit__container-name-input"
-              type="text"
-              id="name"
-              name="name"
-              placeholder="Please name your gig"
-              value={this.state.name}
-              onChange={this.handleChange}
-            />
-            <div
-              className="edit__container-name-error"
-              id="nameError"
-              name="nameError"
-            >
-              {this.state.nameError}
-            </div>
-          </div>
-          <div className="edit__container-description">
-            <h4 className="edit__container-description-title">
-              Gig Description
-            </h4>
-            <textarea
-              className="edit__container-description-input"
-              type="text"
-              id="description"
-              name="description"
-              placeholder="Please describe the gig"
-              value={this.state.description}
-              onChange={this.handleChange}
-            />
-            <div
-              className="edit__container-description-error"
-              id="descriptionError"
-              name="descriptionError"
-            >
-              {this.state.descriptionError}
-            </div>
-          </div>
-
-          <div className="edit__container-category">
-            <h4 className="edit__container-category-title">Category</h4>
-            <div className="edit__container-category-list">
-              <div className="edit__container-category-list-container">
-                <input
-                  type="radio"
-                  id="Performance"
-                  name="category"
-                  value="Performance"
-                  onChange={this.handleChange}
-                />
-                <label htmlFor="Performance" id="Performance">
-                  Performance
-                </label>
-              </div>
-              <div className="edit__container-category-list-container2">
-                <input
-                  type="radio"
-                  id="Recording"
-                  name="category"
-                  value="Recording"
-                  onChange={this.handleChange}
-                />
-                <label htmlFor="Recording" id="Recording">
-                  Recording
-                </label>
-              </div>
-              <div className="edit__container-category-list-container3">
-                <input
-                  type="radio"
-                  id="Education"
-                  name="category"
-                  value="Education"
-                  onChange={this.handleChange}
-                />
-                <label htmlFor="Education" id="Education">
-                  Education
-                </label>
+          <article id="editContainer1">
+            <div className="edit__container-name">
+              <h4 className="edit__container-name-title">Name</h4>
+              <input
+                className="edit__container-name-input"
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Please name your gig"
+                value={this.state.name}
+                onChange={this.handleChange}
+              />
+              <div
+                className="edit__container-name-error"
+                id="nameError"
+                name="nameError"
+              >
+                {this.state.nameError}
               </div>
             </div>
-          </div>
+            <div className="edit__container-description">
+              <h4 className="edit__container-description-title">
+                Gig Description
+              </h4>
+              <textarea
+                className="edit__container-description-input"
+                type="text"
+                id="description"
+                name="description"
+                placeholder="Please describe the gig"
+                value={this.state.description}
+                onChange={this.handleChange}
+              />
+              <div
+                className="edit__container-description-error"
+                id="descriptionError"
+                name="descriptionError"
+              >
+                {this.state.descriptionError}
+              </div>
+            </div>
 
-          <div className="edit__container-venue">
-            <h4 className="edit_container-venue-title">Venue</h4>
-            <input
-              className="edit__container-venue-input"
-              type="text"
-              id="venue"
-              name="venue"
-              placeholder="Please add a venue"
-              value={this.state.venue}
-              onChange={this.handleChange}
-            />
-            <div
-              className="edit__container-venue-error"
-              id="venueError"
-              name="venueError"
-            >
-              {this.state.venueError}
+            <div className="edit__container-category">
+              <h4 className="edit__container-category-title">Category</h4>
+              <div className="edit__container-category-list">
+                <div className="edit__container-category-list-container">
+                  <input
+                    type="radio"
+                    id="Performance"
+                    name="category"
+                    value="Performance"
+                    onChange={this.handleChange}
+                  />
+                  <label htmlFor="Performance" id="Performance">
+                    Performance
+                  </label>
+                </div>
+                <div className="edit__container-category-list-container2">
+                  <input
+                    type="radio"
+                    id="Recording"
+                    name="category"
+                    value="Recording"
+                    onChange={this.handleChange}
+                  />
+                  <label htmlFor="Recording" id="Recording">
+                    Recording
+                  </label>
+                </div>
+                <div className="edit__container-category-list-container3">
+                  <input
+                    type="radio"
+                    id="Education"
+                    name="category"
+                    value="Education"
+                    onChange={this.handleChange}
+                  />
+                  <label htmlFor="Education" id="Education">
+                    Education
+                  </label>
+                </div>
+              </div>
             </div>
-          </div>
-          <div className="edit__container-address">
-            <h4 className="edit__container-address-title">Address</h4>
-            <input
-              className="edit__container-address-input"
-              type="text"
-              id="address"
-              name="address"
-              placeholder="Please add the address"
-              value={this.state.address}
-              onChange={this.handleChange}
-            />
-            <div
-              className="edit__container-address-error"
-              id="addressError"
-              name="addressError"
-            >
-              {this.state.addressError}
-            </div>
-          </div>
-          <div className="edit__container-date">
-            <h4 className="form__container-date-title">Date</h4>
-            <label id="date">Please select date of gig: </label>
-            <input
-              type="date"
-              name="date"
-              className="edit__container-date-input"
-              id="date"
-              placeholder="Please add the address"
-              value={this.state.date}
-              onChange={this.handleChange}
-            />
 
-            <div
-              className="edit__container-date-error"
-              id="dateError"
-              name="dateError"
-            >
-              {this.state.dateError}
+            <div className="edit__container-venue">
+              <h4 className="edit_container-venue-title" id="venue-title">
+                Venue
+              </h4>
+              <input
+                className="edit__container-venue-input"
+                type="text"
+                id="venue"
+                name="venue"
+                placeholder="Please add a venue"
+                value={this.state.venue}
+                onChange={this.handleChange}
+              />
+              <div
+                className="edit__container-venue-error"
+                id="venueError"
+                name="venueError"
+              >
+                {this.state.venueError}
+              </div>
             </div>
-          </div>
-          <div className="edit__container-time">
-            <h4 className="edit__container-time-title">Time</h4>
-            <label id="time">Please select time of gig: </label>
-            <input
-              type="time"
-              name="time"
-              className="form__container-time-input"
-              id="time"
-              placeholder="Please add the address"
-              value={this.state.time}
-              onChange={this.handleChange}
-            />
-            <div
-              className="edit__container-time-error"
-              id="timeError"
-              name="timeError"
-            >
-              {this.state.timeError}
-            </div>
-          </div>
+          </article>
 
-          <div className="edit__container-button">
-            <button
-              className="edit__container-button-submit"
-              type="submit"
-              id="submit"
-              value="submit"
-            >
-              Submit
-            </button>
-            {/* <Link to="/"> */}
-            <button
-              onClick={this.props.hideEditModalHandler}
-              className="edit__container-button-cancel"
-              type="cancel"
-              id="cancel"
-              value="cancel"
-            >
-              Cancel
-            </button>
-            {/* </Link> */}
-          </div>
+          <article id="editContainer2">
+            <div className="edit__container-address">
+              <h4 className="edit__container-address-title">Address</h4>
+              <input
+                className="edit__container-address-input"
+                type="text"
+                id="address"
+                name="address"
+                placeholder="Please add the address"
+                value={this.state.address}
+                onChange={this.handleChange}
+              />
+              <div
+                className="edit__container-address-error"
+                id="addressError"
+                name="addressError"
+              >
+                {this.state.addressError}
+              </div>
+            </div>
+            <div className="edit__container-date">
+              <h4 className="form__container-date-title">Date</h4>
+              <label id="date"></label>
+              <input
+                type="date"
+                name="date"
+                className="edit__container-date-input"
+                id="date"
+                placeholder="Please add the address"
+                value={this.state.date}
+                onChange={this.handleChange}
+              />
+
+              <div
+                className="edit__container-date-error"
+                id="dateError"
+                name="dateError"
+              >
+                {this.state.dateError}
+              </div>
+            </div>
+            <div className="edit__container-time">
+              <h4 className="edit__container-time-title">Time</h4>
+              <label id="time"></label>
+              <input
+                type="time"
+                name="time"
+                className="form__container-time-input"
+                id="time"
+                placeholder="Please add the address"
+                value={this.state.time}
+                onChange={this.handleChange}
+              />
+              <div
+                className="edit__container-time-error"
+                id="timeError"
+                name="timeError"
+              >
+                {this.state.timeError}
+              </div>
+            </div>
+
+            <div className="edit__container-button">
+              <button
+                className="edit__container-button-submit"
+                type="submit"
+                id="submit"
+                value="submit"
+              >
+                Submit
+              </button>
+              {/* <Link to="/"> */}
+              <button
+                onClick={this.props.hideEditModalHandler}
+                className="edit__container-button-cancel"
+                type="cancel"
+                id="cancel"
+                value="cancel"
+              >
+                Cancel
+              </button>
+              {/* </Link> */}
+            </div>
+          </article>
         </form>
       </div>
     );
