@@ -4,7 +4,73 @@
 .list {
   padding: 0 1rem;
 
+  &__container {
+    @include flex(center, baseline, row);
+    flex-wrap: wrap;
+  }
+
   &__card {
+    @include flex(center, flex-start, column);
     border: 1px solid black;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    width: 14rem;
+    margin: 0.5rem;
+
+    &-name {
+      @include font("Avenir Next Regular", 600, 18px, 15px, $primary);
+      margin: 1rem 0;
+    }
+
+    &-city,
+    &-country,
+    &-instrument,
+    &-bio {
+      @include font("Avenir Next Regular", 600, 14px, 15px, $primary2);
+    }
+
+    &-bio {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  #list__span {
+    @include font("Avenir Next Regular", 400, 14px, 15px, $primary);
   }
 }
+
+// .hero {
+//   &__curr-user {
+//     @include font("Avenir Next Regular", 600, 18px, 15px, $primary);
+//   }
+
+//   &__curr-user__card {
+//     @include flex(center, flex-start, column);
+//     border: 1px solid black;
+//     background-color: $secondary3;
+//     border-radius: 4px;
+//     width: 26rem;
+//     padding: 1rem;
+//     margin: 0 auto;
+
+//     &-name {
+//       @include font("Avenir Next Regular", 600, 18px, 15px, $primary);
+//       margin: 0.75rem;
+//     }
+
+//     &-address,
+//     &-city,
+//     &-country,
+//     &-instrument,
+//     &-email,
+//     &-phone,
+//     &-bio {
+//       @include font("Avenir Next Regular", 600, 14px, 15px, $primary2);
+//     }
+//   }
+
+//   #hero__span {
+//     @include font("Avenir Next Regular", 400, 14px, 15px, $primary);
+//   }
+// }
