@@ -1,27 +1,9 @@
-// import usePlacesAutocomplete, {
-//   getGeocode,
-//   getLatLng,
-// } from "use-places-autocomplete";
-// import {
-//   Combobox,
-//   ComboboxInput,
-//   ComboboxPopover,
-//   ComboboxList,
-//   ComboboxOption,
-// } from "@reach/combobox";
-// import { formatRelative } from "date-fns";
-
+import Autocomplete from "react-google-autocomplete";
 import { withRouter } from "react-router-dom";
 import "./FormContent.scss";
 import { Component } from "react";
 import axios from "axios";
 const apiUrl = "http://localhost:8080";
-
-// const libraries = ["places"];
-// const mapContainerStyle = {
-//   height: "100vh",
-//   width: "100vw",
-// };
 
 const initialState = {
   name: "",
@@ -197,7 +179,6 @@ class FormContent extends Component {
               {this.state.descriptionError}
             </div>
           </div>
-
           <div className="form__container-category">
             <h4 className="form__container-category-title">Category</h4>
             <div className="form__container-category-list">
@@ -239,7 +220,6 @@ class FormContent extends Component {
               </div>
             </div>
           </div>
-
           <div className="form__container-venue">
             <h4 className="form__container-venue-title">Venue</h4>
             <input
@@ -259,7 +239,14 @@ class FormContent extends Component {
               {this.state.venueError}
             </div>
           </div>
-          <div className="form__container-address">
+          <Autocomplete
+            apiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}
+            onPlaceSelected={(place) => {
+              console.log(place);
+            }}
+          />
+
+          {/* <div className="form__container-address">
             <h4 className="form__container-address-title">Address</h4>
             <input
               className="form__container-address-input"
@@ -277,7 +264,7 @@ class FormContent extends Component {
             >
               {this.state.addressError}
             </div>
-          </div>
+          </div> */}
           <div className="form__container-date">
             <h4 className="form__container-date-title">Date</h4>
             <label id="date">Please select date of gig: </label>
@@ -319,7 +306,6 @@ class FormContent extends Component {
               {this.state.timeError}
             </div>
           </div>
-
           <div className="form__container-button">
             <button
               className="form__container-button-submit"

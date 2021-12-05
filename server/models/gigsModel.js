@@ -35,6 +35,7 @@ class SingleGig {
 const getAll = async () => {
   try {
     const data = await knex
+      .select(["gigs.*", "users.name", "users.email"])
       .from("gigs")
       .innerJoin("users", "users.id", "gigs.userID");
 
@@ -91,6 +92,7 @@ const add = async (obj) => {
 const getOneById = async (id) => {
   try {
     const data = await knex
+      .select(["gigs.*", "users.name", "users.email"])
       .from("gigs")
       .innerJoin("users", "users.id", "gigs.userID")
       .where("gigs.id", id);

@@ -62,8 +62,43 @@ export default function ContactUsPage(props) {
   useEffect(() => {
     axios
       .get(gigsURL)
-      .then(function (response) {
-        // console.log(response.data);
+      .then(async function (response) {
+        // const address = response.data[0].address;
+        // const address = response.data.map();
+        response.data.map(async (gig) => {
+          try {
+            console.log(gig.address);
+            const gigAddress = gig.address;
+            const results = await getGeocode({ address: gigAddress });
+            const { lat, lng } = await getLatLng(results[0]);
+            console.log(lat, lng);
+
+            setMarkers((current) => [
+              ...current,
+              {
+                lat,
+                lng,
+                time: new Date(),
+                name: gig.gigName,
+                creator: gig.name,
+              },
+            ]);
+          } catch (error) {
+            console.log("Error", error);
+          }
+        });
+        // const results = await getGeocode({ address });
+        // const { lat, lng } = await getLatLng(results[0]);
+        // console.log(lat, lng);
+
+        // setMarkers((current) => [
+        //   ...current,
+        //   {
+        //     lat,
+        //     lng,
+        //     time: new Date(),
+        //   },
+        // ]);
         setData(response.data);
       })
       .catch(function (error) {
@@ -147,13 +182,14 @@ export default function ContactUsPage(props) {
             }}
           >
             <div>
-              <h2>
+              {/* <h2>
                 <span role="img" aria-label="bear">
                   🐻
                 </span>{" "}
                 Alert
-              </h2>
-              <p>Spotted {formatRelative(selected.time, new Date())}</p>
+              </h2> */}
+              <p>Gig: {selected.name}</p>
+              <p>Posted by: {selected.creator}</p>
             </div>
           </InfoWindow>
         ) : null}
