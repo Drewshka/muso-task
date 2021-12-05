@@ -7,7 +7,7 @@
   &__curr-gig {
     &-title {
       @include font("Avenir Next Regular", 600, 22px, 15px, $primary);
-      margin-bottom: 1rem;
+      margin: 1rem 0;
       @include tablet {
         @include font("Avenir Next Regular", 600, 26px, 20px, $primary);
       }
