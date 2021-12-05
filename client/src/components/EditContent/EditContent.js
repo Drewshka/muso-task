@@ -8,12 +8,14 @@ const apiUrl = "http://localhost:8080";
 const initialState = {
   name: "",
   description: "",
+  category: "",
   venue: "",
   address: "",
   date: "",
   time: "",
   nameError: "",
   descriptionError: "",
+  categoryError: "",
   venueError: "",
   addressError: "",
   dateError: "",
@@ -34,65 +36,79 @@ class EditContent extends Component {
     });
   };
 
-  // validate = () => {
-  //   let nameError = "";
-  //   let descriptionError = "";
-  //   let venueError = "";
-  //   let addressError = "";
-  //   let timeError = "";
+  validate = () => {
+    let nameError = "";
+    let descriptionError = "";
+    let categoryError = "";
+    let venueError = "";
+    let addressError = "";
+    let dateError = "";
+    let timeError = "";
 
-  //   if (!this.state.name) {
-  //     nameError = `This field is required`;
-  //   }
+    if (!this.state.name) {
+      nameError = `This field is required`;
+    }
 
-  //   if (!this.state.description) {
-  //     descriptionError = "This field is required";
-  //   }
+    if (!this.state.description) {
+      descriptionError = "This field is required";
+    }
 
-  //   if (!this.state.venue) {
-  //     venueError = "This field is required";
-  //   }
+    if (!this.state.category) {
+      venueError = "This field is required";
+    }
 
-  //   if (!this.state.address) {
-  //     addressError = "This field is required";
-  //   }
+    if (!this.state.venue) {
+      venueError = "This field is required";
+    }
 
-  //   if (!this.state.time) {
-  //     timeError = "This field is required";
-  //   }
+    if (!this.state.address) {
+      addressError = "This field is required";
+    }
 
-  //   if (
-  //     nameError ||
-  //     descriptionError ||
-  //     venueError ||
-  //     addressError ||
-  //     timeError
-  //   ) {
-  //     this.setState({
-  //       nameError,
-  //       descriptionError,
-  //       venueError,
-  //       addressError,
-  //       timeError,
-  //     });
-  //     return false;
-  //   }
+    if (!this.state.date) {
+      timeError = "This field is required";
+    }
 
-  //   return true;
-  // };
+    if (!this.state.time) {
+      timeError = "This field is required";
+    }
+
+    if (
+      nameError &&
+      descriptionError &&
+      categoryError &&
+      venueError &&
+      addressError &&
+      dateError &&
+      timeError
+    ) {
+      this.setState({
+        nameError,
+        descriptionError,
+        categoryError,
+        venueError,
+        addressError,
+        dateError,
+        timeError,
+      });
+      return false;
+    }
+
+    return true;
+  };
 
   handleSubmit = (event) => {
     event.preventDefault();
 
     console.log(this.state);
 
-    // const isValid = this.validate();
-    // if (isValid) {
-    //   console.log(this.state);
-    //   // clear form
-    //   this.setState(initialState);
-    //   this.props.history.push("/");
-    // }
+    const isValid = this.validate();
+    if (isValid) {
+      console.log(this.state);
+      // clear form
+      this.setState(initialState);
+      this.props.history.push("/");
+    }
 
     let currGigId = this.props.gig[0].id;
 
@@ -120,7 +136,7 @@ class EditContent extends Component {
 
     console.log("handle submit!");
 
-    this.props.history.push("/");
+    // this.props.history.push("/");
   };
 
   render() {
@@ -216,6 +232,13 @@ class EditContent extends Component {
                   <label htmlFor="Education" id="Education">
                     Education
                   </label>
+                </div>
+                <div
+                  className="edit__container-category-error"
+                  id="categoryError"
+                  name="categoryError"
+                >
+                  {this.state.categoryError}
                 </div>
               </div>
             </div>
