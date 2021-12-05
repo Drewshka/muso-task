@@ -4,6 +4,7 @@
 .hero {
   &__curr-user {
     @include font("Avenir Next Regular", 600, 18px, 15px, $primary);
+    margin-top: 0.5rem;
   }
 
   &__curr-user__card {

@@ -3,6 +3,7 @@
 
 .gigs {
   padding: 0 1rem;
+  position: relative;
 
   &__title {
     @include font("Avenir Next Regular", 600, 26px, 15px, $primary);

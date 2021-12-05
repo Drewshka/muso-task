@@ -6,13 +6,17 @@
   border-radius: 4px;
   padding: 1rem;
   background-color: cornsilk;
+  width: 80vw;
+  margin: 0 auto;
 
   &__header {
     @include font("Avenir Next Regular", 600, 26px, 26px, $primary);
   }
 
   &__container {
-    @include flex(space-evenly, baseline, row);
+    @include tablet {
+      @include flex(space-evenly, baseline, row);
+    }
 
     &-name,
     &-address,
@@ -25,16 +29,29 @@
       &-title {
         @include font("Avenir Next Regular", 600, 18px, 20px, $primary3);
         margin-top: 0.5rem;
-        text-align: left;
+        @include tablet {
+          text-align: left;
+        }
       }
 
       &-input {
         border-radius: 4px;
         padding: 0 12px;
+        width: 50%;
+        @include tablet {
+          width: 100%;
+        }
       }
 
       &-error {
         @include font("Avenir Next Regular", 400, 12px, 16px, red);
+      }
+    }
+
+    &-email,
+    &-instrument {
+      @include tablet {
+        @include flex(center, baseline, column);
       }
     }
 

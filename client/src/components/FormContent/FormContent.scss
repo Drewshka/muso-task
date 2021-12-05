@@ -10,6 +10,8 @@ label {
   border-radius: 4px;
   padding: 1rem;
   background-color: cornsilk;
+  width: 80vw;
+  margin: 0 auto;
 
   &__header {
     @include font("Avenir Next Regular", 600, 26px, 26px, $primary);
