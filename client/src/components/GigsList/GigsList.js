@@ -9,7 +9,7 @@ function GigsList({ gigs }) {
         <thead>
           <tr className="gigs__table--headers">
             <th className="gigs__table--headers-gig">GIG</th>
-            <th className="gigs__table--headers-address">VENUE</th>
+            <th className="gigs__table--headers-venue">VENUE</th>
             <th className="gigs__table--headers-date">DATE</th>
             <th className="gigs__table--headers-time">TIME</th>
             <th className="gigs__table--headers-category">CATEGORY</th>
@@ -22,7 +22,7 @@ function GigsList({ gigs }) {
                 <td className="gigs__table-body-container-name">
                   <Link to={`/gigs/${gig.id}`}>{gig.gigName}</Link>
                 </td>
-                <td className="gigs__table-body-container-address">
+                <td className="gigs__table-body-container-venue">
                   {gig.venue}
                 </td>
                 <td className="gigs__table-body-container-date">{gig.date}</td>

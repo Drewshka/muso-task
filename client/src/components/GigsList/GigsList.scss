@@ -15,14 +15,14 @@
     &--headers {
       background-color: blanchedalmond;
       &-gig,
-      &-address,
+      &-venue,
       &-date,
       &-time,
       &-category {
         @include font("Avenir Next Regular", 600, 20px, 24px, $primary);
       }
 
-      &-address,
+      &-venue,
       &-category {
         display: none;
         @include tablet {
@@ -37,7 +37,7 @@
         @include font("Avenir Next Regular", 600, 16px, 18px, $primary);
       }
 
-      &-address,
+      &-venue,
       &-date,
       &-time,
       &-category {
@@ -45,7 +45,7 @@
         padding: 0 1rem;
       }
 
-      &-address,
+      &-venue,
       &-category {
         display: none;
         @include tablet {

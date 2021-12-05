@@ -16,17 +16,25 @@ label {
   }
 
   &__container {
-    @include flex(space-evenly, baseline, row);
+    @include tablet {
+      @include flex(space-evenly, baseline, row);
+    }
     &-name {
       &-title {
         @include font("Avenir Next Regular", 600, 18px, 20px, $primary3);
         margin-top: 0.5rem;
-        text-align: left;
+        @include tablet {
+          text-align: left;
+        }
       }
 
       &-input {
         border-radius: 4px;
         padding: 0 12px;
+        width: 50%;
+        @include tablet {
+          width: 100%;
+        }
       }
 
       &-error {
@@ -38,7 +46,9 @@ label {
       &-title {
         @include font("Avenir Next Regular", 600, 18px, 20px, $primary3);
         margin-top: 0.5rem;
-        text-align: left;
+        @include tablet {
+          text-align: left;
+        }
       }
 
       &-input {
@@ -46,6 +56,10 @@ label {
         padding: 0 12px;
         resize: none;
         height: 6rem;
+        width: 50%;
+        @include tablet {
+          width: 100%;
+        }
       }
 
       &-error {
@@ -57,11 +71,22 @@ label {
       &-title {
         @include font("Avenir Next Regular", 600, 18px, 20px, $primary3);
         margin-top: 0.5rem;
-        text-align: left;
+        @include tablet {
+          text-align: left;
+        }
       }
 
       &-list {
-        @include flex(center, flex-start, column);
+        @include flex(center, flex-start, row);
+        @include tablet {
+          @include flex(center, flex-start, column);
+        }
+
+        &-container,
+        &-container2,
+        &-container3 {
+          padding: 0 4px;
+        }
       }
 
       &-input {
@@ -89,12 +114,18 @@ label {
       &-title {
         @include font("Avenir Next Regular", 600, 18px, 20px, $primary3);
         margin-top: 0.5rem;
-        text-align: left;
+        @include tablet {
+          text-align: left;
+        }
       }
 
       &-input {
         border-radius: 4px;
         padding: 0 12px;
+        width: 50%;
+        @include tablet {
+          width: 100%;
+        }
       }
 
       &-error {
