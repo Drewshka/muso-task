@@ -81,6 +81,8 @@ export default function ContactUsPage(props) {
                 time: new Date(),
                 name: gig.gigName,
                 creator: gig.name,
+                venue: gig.venue,
+                date: gig.date,
               },
             ]);
           } catch (error) {
@@ -158,9 +160,10 @@ export default function ContactUsPage(props) {
         onClick={onMapClick}
         onLoad={onMapLoad}
       >
-        {markers.map((marker) => (
+        {markers.map((marker, i) => (
           <Marker
-            key={`${marker.lat}-${marker.lng}`}
+            // key={`${marker.lat}-${marker.lng}`}
+            key={i}
             position={{ lat: marker.lat, lng: marker.lng }}
             onClick={() => {
               setSelected(marker);
@@ -181,15 +184,49 @@ export default function ContactUsPage(props) {
               setSelected(null);
             }}
           >
-            <div>
+            <div className="marker">
               {/* <h2>
                 <span role="img" aria-label="bear">
                   🐻
                 </span>{" "}
                 Alert
               </h2> */}
-              <p>Gig: {selected.name}</p>
-              <p>Posted by: {selected.creator}</p>
+              <p
+                className="marker-name"
+                style={{ color: "blue", fontWeight: "bold" }}
+              >
+                <span style={{ color: "black", fontWeight: "normal" }}>
+                  Gig:{" "}
+                </span>
+                {selected.name}
+              </p>
+              <p
+                className="marker-creator"
+                style={{ color: "blue", fontWeight: "bold" }}
+              >
+                <span style={{ color: "black", fontWeight: "normal" }}>
+                  Posted by:{" "}
+                </span>
+                {selected.creator}
+              </p>
+              <p
+                className="marker-venue"
+                style={{ color: "blue", fontWeight: "bold" }}
+              >
+                <span style={{ color: "black", fontWeight: "normal" }}>
+                  Venue:{" "}
+                </span>{" "}
+                {selected.venue}
+              </p>
+              <p
+                className="marker-date"
+                style={{ color: "blue", fontWeight: "bold" }}
+              >
+                <span style={{ color: "black", fontWeight: "normal" }}>
+                  Date:{" "}
+                </span>
+                {selected.date}
+              </p>
             </div>
           </InfoWindow>
         ) : null}
