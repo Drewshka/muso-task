@@ -239,11 +239,24 @@ class FormContent extends Component {
               {this.state.venueError}
             </div>
           </div>
-          <Autocomplete
+          {/* <Autocomplete
             apiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}
             onPlaceSelected={(place) => {
               console.log(place);
             }}
+          /> */}
+          <Autocomplete
+            apiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}
+            style={{ width: "90%" }}
+            onPlaceSelected={(place) => {
+              console.log(place);
+            }}
+            options={{
+              componentRestrictions: { country: "can" },
+              fields: ["address_components", "geometry"],
+              types: ["address"],
+            }}
+            defaultValue="Toronto"
           />
 
           {/* <div className="form__container-address">

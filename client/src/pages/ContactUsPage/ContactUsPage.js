@@ -1,16 +1,3 @@
-// import { Link } from "react-router-dom";
-// import "./ContactUsPage.scss";
-// import React, { Component } from "react";
-
-// export default class ContactUsPage extends Component {
-//   render() {
-//     return (
-//       <section className="users">
-//         <h1>Contact Us</h1>
-//       </section>
-//     );
-//   }
-// }
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import {
@@ -185,12 +172,6 @@ export default function ContactUsPage(props) {
             }}
           >
             <div className="marker">
-              {/* <h2>
-                <span role="img" aria-label="bear">
-                  🐻
-                </span>{" "}
-                Alert
-              </h2> */}
               <p
                 className="marker-name"
                 style={{ color: "blue", fontWeight: "bold" }}
