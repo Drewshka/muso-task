@@ -31,7 +31,11 @@ export default class UsersPage extends Component {
 
   //*USER SIGN-UP MODAL HANDLERS
   showSignUpModalHandler = (event) => {
-    this.setState({ showSignUpModal: true });
+    this.setState({
+      showSignUpModal: true,
+      // showModal: false,
+      // showEditUserModal: false,
+    });
   };
 
   hideSignUpModalHandler = (event) => {
