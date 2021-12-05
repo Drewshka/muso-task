@@ -1,3 +1,4 @@
+import Autocomplete from "react-google-autocomplete";
 import "./EditContent.scss";
 import { withRouter } from "react-router-dom";
 // import { Link } from "react-router-dom";
@@ -240,7 +241,18 @@ class EditContent extends Component {
           </div>
           <div className="edit__container-address">
             <h4 className="edit__container-address-title">Address</h4>
-            <input
+            <Autocomplete
+              apiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}
+              // style={{ width: "90%" }}
+              onPlaceSelected={(place) => {
+                console.log(place);
+              }}
+              options={{
+                componentRestrictions: { country: "can" },
+                fields: ["address_components", "geometry"],
+                types: ["address"],
+              }}
+              // defaultValue="Toronto"
               className="edit__container-address-input"
               type="text"
               id="address"
@@ -249,6 +261,15 @@ class EditContent extends Component {
               value={this.state.address}
               onChange={this.handleChange}
             />
+            {/* <input
+              className="edit__container-address-input"
+              type="text"
+              id="address"
+              name="address"
+              placeholder="Please add the address"
+              value={this.state.address}
+              onChange={this.handleChange}
+            /> */}
             <div
               className="edit__container-address-error"
               id="addressError"
