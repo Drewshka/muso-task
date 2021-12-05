@@ -133,6 +133,13 @@ label {
       }
     }
 
+    &-date,
+    &-time {
+      @include tablet {
+        @include flex(center, baseline, column);
+      }
+    }
+
     &-time-input {
       padding: 0 2.75rem;
     }

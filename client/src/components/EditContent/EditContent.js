@@ -298,7 +298,6 @@ class EditContent extends Component {
                 value={this.state.date}
                 onChange={this.handleChange}
               />
-
               <div
                 className="edit__container-date-error"
                 id="dateError"
