@@ -5,6 +5,12 @@
   &__curr-user {
     @include font("Avenir Next Regular", 600, 18px, 15px, $primary);
     margin-top: 0.5rem;
+    @include tablet {
+      @include font("Avenir Next Regular", 600, 20px, 18px, $primary);
+    }
+    @include desktop {
+      @include font("Avenir Next Regular", 600, 24px, 22px, $primary);
+    }
   }
 
   &__curr-user__card {
@@ -18,7 +24,13 @@
 
     &-name {
       @include font("Avenir Next Regular", 600, 18px, 15px, $primary);
-      margin: 0.75rem;
+      margin-bottom: 1rem;
+      @include tablet {
+        @include font("Avenir Next Regular", 600, 20px, 18px, $primary);
+      }
+      @include desktop {
+        @include font("Avenir Next Regular", 600, 22px, 22px, $primary);
+      }
     }
 
     &-address,
@@ -29,10 +41,16 @@
     &-phone,
     &-bio {
       @include font("Avenir Next Regular", 600, 14px, 15px, $primary2);
+      @include tablet {
+        @include font("Avenir Next Regular", 600, 16px, 17px, $primary2);
+      }
     }
   }
 
   #hero__span {
     @include font("Avenir Next Regular", 400, 14px, 15px, $primary);
+    @include tablet {
+      @include font("Avenir Next Regular", 400, 16px, 17px, $primary);
+    }
   }
 }

@@ -22,6 +22,9 @@
     &-name {
       @include font("Avenir Next Regular", 600, 18px, 15px, $primary);
       margin: 1rem 0;
+      @include tablet {
+        @include font("Avenir Next Regular", 600, 20px, 18px, $primary);
+      }
     }
 
     &-city,
@@ -29,6 +32,9 @@
     &-instrument,
     &-bio {
       @include font("Avenir Next Regular", 600, 14px, 15px, $primary2);
+      @include tablet {
+        @include font("Avenir Next Regular", 600, 16px, 18px, $primary2);
+      }
     }
 
     &-bio {
@@ -38,5 +44,8 @@
 
   #list__span {
     @include font("Avenir Next Regular", 400, 14px, 15px, $primary);
+    @include tablet {
+      @include font("Avenir Next Regular", 400, 16px, 17px, $primary);
+    }
   }
 }

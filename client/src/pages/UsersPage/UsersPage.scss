@@ -3,10 +3,11 @@
 
 .users {
   padding: 0 1rem;
+  background-color: darkkhaki;
 
   &__title {
     @include font("Avenir Next Regular", 600, 26px, 15px, $primary);
-    margin-bottom: 1rem;
+    padding: 1rem;
     @include tablet {
       @include font("Avenir Next Regular", 600, 32px, 20px, $primary);
     }

@@ -14,8 +14,6 @@
     }
 
     &__card {
-      // border: 1px solid black;
-      // background-color: lightblue;
       @include flex(center, flex-start, column);
       border: 1px solid black;
       background-color: $secondary3;
@@ -26,7 +24,10 @@
 
       &-name {
         @include font("Avenir Next Regular", 600, 22px, 15px, $primary);
-        margin: 0.75rem;
+        margin-bottom: 1rem;
+        @include tablet {
+          @include font("Avenir Next Regular", 600, 24px, 18px, $primary);
+        }
       }
 
       &-address,
@@ -37,10 +38,16 @@
       &-description,
       &-email {
         @include font("Avenir Next Regular", 600, 14px, 15px, $primary2);
+        @include tablet {
+          @include font("Avenir Next Regular", 600, 16px, 18px, $primary2);
+        }
       }
     }
     #heroGig__span {
       @include font("Avenir Next Regular", 400, 14px, 15px, $primary);
+      @include tablet {
+        @include font("Avenir Next Regular", 400, 16px, 18px, $primary);
+      }
     }
   }
 }
