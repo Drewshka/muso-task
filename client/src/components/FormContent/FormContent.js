@@ -110,6 +110,7 @@ class FormContent extends Component {
       // clear form
       this.setState(initialState);
       this.props.history.push("/");
+      // this.props.history.push("/gigs");
     }
 
     axios

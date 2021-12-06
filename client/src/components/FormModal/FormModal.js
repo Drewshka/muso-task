@@ -11,6 +11,7 @@ export default class FormModal extends Component {
       <FormContent
         user={this.props.user}
         hideModalHandler={this.props.hideModalHandler}
+        state={this.state}
       ></FormContent>
     );
     const modal = this.props.showModal ? <div>{formContent}</div> : null;
