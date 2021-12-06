@@ -10,15 +10,14 @@ label {
   border-radius: 4px;
   padding: 1rem;
   background-color: cornsilk;
-  width: 84vw;
+  width: 80vw;
   margin: 0 auto;
-  // z-index: 200;
-  // position: absolute;
-  // top: 5.625rem;
-  // left: 4rem;
 
   &__header {
     @include font("Avenir Next Regular", 600, 26px, 26px, $primary);
+    @include tablet {
+      @include font("Avenir Next Regular", 600, 28px, 28px, $primary);
+    }
   }
 
   &__container {
@@ -31,6 +30,7 @@ label {
         margin-top: 0.5rem;
         @include tablet {
           text-align: left;
+          @include font("Avenir Next Regular", 600, 20px, 22px, $primary3);
         }
       }
 
@@ -54,6 +54,7 @@ label {
         margin-top: 0.5rem;
         @include tablet {
           text-align: left;
+          @include font("Avenir Next Regular", 600, 20px, 22px, $primary3);
         }
       }
 
@@ -79,6 +80,7 @@ label {
         margin-top: 0.5rem;
         @include tablet {
           text-align: left;
+          @include font("Avenir Next Regular", 600, 20px, 22px, $primary3);
         }
       }
 
@@ -110,6 +112,9 @@ label {
       #Recording,
       #Education {
         @include font("Avenir Next Regular", 600, 12px, 18px, $primary2);
+        @include tablet {
+          @include font("Avenir Next Regular", 600, 16px, 20px, $primary2);
+        }
       }
     }
 
@@ -122,6 +127,7 @@ label {
         margin-top: 0.5rem;
         @include tablet {
           text-align: left;
+          @include font("Avenir Next Regular", 600, 20px, 22px, $primary3);
         }
       }
 
@@ -166,5 +172,14 @@ label {
         margin-bottom: 1rem;
       }
     }
+  }
+}
+
+#venue-title {
+  @include font("Avenir Next Regular", 600, 18px, 20px, $primary3);
+  margin-top: 0.5rem;
+  @include tablet {
+    text-align: left;
+    @include font("Avenir Next Regular", 600, 20px, 22px, $primary3);
   }
 }

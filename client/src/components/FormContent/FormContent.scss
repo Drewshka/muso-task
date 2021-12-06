@@ -15,6 +15,9 @@ label {
 
   &__header {
     @include font("Avenir Next Regular", 600, 26px, 26px, $primary);
+    @include tablet {
+      @include font("Avenir Next Regular", 600, 28px, 28px, $primary);
+    }
   }
 
   &__container {
@@ -27,6 +30,7 @@ label {
         margin-top: 0.5rem;
         @include tablet {
           text-align: left;
+          @include font("Avenir Next Regular", 600, 20px, 22px, $primary3);
         }
       }
 
@@ -50,6 +54,7 @@ label {
         margin-top: 0.5rem;
         @include tablet {
           text-align: left;
+          @include font("Avenir Next Regular", 600, 20px, 22px, $primary3);
         }
       }
 
@@ -75,6 +80,7 @@ label {
         margin-top: 0.5rem;
         @include tablet {
           text-align: left;
+          @include font("Avenir Next Regular", 600, 20px, 22px, $primary3);
         }
       }
 
@@ -106,6 +112,9 @@ label {
       #Recording,
       #Education {
         @include font("Avenir Next Regular", 600, 12px, 18px, $primary2);
+        @include tablet {
+          @include font("Avenir Next Regular", 600, 16px, 20px, $primary2);
+        }
       }
     }
 
@@ -118,6 +127,7 @@ label {
         margin-top: 0.5rem;
         @include tablet {
           text-align: left;
+          @include font("Avenir Next Regular", 600, 20px, 22px, $primary3);
         }
       }
 
