@@ -80,11 +80,11 @@ My goal was to build a full stack application from scratch. To do this I used Re
 
 ## Key Learnings
 
--Learning how to write queries in knex to get data from tables and how to use foreign keys to obtain data from both tables in the same query.
--Using React Hooks, which weren't covered in-depth during our course.
--Using the Google Maps API to set markers on the map and Autocomplete inputs on my forms.
--Axios requests
--Gitflow and working with different branches while developing
+1. Learning how to write queries in knex to get data from tables and how to use foreign keys to obtain data from both tables in the same query.
+2. Using React Hooks, which weren't covered in-depth during our course.
+3. Using the Google Maps API to set markers on the map and Autocomplete inputs on my forms.
+4. Axios requests
+5. Gitflow and working with different branches while developing
 
 ### Installation
 
@@ -100,7 +100,7 @@ My goal was to build a full stack application from scratch. To do this I used Re
  $ npm install
 ```
 
-1. Navigate to the server folder in your terminal and install npm like this:
+2. Navigate to the server folder in your terminal and install npm like this:
 
 ```
  $ npm install
@@ -116,11 +116,11 @@ For this application to work, please create a Google Map API Key, and ensure tha
 
 #### Links
 
--Google Maps React: https://www.npmjs.com/package/@react-google-maps/api
--Google Places React: https://www.npmjs.com/package/use-places-autocomplete
--Reach Combobox: https://reacttraining.com/reach-ui/combobox/
--Snazzy Maps Style: https://snazzymaps.com/style/8097/wy
--Browser Geolocation: https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/getCurrentPosition
+1. Google Maps React: https://www.npmjs.com/package/@react-google-maps/api
+2. Google Places React: https://www.npmjs.com/package/use-places-autocomplete
+3. Reach Combobox: https://reacttraining.com/reach-ui/combobox/
+4. Snazzy Maps Style: https://snazzymaps.com/style/8097/wy
+5. Browser Geolocation: https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/getCurrentPosition
 
 #### Acknowledgements
 
