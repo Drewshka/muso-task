@@ -248,7 +248,7 @@ class FormContent extends Component {
             </div>
           </article>
 
-          <article>
+          <article id="container2">
             <div className="form__container-venue">
               <h4 className="form__container-venue-title">Venue</h4>
               <input

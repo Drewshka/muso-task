@@ -193,7 +193,7 @@ class EditUserContent extends Component {
           action="POST"
           onSubmit={this.handleSubmit}
         >
-          <article id="signUp-container1">
+          <article id="editUser-container1">
             <div className="editUser__container-name">
               <h4 className="editUser__container-name-title">
                 Enter your name
@@ -282,7 +282,7 @@ class EditUserContent extends Component {
             </div>
           </article>
 
-          <article id="signUp-container2">
+          <article id="editUser-container2">
             <div className="editUser__container-phone">
               <h4 className="editUser__container-phone-title">
                 What's your phone number?

@@ -5,6 +5,13 @@ label {
   margin-left: 4px;
 }
 
+#editContainer1,
+#editContainer2 {
+  @include tablet {
+    width: 30%;
+  }
+}
+
 .edit {
   border: 1px solid black;
   border-radius: 4px;

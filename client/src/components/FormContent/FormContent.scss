@@ -5,6 +5,13 @@ label {
   margin-left: 4px;
 }
 
+#container1,
+#container2 {
+  @include tablet {
+    width: 30%;
+  }
+}
+
 .form {
   border: 1px solid black;
   border-radius: 4px;
