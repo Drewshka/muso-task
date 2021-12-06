@@ -164,6 +164,7 @@ export default function ContactUsPage(props) {
           />
         ))}
 
+        {/* MARKERS */}
         {selected ? (
           <InfoWindow
             position={{ lat: selected.lat, lng: selected.lng }}

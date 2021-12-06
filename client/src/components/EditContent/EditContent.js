@@ -245,8 +245,63 @@ class EditContent extends Component {
               </div>
             </div>
 
-            <div className="edit__container-venue">
+            {/* <div className="edit__container-venue">
               <h4 className="edit_container-venue-title">Venue</h4>
+              <input
+                className="edit__container-venue-input"
+                type="text"
+                id="venue"
+                name="venue"
+                placeholder="Please add a venue"
+                value={this.state.venue}
+                onChange={this.handleChange}
+              />
+              <div
+                className="edit__container-venue-error"
+                id="venueError"
+                name="venueError"
+              >
+                {this.state.venueError}
+              </div>
+            </div> */}
+
+            {/* <div className="edit__container-address">
+              <h4 className="edit__container-address-title">Address</h4>
+              <Autocomplete
+                apiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}
+                // style={{ width: "90%" }}
+                onPlaceSelected={(place) => {
+                  console.log(place);
+                }}
+                options={{
+                  componentRestrictions: { country: "can" },
+                  fields: ["address_components", "geometry"],
+                  types: ["address"],
+                }}
+                // defaultValue="Toronto"
+                className="edit__container-address-input"
+                type="text"
+                id="address"
+                name="address"
+                placeholder="Please add the address"
+                value={this.state.address}
+                onChange={this.handleChange}
+              />
+              <div
+                className="edit__container-address-error"
+                id="addressError"
+                name="addressError"
+              >
+                {this.state.addressError}
+              </div>
+            </div> */}
+          </article>
+
+          <article id="editContainer2">
+            <div className="edit__container-venue">
+              <h4 className="edit_container-venue-title" id="venue-title">
+                Venue
+              </h4>
               <input
                 className="edit__container-venue-input"
                 type="text"
@@ -287,15 +342,6 @@ class EditContent extends Component {
                 value={this.state.address}
                 onChange={this.handleChange}
               />
-              {/* <input
-              className="edit__container-address-input"
-              type="text"
-              id="address"
-              name="address"
-              placeholder="Please add the address"
-              value={this.state.address}
-              onChange={this.handleChange}
-            /> */}
               <div
                 className="edit__container-address-error"
                 id="addressError"
@@ -304,10 +350,7 @@ class EditContent extends Component {
                 {this.state.addressError}
               </div>
             </div>
-          </article>
-
-          <article id="editContainer2">
-            <div className="edit__container-address">
+            {/* <div className="edit__container-address">
               <h4 className="edit__container-address-title">Address</h4>
               <input
                 className="edit__container-address-input"
@@ -325,7 +368,7 @@ class EditContent extends Component {
               >
                 {this.state.addressError}
               </div>
-            </div>
+            </div> */}
             <div className="edit__container-date">
               <h4 className="form__container-date-title">Date</h4>
               <label id="date"></label>

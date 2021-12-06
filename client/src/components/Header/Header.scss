@@ -28,10 +28,10 @@
     &-three {
       @include font("Avenir Next Regular", 600, 13px, 10px, $primary2);
       @include tablet {
-        @include font("Avenir Next Regular", 600, 15px, 15px, $primary2);
+        @include font("Avenir Next Regular", 600, 18px, 18px, $primary2);
       }
       @include desktop {
-        @include font("Avenir Next Regular", 600, 18px, 15px, $primary2);
+        @include font("Avenir Next Regular", 600, 22px, 20px, $primary2);
       }
       // padding: 0.5rem 0;
     }

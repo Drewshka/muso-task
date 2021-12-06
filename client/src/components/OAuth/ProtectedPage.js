@@ -7,7 +7,7 @@ export default function ProtectedPage(props) {
       <h2>Hey, {props.user.displayName}</h2>
       {props.user.bio && <p>{props.user.bio}</p>}
       {/* Github provides us with some additional information about user that we can output here as well */}
-      <ul>
+      <ul style={{ listStyleType: "none" }}>
         {props.user._json.company && <li>{props.user._json.company}</li>}
         {props.user._json.blog && <li>{props.user._json.blog}</li>}
         {props.user._json.location && <li>{props.user._json.location}</li>}
