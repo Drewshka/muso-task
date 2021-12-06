@@ -28,7 +28,7 @@ exports.seed = function (knex) {
       name: "Jacky",
       address: "503 Rue Laval",
       city: "Montreal",
-      country: "Canda",
+      country: "Canada",
       phone: "+1 (646) 253-1234",
       email: "jacky@test.com",
       instrument: "Vocalist",

@@ -6,11 +6,11 @@ exports.seed = function (knex) {
       gigName: "Jazz trio",
       description: "Jazz trio gig in need of a drummer.",
       category: "Performance",
-      // status: "Open",
       venue: "The Rex",
       address: "194 Queen St W, Toronto, ON M5V 1Z1",
       date: "01/01/2021",
       time: "7:00pm",
+      // status: "Open",
     },
     {
       id: "22",
@@ -23,6 +23,7 @@ exports.seed = function (knex) {
       address: "22 Cumberland St, Toronto, ON M4W 1J5",
       date: "01/01/2021",
       time: "7:00pm",
+      // status: "Open",
     },
     {
       id: "33",
@@ -35,6 +36,7 @@ exports.seed = function (knex) {
       address: "924 College St, Toronto, ON M6H 1A4",
       date: "01/01/2021",
       time: "7:00pm",
+      // status: "Open",
     },
   ];
   // Deletes ALL existing entries

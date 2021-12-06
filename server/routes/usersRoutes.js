@@ -8,6 +8,8 @@ const express = require("express"),
     deleteUserAndGigs,
   } = require("../controllers/usersControllers");
 
+//*Users login/logout code moved to auth routes
+
 router.get("/", listUsers);
 router.get("/:id", getSingleUser);
 router.post("/", postUser);

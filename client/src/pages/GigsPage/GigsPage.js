@@ -88,9 +88,13 @@ export default class GigsPage extends Component {
 
     return (
       <section className="gigs">
-        <h1>Gigs Page</h1>
+        <h1 className="gigs__title">Gigs Page</h1>
 
-        <button type="button" onClick={this.showEditModalHandler}>
+        <button
+          className="gigs__button"
+          type="button"
+          onClick={this.showEditModalHandler}
+        >
           Edit Gig
         </button>
 

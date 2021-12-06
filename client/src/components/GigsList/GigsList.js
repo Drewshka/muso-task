@@ -8,26 +8,28 @@ function GigsList({ gigs }) {
       <table className="gigs__table">
         <thead>
           <tr className="gigs__table--headers">
-            <th className="gigs__table--headers-category">Gig Name</th>
-            <th className="gigs__table--headers-category">ADDRESS</th>
-            <th className="gigs__table--headers-category">DATE</th>
-            <th className="gigs__table--headers-category">TIME</th>
+            <th className="gigs__table--headers-gig">GIG</th>
+            <th className="gigs__table--headers-venue">VENUE</th>
+            <th className="gigs__table--headers-date">DATE</th>
+            <th className="gigs__table--headers-time">TIME</th>
             <th className="gigs__table--headers-category">CATEGORY</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="gigs__table-body">
           {gigs.map((gig, i) => {
             return (
-              <tr key={i} className="gigs__table--data">
-                {/* <td className="item-name">{gig.gigName}</td> */}
-                <td className="item-name">
+              <tr key={i} className="gigs__table-body-container">
+                <td className="gigs__table-body-container-name">
                   <Link to={`/gigs/${gig.id}`}>{gig.gigName}</Link>
                 </td>
-
-                <td className="pad-right">{gig.address}</td>
-                <td>{gig.date}</td>
-                <td>{gig.time}</td>
-                <td className="center-me">{gig.category}</td>
+                <td className="gigs__table-body-container-venue">
+                  {gig.venue}
+                </td>
+                <td className="gigs__table-body-container-date">{gig.date}</td>
+                <td className="gigs__table-body-container-time">{gig.time}</td>
+                <td className="gigs__table-body-container-category">
+                  {gig.category}
+                </td>
               </tr>
             );
           })}

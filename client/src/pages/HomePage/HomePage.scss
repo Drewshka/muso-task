@@ -1,0 +1,59 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.home {
+  padding: 0 1rem;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(../../assets/images/home.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 80vh;
+  padding: 0 1rem;
+  &__header {
+    @include font("Avenir Next Regular", 600, 22px, 20px, $primary4);
+    padding: 1rem 0;
+  }
+
+  &__caro-one {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url(../../assets/images/performance.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    //   height: 80vh;
+    padding: 0 1rem;
+
+    &-header {
+      @include font("Avenir Next Regular", 400, 18px, 20px, $primary4);
+    }
+  }
+
+  &__caro-two {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+      url(../../assets/images/recording.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    //   height: 80vh;
+    padding: 0 1rem;
+
+    &-header {
+      @include font("Avenir Next Regular", 400, 18px, 20px, $primary4);
+    }
+  }
+
+  &__caro-three {
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(88, 33, 33, 0.2)),
+      url(../../assets/images/education.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    //   height: 80vh;
+    padding: 0 1rem;
+
+    &-header {
+      @include font("Avenir Next Regular", 400, 18px, 20px, $primary4);
+    }
+  }
+}

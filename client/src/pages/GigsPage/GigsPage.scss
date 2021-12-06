@@ -3,6 +3,28 @@
 
 .gigs {
   padding: 0 1rem;
+  position: relative;
+
+  &__title {
+    @include font("Avenir Next Regular", 600, 26px, 15px, $primary);
+    padding: 1rem;
+    @include tablet {
+      @include font("Avenir Next Regular", 600, 32px, 20px, $primary);
+    }
+  }
+
+  &__button {
+    @include font("Avenir Next Regular", 600, 14px, 0px, $primary4);
+    height: 2rem;
+    min-width: 6rem;
+    background-color: $primary2;
+    padding: 0 8px;
+    border-radius: 4px;
+    width: 10rem;
+    border: 1px solid $primary;
+    margin: 0 2px;
+    margin-bottom: 1rem;
+  }
 
   &__table {
     border: 1px solid black;
