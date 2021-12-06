@@ -6,10 +6,12 @@
 
 .header {
   padding: 0 1rem 1rem;
-  // background-color: $primary3;
+  background-color: $primary3;
+  margin-bottom: 0.5rem;
 
   &__title {
     @include font("Avenir Next Regular", 600, 32px, 20px, $primary);
+    font-style: oblique;
     padding: 1rem 0;
     @include tablet {
       @include font("Avenir Next Regular", 600, 36px, 26px, $primary);

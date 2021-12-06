@@ -3,11 +3,13 @@
 
 .App {
   text-align: center;
+  position: relative;
 
   &__ul {
     list-style-type: none;
     @include flex(flex-end, flex-end, column);
     margin-bottom: 0;
+    background-color: $primary3;
 
     &-item {
       @include font("Avenir Next Regular", 400, 13px, 15px, $primary);
