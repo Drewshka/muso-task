@@ -1,8 +1,8 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { Component } from "react";
+import EditUserContent from "../EditUserContent/EditUserContent";
 // import FormContent from "../FormContent/FormContent";
 // import SignUpContent from "../SignUpContent/SignUpContent";
-import EditUserContent from "../EditUserContent/EditUserContent";
 
 export default class EditUserModal extends Component {
   render() {

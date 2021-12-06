@@ -31,10 +31,11 @@ class SingleGig {
     this.time = time;
   }
 }
-
+//* get with user info
 const getAll = async () => {
   try {
     const data = await knex
+      .select(["gigs.*", "users.name", "users.email"])
       .from("gigs")
       .innerJoin("users", "users.id", "gigs.userID");
 
@@ -47,6 +48,7 @@ const getAll = async () => {
   }
 };
 
+//* old method
 // const getAll = async () => {
 //   try {
 //     const data = await knex.select("*").from("gigs");
@@ -85,9 +87,11 @@ const add = async (obj) => {
   }
 };
 
+//* get with user info
 const getOneById = async (id) => {
   try {
     const data = await knex
+      .select(["gigs.*", "users.name", "users.email"])
       .from("gigs")
       .innerJoin("users", "users.id", "gigs.userID")
       .where("gigs.id", id);
@@ -101,6 +105,7 @@ const getOneById = async (id) => {
   }
 };
 
+//* old method
 // const getOneById = async (id) => {
 //   try {
 //     const data = await knex.select("*").where("id", id).from("gigs");

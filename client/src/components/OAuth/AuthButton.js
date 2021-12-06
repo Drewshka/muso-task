@@ -34,7 +34,15 @@ export default class AuthButton extends Component {
   render() {
     return (
       this.state.isAuthenticated && (
-        <p>
+        <p
+          className="welcomeLogin"
+          style={{
+            fontSize: "small",
+            position: "absolute",
+            top: "2px",
+            color: "#0d6efd",
+          }}
+        >
           <img
             height="25"
             src={this.state.user.photos[0].value}

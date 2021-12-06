@@ -1,4 +1,5 @@
-import "./App.css";
+// import "./App.css";
+import "./App.scss";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import React from "react";
 import Header from "./components/Header/Header";
@@ -24,16 +25,20 @@ function App() {
   return (
     <div className="App">
       <Router onUpdate={() => window.scrollTo(0, 0)}>
-        <ul>
-          <li>
-            <Link to="/public">Public Page</Link>
+        <ul className="App__ul">
+          <li className="App__ul-item">
+            <Link to="/public" style={{ textDecoration: "none" }}>
+              Public Page
+            </Link>
             {/* <Profile /> */}
           </li>
-          <li>
-            <Link to="/protected">Protected Page</Link>
-            <Header />
+          <li className="App__ul-item">
+            <Link to="/protected" style={{ textDecoration: "none" }}>
+              Protected Page
+            </Link>
           </li>
         </ul>
+        <Header />
         <AuthButton />
         <Switch>
           <Route path="/" exact component={HomePage} />
