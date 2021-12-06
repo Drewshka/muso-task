@@ -148,6 +148,7 @@ export default class UsersPage extends Component {
           showModal={this.state.showModal}
           hideModalHandler={this.hideModalHandler}
           user={this.state.selectedUser}
+          // state={this.state}
         ></FormModal>
 
         <SignUpModal

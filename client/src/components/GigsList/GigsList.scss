@@ -36,6 +36,7 @@
 
     &-body-container {
       background-color: aliceblue;
+      border-bottom: 1px solid black;
       &-name {
         @include font("Avenir Next Regular", 600, 16px, 18px, $primary);
         @include tablet {

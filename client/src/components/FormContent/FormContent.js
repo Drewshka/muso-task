@@ -1,3 +1,4 @@
+import Autocomplete from "react-google-autocomplete";
 import { withRouter } from "react-router-dom";
 import "./FormContent.scss";
 import { Component } from "react";
@@ -109,6 +110,7 @@ class FormContent extends Component {
       // clear form
       this.setState(initialState);
       this.props.history.push("/");
+      // this.props.history.push("/gigs");
     }
 
     axios
@@ -137,6 +139,8 @@ class FormContent extends Component {
 
     // this.props.history.push("/");
   };
+
+  //* Google Auto complete input code
 
   render() {
     // console.log(this.props.user[0]);
@@ -243,7 +247,9 @@ class FormContent extends Component {
                 {this.state.categoryError}
               </div>
             </div>
+          </article>
 
+          <article id="container2">
             <div className="form__container-venue">
               <h4 className="form__container-venue-title">Venue</h4>
               <input
@@ -263,12 +269,21 @@ class FormContent extends Component {
                 {this.state.venueError}
               </div>
             </div>
-          </article>
 
-          <article id="container2">
             <div className="form__container-address">
               <h4 className="form__container-address-title">Address</h4>
-              <input
+              <Autocomplete
+                apiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}
+                // style={{ width: "90%" }}
+                onPlaceSelected={(place) => {
+                  console.log(place);
+                }}
+                options={{
+                  componentRestrictions: { country: "can" },
+                  fields: ["address_components", "geometry"],
+                  types: ["address"],
+                }}
+                // defaultValue="Toronto"
                 className="form__container-address-input"
                 type="text"
                 id="address"
@@ -277,6 +292,15 @@ class FormContent extends Component {
                 value={this.state.address}
                 onChange={this.handleChange}
               />
+              {/* <input
+              className="form__container-address-input"
+              type="text"
+              id="address"
+              name="address"
+              placeholder="Please add the address"
+              value={this.state.address}
+              onChange={this.handleChange}
+            /> */}
               <div
                 className="form__container-address-error"
                 id="addressError"

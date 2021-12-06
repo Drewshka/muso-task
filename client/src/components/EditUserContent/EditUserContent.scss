@@ -1,6 +1,13 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
 
+#editUser-container1,
+#editUser-container2 {
+  @include tablet {
+    width: 30%;
+  }
+}
+
 .editUser {
   border: 1px solid black;
   border-radius: 4px;

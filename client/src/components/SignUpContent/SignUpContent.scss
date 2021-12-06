@@ -1,6 +1,13 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
 
+#signUp-container1,
+#signUp-container2 {
+  @include tablet {
+    width: 30%;
+  }
+}
+
 .signUp {
   border: 1px solid black;
   border-radius: 4px;

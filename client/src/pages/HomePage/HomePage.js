@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import "./HomePage.scss";
 import React from "react";
 import Carousel from "../../components/Carousel/Carousel";

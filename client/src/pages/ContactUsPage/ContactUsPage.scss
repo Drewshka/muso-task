@@ -1,0 +1,11 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.marker {
+  &-name,
+  &-creator,
+  &-venue,
+  &-date {
+    @include font("Avenir Next Regular", 600, 14px, 16px, blue);
+  }
+}
