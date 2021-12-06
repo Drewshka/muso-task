@@ -92,13 +92,13 @@ export default class UsersPage extends Component {
       });
   }
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(prevProps) {
     if (prevProps.match.params.id !== this.props.match.params.id) {
       this.fetchUserDetails();
     }
-    if (prevState.users !== this.state.users) {
-      this.setState({ users: this.state.users });
-    }
+    // if (prevState.users !== this.state.users) {
+    //   this.setState({ users: this.state.users });
+    // }
 
     // console.log(prevState);
     // console.log(this.state.users);
@@ -170,8 +170,6 @@ export default class UsersPage extends Component {
         ></EditUserModal>
 
         <Hero user={this.state.selectedUser} users={this.state.users} />
-
-        {/* <Hero {...props} /> */}
 
         <UsersList users={filteredUsers} />
       </section>

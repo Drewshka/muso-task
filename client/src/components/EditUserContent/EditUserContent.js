@@ -122,9 +122,9 @@ class EditUserContent extends Component {
     const isValid = this.validate();
     if (isValid) {
       console.log(this.state);
-      // clear form
+      // *clear form
       this.setState(initialState);
-      this.props.history.push("/");
+      // this.props.history.push("/");
     }
 
     //TODO need to fix form validation so that if we edit users and leave phone and email fields blank, validator won't return false for default phone and email fields
@@ -157,8 +157,6 @@ class EditUserContent extends Component {
     axios
 
       .put(`${apiUrl}/users/${currUserId}`, {
-        // userName: this.props.user[0].name,
-        // userID: this.props.user[0].id,
         name: event.target.name.value || this.props.user[0].name,
         address: event.target.address.value || this.props.user[0].address,
         city: event.target.city.value || this.props.user[0].city,
@@ -178,6 +176,7 @@ class EditUserContent extends Component {
 
     console.log("handle submit!");
 
+    window.location.reload(false);
     // this.props.history.push("/");
   };
 

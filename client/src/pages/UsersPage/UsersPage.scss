@@ -3,7 +3,7 @@
 
 .users {
   padding: 0 1rem;
-  background-color: azure;
+  // background-color: azure;
 
   &__title {
     @include font("Avenir Next Regular", 600, 26px, 15px, $primary);

@@ -185,18 +185,18 @@ class SignUpContent extends Component {
     window.location.reload(false);
   };
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.state.users !== this.props.state.users) {
-      this.setState({ users: this.props.state.users });
-    }
+  // componentDidUpdate(prevProps) {
+  //   if (prevProps.state.users !== this.props.state.users) {
+  //     this.setState({ users: this.props.state.users });
+  //   }
 
-    // console.log(prevProps.state.users);
-    // console.log(prevState);
-    // console.log(this.props.state.users);
-  }
+  //   console.log(prevProps.state.users);
+  //   console.log(prevState);
+  //   console.log(this.props.state.users);
+  // }
 
   render() {
-    console.log(this.props.state);
+    // console.log(this.props.state);
     return (
       <div className="signUp">
         <h1 className="signUp__header">User Sign-Up</h1>
