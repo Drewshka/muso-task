@@ -18,9 +18,6 @@ const customStyles = {
 };
 
 function HeroGig({ gig, history }) {
-  // console.log(...gig);
-  // console.log(gig[0].id);
-
   // this.props.history.push("/");
   console.log(history);
 
@@ -61,14 +58,15 @@ function HeroGig({ gig, history }) {
         // this.setState({
         //   selectedGig: data,
         // });
-        // history.push("/");
+        history.push("/gigs");
       })
       .catch((error) => {
         console.error("There was an error!", error);
       });
 
-    history.push("/");
+    // history.push("/");
     alert("Deleted successfully");
+    window.location.reload(false);
   };
 
   return (

@@ -108,7 +108,7 @@ class EditContent extends Component {
       console.log(this.state);
       // clear form
       this.setState(initialState);
-      this.props.history.push("/");
+      // this.props.history.push("/");
     }
 
     let currGigId = this.props.gig[0].id;
@@ -137,11 +137,12 @@ class EditContent extends Component {
 
     console.log("handle submit!");
 
+    window.location.reload(false);
     // this.props.history.push("/");
   };
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
 
     return (
       <div className="edit">
