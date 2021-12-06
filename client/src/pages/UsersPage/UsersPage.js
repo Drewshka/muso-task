@@ -92,10 +92,16 @@ export default class UsersPage extends Component {
       });
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps, prevState) {
     if (prevProps.match.params.id !== this.props.match.params.id) {
       this.fetchUserDetails();
     }
+    if (prevState.users !== this.state.users) {
+      this.setState({ users: this.state.users });
+    }
+
+    // console.log(prevState);
+    // console.log(this.state.users);
   }
 
   render() {
@@ -154,6 +160,7 @@ export default class UsersPage extends Component {
         <SignUpModal
           showSignUpModal={this.state.showSignUpModal}
           hideModalHandler={this.hideSignUpModalHandler}
+          state={this.state}
         ></SignUpModal>
 
         <EditUserModal

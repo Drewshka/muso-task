@@ -11,6 +11,7 @@ export default class FormModal extends Component {
       <SignUpContent
         // user={this.props.user}
         hideModalHandler={this.props.hideModalHandler}
+        state={this.props.state}
       ></SignUpContent>
     );
     const modal = this.props.showSignUpModal ? (

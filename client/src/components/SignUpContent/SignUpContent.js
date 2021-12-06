@@ -122,7 +122,7 @@ class SignUpContent extends Component {
       console.log(this.state);
       // clear form
       this.setState(initialState);
-      this.props.history.push("/");
+      // this.props.history.push("/");
     }
 
     const validatePhoneNumber = (number) => {
@@ -152,8 +152,6 @@ class SignUpContent extends Component {
     axios
 
       .post(`${apiUrl}/users`, {
-        // userName: this.props.user[0].name,
-        // userID: this.props.user[0].id,
         name: event.target.name.value,
         address: event.target.address.value,
         city: event.target.city.value,
@@ -165,6 +163,17 @@ class SignUpContent extends Component {
       })
       .then((response) => {
         console.log("response: ", response.data);
+        // this.setState({
+        //   users: response,
+        // });
+
+        return axios.get(`${apiUrl}/users`);
+      })
+      .then(({ data }) => {
+        console.log("Users: ", data);
+        this.setState({
+          users: data,
+        });
       })
       .catch((error) => {
         console.log(error.message);
@@ -173,9 +182,21 @@ class SignUpContent extends Component {
     console.log("handle submit!");
 
     //   this.props.history.push("/");
+    window.location.reload(false);
   };
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.state.users !== this.props.state.users) {
+      this.setState({ users: this.props.state.users });
+    }
+
+    // console.log(prevProps.state.users);
+    // console.log(prevState);
+    // console.log(this.props.state.users);
+  }
+
   render() {
+    console.log(this.props.state);
     return (
       <div className="signUp">
         <h1 className="signUp__header">User Sign-Up</h1>
