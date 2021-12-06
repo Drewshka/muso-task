@@ -1,10 +1,10 @@
-// import ReactDOM from "react-dom";
 import { withRouter } from "react-router-dom";
 import "./HeroGig.scss";
 import React from "react";
 import Modal from "react-modal";
 import axios from "axios";
 const apiUrl = "http://localhost:8080";
+// import ReactDOM from "react-dom";
 
 const customStyles = {
   content: {
@@ -136,5 +136,4 @@ function HeroGig({ gig, history }) {
   );
 }
 
-// export default HeroGig;
 export default withRouter(HeroGig);

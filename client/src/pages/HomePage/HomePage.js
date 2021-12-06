@@ -20,9 +20,6 @@ export default function HomePage() {
         <div className="home__caro-three">
           <h3 className="home__caro-three-header">Teaching opportunities</h3>
         </div>
-        {/* <img src="https://via.placeholder.com/1600x300" alt="placeholder" />
-        <img src="https://via.placeholder.com/1600x300" alt="placeholder" />
-        <img src="https://via.placeholder.com/1600x300" alt="placeholder" /> */}
       </Carousel>
     </section>
   );

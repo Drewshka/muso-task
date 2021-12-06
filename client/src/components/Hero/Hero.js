@@ -1,10 +1,10 @@
 import { withRouter } from "react-router-dom";
 import "./Hero.scss";
-// import React from "react";
 import React, { useState } from "react";
 import Modal from "react-modal";
 import axios from "axios";
 const apiUrl = "http://localhost:8080";
+// import React from "react";
 
 const customStyles = {
   content: {
@@ -129,30 +129,3 @@ function Hero({ user, users, history }) {
 }
 
 export default withRouter(Hero);
-// export default Hero;
-
-// *old code before mapping
-// const props = { user: this.state.selectedUser };
-
-// console.log(...user);
-
-// console.log(user[0].name);
-
-// return (
-//   <div className="hero">
-//     <section className="hero__curr-user">
-//       <h1>Current User</h1>
-//       <article className="hero__curr-user__card">
-//         <h3>{user.name}</h3>
-//         <p>{user.address}</p>
-//         <p>{user.city}</p>
-//         <p>{user.country}</p>
-//         <p>{user.instrument}</p>
-//         <p>{user.email}</p>
-//         <p>{user.phone}</p>
-//         <p>{user.bio}</p>
-//         {/* <button>Post a Gig</button> */}
-//       </article>
-//     </section>
-//   </div>
-// );
