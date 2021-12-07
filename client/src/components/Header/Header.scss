@@ -6,6 +6,10 @@
   background-color: $primary3;
   // margin-bottom: 0.5rem;
 
+  a.active {
+    color: $primary5;
+  }
+
   &__title {
     @include font("Avenir Next Regular", 600, 32px, 20px, $primary);
     text-shadow: 1px 1px black;
