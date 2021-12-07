@@ -18,6 +18,7 @@
     width: 13rem;
     margin: 0.5rem;
     background-color: $secondary4;
+    box-shadow: 5px 2px;
 
     &-name {
       @include font("Avenir Next Regular", 600, 18px, 15px, $primary);

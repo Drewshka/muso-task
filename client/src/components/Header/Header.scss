@@ -8,6 +8,7 @@
 
   &__title {
     @include font("Avenir Next Regular", 600, 32px, 20px, $primary);
+    text-shadow: 1px 1px black;
     font-style: oblique;
     padding: 1rem 0;
     @include tablet {

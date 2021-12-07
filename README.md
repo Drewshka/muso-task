@@ -41,7 +41,7 @@ My goal was to build a full stack application from scratch. To do this I used Re
 
 #### API Keys
 
-For this application to work, please create a Google Map API Key, and ensure that the two services below are enabled... otherwise it won't work! This API key must be in the environment variable `REACT_APP_GOOGLE_MAPS_API_KEY`. You will see how to set this up in the `.env.sample` folder in the client side.
+For this application to work, please create a Google Map API Key, and ensure that the two services below are enabled... otherwise it won't work! This API key must be in the environment variable `REACT_APP_GOOGLE_MAPS_API_KEY`. You will see how to set this in the `.env.sample` folder in the client side.
 
     -Maps JavaScript API
     -Places API
