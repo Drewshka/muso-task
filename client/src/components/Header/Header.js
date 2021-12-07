@@ -6,17 +6,6 @@ import guitar from "../../assets/icons/guitar.svg";
 export default function Header() {
   return (
     <div className="header">
-      {/* <NavLink to="/" style={{ textDecoration: "none" }}>
-        <h1 className="header__title">
-          Muso-task
-          <img
-            src={guitar}
-            alt="guitar"
-            style={{ height: "40px", margin: "0 0 5px 8px" }}
-          />
-        </h1>
-      </NavLink> */}
-
       <h1 className="header__title">
         {" "}
         <NavLink
@@ -32,18 +21,16 @@ export default function Header() {
           />
         </NavLink>
       </h1>
-
-      {/* <ul className="header__link">
-        <NavLink to="/users" style={{ textDecoration: "none" }}>
-          <li className="header__link-one">Users</li>
-        </NavLink>
-        <Link to="/gigs" style={{ textDecoration: "none" }}>
-          <li className="header__link-two">Gigs</li>
-        </Link>
-        <Link to="/contact" style={{ textDecoration: "none" }}>
-          <li className="header__link-three">Contact Us</li>
-        </Link>
-      </ul> */}
+      {/* <NavLink to="/" style={{ textDecoration: "none" }}>
+        <h1 className="header__title">
+          Muso-task
+          <img
+            src={guitar}
+            alt="guitar"
+            style={{ height: "40px", margin: "0 0 5px 8px" }}
+          />
+        </h1>
+      </NavLink> */}
       <ul className="header__link">
         <li className="header__link-one">
           <NavLink
@@ -75,6 +62,17 @@ export default function Header() {
           </NavLink>
         </li>
       </ul>
+      {/* <ul className="header__link">
+        <NavLink to="/users" style={{ textDecoration: "none" }}>
+          <li className="header__link-one">Users</li>
+        </NavLink>
+        <Link to="/gigs" style={{ textDecoration: "none" }}>
+          <li className="header__link-two">Gigs</li>
+        </Link>
+        <Link to="/contact" style={{ textDecoration: "none" }}>
+          <li className="header__link-three">Contact Us</li>
+        </Link>
+      </ul> */}
     </div>
   );
 }
