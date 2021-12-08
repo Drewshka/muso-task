@@ -1,15 +1,14 @@
-const fs = require("fs"),
-  path = require("path"),
-  gigsFile = path.join(__dirname, "../data/gigs.json"),
-  gigsTestFile = path.join(__dirname, "../data/gigs-testing.json"),
-  { v4: uuidv4 } = require("uuid");
+// const fs = require("fs"),
+//   path = require("path"),
+//   gigsFile = path.join(__dirname, "../data/gigs.json"),
+//   gigsTestFile = path.join(__dirname, "../data/gigs-testing.json"),
+//   { v4: uuidv4 } = require("uuid");
 
 const database = require("../knexfile");
 const knex = require("knex")(database);
 
 class SingleGig {
   constructor(
-    // userName,
     userID,
     gigName,
     description,
@@ -19,8 +18,6 @@ class SingleGig {
     date,
     time
   ) {
-    // this.id = uuidv4();
-    // this.userName = userName;
     this.userID = userID;
     this.gigName = gigName;
     this.description = description;
@@ -49,25 +46,9 @@ const getAll = async () => {
   }
 };
 
-//* old method
-// const getAll = async () => {
-//   try {
-//     const data = await knex.select("*").from("gigs");
-//     console.log(data);
-//     // return JSON.parse(data);
-//     return data;
-//   } catch (error) {
-//     console.log(error);
-//     return error;
-//   }
-// };
-
 const add = async (obj) => {
-  // const gigsArray = getAll();
   try {
     const gig = new SingleGig(
-      // obj.status,
-      // obj.userName,
       obj.userID,
       obj.gigName,
       obj.description,
@@ -105,20 +86,6 @@ const getOneById = async (id) => {
     return error;
   }
 };
-
-//* old method
-// const getOneById = async (id) => {
-//   try {
-//     const data = await knex.select("*").where("id", id).from("gigs");
-
-//     console.log(data);
-
-//     return data;
-//   } catch (error) {
-//     console.log(error);
-//     return error;
-//   }
-// };
 
 const getGigsByUser = async (userID) => {
   try {

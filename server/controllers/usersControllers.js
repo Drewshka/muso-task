@@ -21,8 +21,6 @@ exports.postUser = async (req, res, next) => {
     !req.body.email ||
     !req.body.instrument ||
     !req.body.bio
-    // !req.body.date ||
-    // !req.body.time
   ) {
     const err = new Error(
       "POST request requires name, address, city, country, phone, email, instrument and bio attributes."
@@ -34,17 +32,6 @@ exports.postUser = async (req, res, next) => {
     res.json(updatedUsers);
   }
 };
-
-// exports.getSingleUser = (req, res, next) => {
-//   const user = User.getOneById(req.params.id);
-//   if (!user) {
-//     const err = new Error("Please provide a valid ID.");
-//     err.status = 400;
-//     next(err);
-//   } else {
-//     res.json(user);
-//   }
-// };
 
 exports.getSingleUser = async (req, res, next) => {
   const user = await User.getOneById(req.params.id);
@@ -96,32 +83,3 @@ exports.editUserDetails = async (req, res, next) => {
     }
   }
 };
-
-// exports.editUserDetails = (req, res, next) => {
-//   console.log("req.body", req.body);
-//   if (
-//     !req.body.name &&
-//     !req.body.address &&
-//     !req.body.city &&
-//     !req.body.country &&
-//     !req.body.phone &&
-//     !req.body.email &&
-//     !req.body.instrument &&
-//     !req.body.bio
-//   ) {
-//     const err = new Error(
-//       "PUT request requires name, address, city, country, phone, email, instrument and bio attributes"
-//     );
-//     err.status = 400;
-//     next(err);
-//   } else {
-//     const updatedArray = User.update(req.params.id, req.body);
-//     if (!updatedArray) {
-//       const err = new Error("Please provide a valid id.");
-//       err.status = 400;
-//       next(err);
-//     } else {
-//       res.json(User.update(req.params.id, req.body));
-//     }
-//   }
-// };

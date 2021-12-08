@@ -10,7 +10,6 @@ exports.seed = function (knex) {
       address: "194 Queen St W, Toronto, ON M5V 1Z1",
       date: "2021-01-21",
       time: "21:00",
-      // status: "Open",
     },
     {
       id: "22",
@@ -22,7 +21,6 @@ exports.seed = function (knex) {
       address: "22 Cumberland St, Toronto, ON M4W 1J5",
       date: "2021-01-01",
       time: "19:00",
-      // status: "Open",
     },
     {
       id: "33",
@@ -34,7 +32,6 @@ exports.seed = function (knex) {
       address: "924 College St, Toronto, ON M6H 1A4",
       date: "2021-01-05",
       time: "18:00",
-      // status: "Open",
     },
   ];
   // Deletes ALL existing entries

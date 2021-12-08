@@ -7,8 +7,6 @@ exports.listGigs = async (req, res) => {
 
 exports.postGig = async (req, res, next) => {
   if (
-    // !req.body.status ||
-    // !req.body.userName ||
     !req.body.userID ||
     !req.body.gigName ||
     !req.body.description ||
@@ -40,14 +38,6 @@ exports.getSingleGig = async (req, res, next) => {
   }
 };
 
-//* query for user properties
-// knex("users")
-//   .where({
-//     id: "4",
-//     userID: "4",
-//   })
-//   .select("id");
-
 exports.getGigsByUser = async (req, res, next) => {
   const userID = req.params.id;
   let filteredGig = await Gig.getGigsByUser(userID);
@@ -74,8 +64,6 @@ exports.deleteGig = async (req, res, next) => {
 exports.editGigDetails = async (req, res, next) => {
   console.log("req.body", req.body);
   if (
-    // !req.body.userID &&
-    // !req.body.userName &&
     !req.body.gigName &&
     !req.body.description &&
     !req.body.category &&

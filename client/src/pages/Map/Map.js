@@ -51,11 +51,9 @@ export default function Map(props) {
       .then(async function (response) {
         response.data.map(async (gig) => {
           try {
-            console.log(gig.address);
             const gigAddress = gig.address;
             const results = await getGeocode({ address: gigAddress });
             const { lat, lng } = await getLatLng(results[0]);
-            console.log(lat, lng);
 
             setMarkers((current) => [
               ...current,

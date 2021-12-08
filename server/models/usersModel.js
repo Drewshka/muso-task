@@ -1,17 +1,16 @@
-const fs = require("fs"),
-  path = require("path"),
-  usersFile = path.join(__dirname, "../data/users.json"),
-  usersTestFile = path.join(__dirname, "../data/users-testing.json"),
-  gigsFile = path.join(__dirname, "../data/gigs.json"),
-  gigsTestFile = path.join(__dirname, "../data/gigs-testing.json"),
-  { v4: uuidv4 } = require("uuid");
+// const fs = require("fs"),
+//   path = require("path"),
+//   usersFile = path.join(__dirname, "../data/users.json"),
+//   usersTestFile = path.join(__dirname, "../data/users-testing.json"),
+//   gigsFile = path.join(__dirname, "../data/gigs.json"),
+//   gigsTestFile = path.join(__dirname, "../data/gigs-testing.json"),
+//   { v4: uuidv4 } = require("uuid");
 
 const database = require("../knexfile");
 const knex = require("knex")(database);
 
 class User {
   constructor(name, address, city, country, phone, email, instrument, bio) {
-    // this.id = uuidv4();
     this.name = name;
     this.address = address;
     this.city = city;
@@ -46,7 +45,6 @@ const getAllGigs = async () => {
 };
 
 const add = async (obj) => {
-  // const usersArray = getAllUsers();
   try {
     const user = new User(
       obj.name,
@@ -57,8 +55,6 @@ const add = async (obj) => {
       obj.email,
       obj.instrument,
       obj.bio
-      // obj.date,
-      // obj.time
     );
     const data = await knex("users").insert(user);
     console.log(data);
@@ -70,7 +66,6 @@ const add = async (obj) => {
 };
 
 const getOneById = async (id) => {
-  // const usersArray = getAllUsers();
   try {
     const data = await knex.select("*").where("id", id).from("users");
     console.log(data);
@@ -92,7 +87,6 @@ const remove = async (userID) => {
   }
 };
 
-//TODO: check this
 const removeUserWithGigs = async (id, userID) => {
   try {
     const data = await knex("users").where("id", id).del();

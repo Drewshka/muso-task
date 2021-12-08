@@ -9,7 +9,6 @@ exports.up = function (knex) {
     table.string("email").notNullable();
     table.string("instrument").notNullable();
     table.string("bio").notNullable();
-    // table.binary("photo"); //convert to JSON
   });
 };
 

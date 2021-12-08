@@ -1,6 +1,5 @@
 const express = require("express");
 const app = express();
-// const PORT = 8080;
 const PORT = process.env.PORT || 8080;
 const usersRoutes = require("./routes/usersRoutes");
 const gigsRoutes = require("./routes/gigsRoutes");
@@ -12,6 +11,7 @@ const helmet = require("helmet");
 const logger = require("morgan");
 const passport = require("passport");
 const GitHubStrategy = require("passport-github2");
+// const PORT = 8080;
 
 const cors = require("cors");
 const morgan = require("morgan");
@@ -68,9 +68,6 @@ passport.deserializeUser((user, cb) => {
 });
 
 require("dotenv").config();
-// require("dotenv").config({
-//   path: `.env.local`,
-// });
 
 // Routes
 app.use("/users", usersRoutes);
