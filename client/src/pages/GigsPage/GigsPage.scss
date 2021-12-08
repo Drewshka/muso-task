@@ -1,0 +1,41 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.gigs {
+  padding: 0 1rem;
+  position: relative;
+
+  &__title {
+    @include font("Avenir Next Regular", 600, 26px, 15px, $primary);
+    padding: 1rem;
+    @include tablet {
+      @include font("Avenir Next Regular", 600, 32px, 20px, $primary);
+    }
+  }
+
+  &__button {
+    @include font("Avenir Next Regular", 600, 14px, 0px, $primary4);
+    height: 3rem;
+    min-width: 12rem;
+    background-color: $primary2;
+    padding: 0 8px;
+    border-radius: 4px;
+    width: 12rem;
+    border: 1px solid $primary;
+    margin: 0 2px;
+    margin-bottom: 1rem;
+  }
+
+  &__table {
+    border: 1px solid black;
+    margin: 0 auto;
+
+    &--headers-category {
+      padding: 0 1rem;
+    }
+
+    &--data {
+      background-color: beige;
+    }
+  }
+}

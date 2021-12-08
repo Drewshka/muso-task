@@ -1,0 +1,54 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.heroGig {
+  padding: 0 1rem;
+
+  &__curr-gig {
+    &-title {
+      @include font("Avenir Next Regular", 600, 22px, 15px, $primary);
+      margin: 1rem 0;
+      @include tablet {
+        @include font("Avenir Next Regular", 600, 26px, 20px, $primary);
+      }
+    }
+
+    &__card {
+      @include flex(center, flex-start, column);
+      border: 1px solid black;
+      background-color: $secondary3;
+      border-radius: 4px;
+      width: 80vw;
+      padding: 1rem;
+      margin: 0 auto;
+      box-shadow: 5px 2px;
+
+      &-name {
+        @include font("Avenir Next Regular", 600, 22px, 15px, $primary);
+        margin-bottom: 1rem;
+        @include tablet {
+          @include font("Avenir Next Regular", 600, 24px, 18px, $primary);
+        }
+      }
+
+      &-address,
+      &-date,
+      &-time,
+      &-category,
+      &-venue,
+      &-description,
+      &-email {
+        @include font("Avenir Next Regular", 600, 14px, 15px, $primary2);
+        @include tablet {
+          @include font("Avenir Next Regular", 600, 16px, 18px, $primary2);
+        }
+      }
+    }
+    #heroGig__span {
+      @include font("Avenir Next Regular", 400, 14px, 15px, $primary);
+      @include tablet {
+        @include font("Avenir Next Regular", 400, 16px, 18px, $primary);
+      }
+    }
+  }
+}

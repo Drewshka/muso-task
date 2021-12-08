@@ -1,0 +1,39 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.users {
+  padding: 0 1rem;
+
+  &__title {
+    @include font("Avenir Next Regular", 600, 26px, 15px, $primary);
+    padding: 1rem;
+    @include tablet {
+      @include font("Avenir Next Regular", 600, 32px, 20px, $primary);
+    }
+  }
+
+  &__button {
+    @include flex(space-evenly, center, row);
+    @include tablet {
+      @include flex(space-evenly, center, row);
+    }
+  }
+
+  &__button-post,
+  &__button-signUp,
+  &__button-edit {
+    @include font("Avenir Next Regular", 600, 14px, 0px, $primary4);
+    height: 3rem;
+    min-width: 6rem;
+    background-color: $primary2;
+    padding: 0 8px;
+    border-radius: 4px;
+    width: 6rem;
+    border: 1px solid $primary;
+    margin: 0 2px;
+    margin-bottom: 1rem;
+    @include tablet {
+      width: 12rem;
+    }
+  }
+}
