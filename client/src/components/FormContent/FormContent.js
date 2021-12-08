@@ -157,6 +157,7 @@ class FormContent extends Component {
           name="myForm"
           action="POST"
           onSubmit={this.handleSubmit}
+          autocomplete="off"
         >
           <article id="container1">
             <div className="form__container-name">
