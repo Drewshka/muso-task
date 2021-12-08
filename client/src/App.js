@@ -39,7 +39,6 @@ function App() {
           <Route path="/gigs" exact component={GigsPage} />
           <Route path="/gigs/:id" component={GigsPage} />
           <Route path="/map" component={EventsMap} />
-          {/* <Route path="/contact" component={ContactUsPage} /> */}
         </Switch>
         <Route path="/login" component={Login} />
         <Route path="/public" component={PublicPage} />
