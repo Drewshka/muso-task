@@ -4,8 +4,6 @@ import EditContent from "../EditContent/EditContent";
 
 export default class EditModal extends Component {
   render() {
-    console.log(this.props);
-
     const editContent = (
       <EditContent
         gig={this.props.gig}

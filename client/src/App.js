@@ -11,9 +11,6 @@ import AuthButton from "./components/OAuth/AuthButton";
 import Login from "./components/OAuth/Login";
 import PublicPage from "./components/OAuth/PublicPage";
 import ProtectedPage from "./components/OAuth/ProtectedPage";
-// import ContactUsPage from "./pages/ContactUsPage/ContactUsPage";
-// import Profile from "./pages/Profile/Profile";
-// import axios from "axios";
 
 export const API_URL = "http://localhost:8080";
 

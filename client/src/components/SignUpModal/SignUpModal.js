@@ -4,8 +4,6 @@ import SignUpContent from "../SignUpContent/SignUpContent";
 
 export default class FormModal extends Component {
   render() {
-    console.log(this.props);
-
     const signUpContent = (
       <SignUpContent
         hideModalHandler={this.props.hideModalHandler}

@@ -4,8 +4,6 @@ import FormContent from "../FormContent/FormContent";
 
 export default class FormModal extends Component {
   render() {
-    console.log(this.props);
-
     const formContent = (
       <FormContent
         user={this.props.user}
