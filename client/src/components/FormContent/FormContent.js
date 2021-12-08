@@ -4,7 +4,6 @@ import "./FormContent.scss";
 import { Component } from "react";
 import axios from "axios";
 const apiUrl = "http://localhost:8080";
-// import { Link } from "react-router-dom";
 
 const initialState = {
   name: "",
@@ -23,9 +22,6 @@ const initialState = {
   categoryError: "",
 };
 
-// TODO: MAKE MODAL POSITION ABSOLUTE SO IT DOESN'T PUSH THE OTHER ELEMENTS BELOW IT.
-
-// function FormContent() {
 class FormContent extends Component {
   state = initialState;
 
@@ -102,21 +98,15 @@ class FormContent extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
 
-    console.log(this.state);
-
     const isValid = this.validate();
     if (isValid) {
-      console.log(this.state);
       // *clear form
       this.setState(initialState);
-      // this.props.history.push("/");
-      // this.props.history.push("/gigs");
     }
 
     axios
 
       .post(`${apiUrl}/gigs`, {
-        // userName: this.props.user[0].name,
         userID: this.props.user[0].id,
         gigName: event.target.name.value,
         description: event.target.description.value,
@@ -134,20 +124,10 @@ class FormContent extends Component {
         console.log(error.message);
       });
 
-    // console.log(event.target.venue.value);
-
-    console.log("handle submit!");
-
     this.props.history.push("/gigs");
   };
 
-  //* Google Auto complete input code
-
   render() {
-    // console.log(this.props.user[0]);
-    // console.log(this.state.venue);
-    // console.log(this.props.user.name);
-
     return (
       <div className="form">
         <h2 className="form__header">Post a Gig!</h2>
@@ -157,9 +137,10 @@ class FormContent extends Component {
           name="myForm"
           action="POST"
           onSubmit={this.handleSubmit}
-          autocomplete="off"
+          autoComplete="off"
         >
           <article id="container1">
+            {/* NAME */}
             <div className="form__container-name">
               <h4 className="form__container-name-title">Gig Name</h4>
               <input
@@ -179,6 +160,7 @@ class FormContent extends Component {
                 {this.state.nameError}
               </div>
             </div>
+            {/* DESCRIPTION */}
             <div className="form__container-description">
               <h4 className="form__container-description-title">
                 Gig Description
@@ -200,7 +182,7 @@ class FormContent extends Component {
                 {this.state.descriptionError}
               </div>
             </div>
-
+            {/* CATEGORY */}
             <div className="form__container-category">
               <h4 className="form__container-category-title">Category</h4>
               <div className="form__container-category-list">
@@ -252,6 +234,7 @@ class FormContent extends Component {
           </article>
 
           <article id="container2">
+            {/* VENUE */}
             <div className="form__container-venue">
               <h4 className="form__container-venue-title">Venue</h4>
               <input
@@ -271,7 +254,7 @@ class FormContent extends Component {
                 {this.state.venueError}
               </div>
             </div>
-
+            {/* ADDRESS */}
             <div className="form__container-address">
               <h4 className="form__container-address-title">Address</h4>
               <Autocomplete
@@ -285,7 +268,6 @@ class FormContent extends Component {
                   fields: ["address_components", "geometry"],
                   types: ["address"],
                 }}
-                // defaultValue="Toronto"
                 className="form__container-address-input"
                 type="text"
                 id="address"
@@ -294,15 +276,6 @@ class FormContent extends Component {
                 value={this.state.address}
                 onChange={this.handleChange}
               />
-              {/* <input
-              className="form__container-address-input"
-              type="text"
-              id="address"
-              name="address"
-              placeholder="Please add the address"
-              value={this.state.address}
-              onChange={this.handleChange}
-            /> */}
               <div
                 className="form__container-address-error"
                 id="addressError"
@@ -311,6 +284,7 @@ class FormContent extends Component {
                 {this.state.addressError}
               </div>
             </div>
+            {/* DATE */}
             <div className="form__container-date">
               <h4 className="form__container-date-title">Date</h4>
               <label id="date"></label>
@@ -332,6 +306,7 @@ class FormContent extends Component {
                 {this.state.dateError}
               </div>
             </div>
+            {/* TIME */}
             <div className="form__container-time">
               <h4 className="form__container-time-title">Time</h4>
               <label id="time"></label>
@@ -352,7 +327,7 @@ class FormContent extends Component {
                 {this.state.timeError}
               </div>
             </div>
-
+            {/* BUTTONS */}
             <div className="form__container-button">
               <button
                 className="form__container-button-submit"
@@ -362,7 +337,7 @@ class FormContent extends Component {
               >
                 Submit
               </button>
-              {/* <Link to="/"> */}
+
               <button
                 onClick={this.props.hideModalHandler}
                 className="form__container-button-cancel"
@@ -372,7 +347,6 @@ class FormContent extends Component {
               >
                 Cancel
               </button>
-              {/* </Link> */}
             </div>
           </article>
         </form>
@@ -382,5 +356,3 @@ class FormContent extends Component {
 }
 
 export default withRouter(FormContent);
-
-// export default FormContent;

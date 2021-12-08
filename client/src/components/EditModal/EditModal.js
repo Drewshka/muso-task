@@ -1,6 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { Component } from "react";
-// import FormContent from "./FormContent";
 import EditContent from "../EditContent/EditContent";
 
 export default class EditModal extends Component {

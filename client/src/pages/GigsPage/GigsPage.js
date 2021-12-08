@@ -1,4 +1,3 @@
-// import { Link } from "react-router-dom";
 import "./GigsPage.scss";
 import React, { Component } from "react";
 import GigsList from "../../components/GigsList/GigsList";
@@ -28,8 +27,6 @@ export default class GigsPage extends Component {
     let currGigId = this.props.match.params.id
       ? this.props.match.params.id
       : this.state.gigs[0].id;
-
-    console.log(currGigId);
 
     axios
       .get(`${gigsURL}/${currGigId}`)
@@ -68,12 +65,6 @@ export default class GigsPage extends Component {
     if (prevProps.match.params.id !== this.props.match.params.id) {
       this.fetchGigDetails();
     }
-    //* update state to show gigs list after deletion
-    // if (prevState.gigs !== this.state.gigs) {
-    //   return this.state.gigs;
-    // }
-    // console.log(prevState.gigs);
-    // console.log(this.state.gigs);
   }
 
   render() {

@@ -3,7 +3,6 @@
 
 .users {
   padding: 0 1rem;
-  // background-color: azure;
 
   &__title {
     @include font("Avenir Next Regular", 600, 26px, 15px, $primary);
@@ -14,7 +13,6 @@
   }
 
   &__button {
-    // @include flex(center, center, row);
     @include flex(space-evenly, center, row);
     @include tablet {
       @include flex(space-evenly, center, row);

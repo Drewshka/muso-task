@@ -1,7 +1,6 @@
 import Autocomplete from "react-google-autocomplete";
 import "./EditContent.scss";
 import { withRouter } from "react-router-dom";
-// import { Link } from "react-router-dom";
 import { Component } from "react";
 import axios from "axios";
 const apiUrl = "http://localhost:8080";
@@ -22,9 +21,6 @@ const initialState = {
   dateError: "",
   timeError: "",
 };
-
-// TODO: MAKE MODAL POSITION ABSOLUTE SO IT DOESN'T PUSH THE OTHER ELEMENTS BELOW IT.
-
 class EditContent extends Component {
   state = initialState;
 
@@ -101,14 +97,11 @@ class EditContent extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
 
-    console.log(this.state);
-
     const isValid = this.validate();
     if (isValid) {
-      console.log(this.state);
-      // clear form
+      // console.log(this.state);
+      // *clear form
       this.setState(initialState);
-      // this.props.history.push("/");
     }
 
     let currGigId = this.props.gig[0].id;
@@ -133,17 +126,11 @@ class EditContent extends Component {
       .catch((error) => {
         console.log(error.message);
       });
-    // console.log(this.props.gig.id);
-
-    console.log("handle submit!");
 
     window.location.reload(false);
-    // this.props.history.push("/");
   };
 
   render() {
-    // console.log(this.props);
-
     return (
       <div className="edit">
         <h1>What would you like to change?</h1>
@@ -154,6 +141,7 @@ class EditContent extends Component {
           action="POST"
           onSubmit={this.handleSubmit}
         >
+          {/* NAME INPUT */}
           <article id="editContainer1">
             <div className="edit__container-name">
               <h4 className="edit__container-name-title">Name</h4>
@@ -174,7 +162,7 @@ class EditContent extends Component {
                 {this.state.nameError}
               </div>
             </div>
-
+            {/* DESCRIPTION INPUT */}
             <div className="edit__container-description">
               <h4 className="edit__container-description-title">
                 Gig Description
@@ -196,7 +184,7 @@ class EditContent extends Component {
                 {this.state.descriptionError}
               </div>
             </div>
-
+            {/* RADIO BUTTONS INPUT */}
             <div className="edit__container-category">
               <h4 className="edit__container-category-title">Category</h4>
               <div className="edit__container-category-list">
@@ -245,59 +233,8 @@ class EditContent extends Component {
                 </div>
               </div>
             </div>
-
-            {/* <div className="edit__container-venue">
-              <h4 className="edit_container-venue-title">Venue</h4>
-              <input
-                className="edit__container-venue-input"
-                type="text"
-                id="venue"
-                name="venue"
-                placeholder="Please add a venue"
-                value={this.state.venue}
-                onChange={this.handleChange}
-              />
-              <div
-                className="edit__container-venue-error"
-                id="venueError"
-                name="venueError"
-              >
-                {this.state.venueError}
-              </div>
-            </div> */}
-
-            {/* <div className="edit__container-address">
-              <h4 className="edit__container-address-title">Address</h4>
-              <Autocomplete
-                apiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}
-                // style={{ width: "90%" }}
-                onPlaceSelected={(place) => {
-                  console.log(place);
-                }}
-                options={{
-                  componentRestrictions: { country: "can" },
-                  fields: ["address_components", "geometry"],
-                  types: ["address"],
-                }}
-                // defaultValue="Toronto"
-                className="edit__container-address-input"
-                type="text"
-                id="address"
-                name="address"
-                placeholder="Please add the address"
-                value={this.state.address}
-                onChange={this.handleChange}
-              />
-              <div
-                className="edit__container-address-error"
-                id="addressError"
-                name="addressError"
-              >
-                {this.state.addressError}
-              </div>
-            </div> */}
           </article>
-
+          {/* VENUE INPUT */}
           <article id="editContainer2">
             <div className="edit__container-venue">
               <h4 className="edit_container-venue-title" id="venue-title">
@@ -320,7 +257,7 @@ class EditContent extends Component {
                 {this.state.venueError}
               </div>
             </div>
-
+            {/* ADDRESS INPUT */}
             <div className="edit__container-address">
               <h4 className="edit__container-address-title">Address</h4>
               <Autocomplete
@@ -351,25 +288,7 @@ class EditContent extends Component {
                 {this.state.addressError}
               </div>
             </div>
-            {/* <div className="edit__container-address">
-              <h4 className="edit__container-address-title">Address</h4>
-              <input
-                className="edit__container-address-input"
-                type="text"
-                id="address"
-                name="address"
-                placeholder="Please add the address"
-                value={this.state.address}
-                onChange={this.handleChange}
-              />
-              <div
-                className="edit__container-address-error"
-                id="addressError"
-                name="addressError"
-              >
-                {this.state.addressError}
-              </div>
-            </div> */}
+            {/* DATE INPUT */}
             <div className="edit__container-date">
               <h4 className="form__container-date-title">Date</h4>
               <label id="date"></label>
@@ -390,6 +309,7 @@ class EditContent extends Component {
                 {this.state.dateError}
               </div>
             </div>
+            {/* TIME INPUT */}
             <div className="edit__container-time">
               <h4 className="edit__container-time-title">Time</h4>
               <label id="time"></label>
@@ -410,7 +330,7 @@ class EditContent extends Component {
                 {this.state.timeError}
               </div>
             </div>
-
+            {/* BUTTONS */}
             <div className="edit__container-button">
               <button
                 className="edit__container-button-submit"
@@ -420,7 +340,7 @@ class EditContent extends Component {
               >
                 Submit
               </button>
-              {/* <Link to="/"> */}
+
               <button
                 onClick={this.props.hideEditModalHandler}
                 className="edit__container-button-cancel"
@@ -430,7 +350,6 @@ class EditContent extends Component {
               >
                 Cancel
               </button>
-              {/* </Link> */}
             </div>
           </article>
         </form>

@@ -1,4 +1,3 @@
-// import { Link } from "react-router-dom";
 import "./UsersPage.scss";
 import React, { Component } from "react";
 import Hero from "../../components/Hero/Hero";
@@ -10,7 +9,6 @@ import axios from "axios";
 const apiURL = "http://localhost:8080";
 const usersURL = `${apiURL}/users`;
 
-// export default function GigsPage() {
 export default class UsersPage extends Component {
   state = {
     users: [],
@@ -33,8 +31,6 @@ export default class UsersPage extends Component {
   showSignUpModalHandler = (event) => {
     this.setState({
       showSignUpModal: true,
-      // showModal: false,
-      // showEditUserModal: false,
     });
   };
 
@@ -56,8 +52,6 @@ export default class UsersPage extends Component {
     let currUserId = this.props.match.params.id
       ? this.props.match.params.id
       : this.state.users[0].id;
-
-    console.log(currUserId);
 
     axios
       .get(`${usersURL}/${currUserId}`)
@@ -96,12 +90,6 @@ export default class UsersPage extends Component {
     if (prevProps.match.params.id !== this.props.match.params.id) {
       this.fetchUserDetails();
     }
-    // if (prevState.users !== this.state.users) {
-    //   this.setState({ users: this.state.users });
-    // }
-
-    // console.log(prevState);
-    // console.log(this.state.users);
   }
 
   render() {
@@ -112,22 +100,15 @@ export default class UsersPage extends Component {
         )
       : this.state.users;
 
-    // console.log(this.state.users);
-    const usersList = this.state.users;
-    const currUser = this.state.selectedUser;
-    console.log(usersList);
-    console.log(currUser);
-
     if (this.state.selectedUser === null) {
       return <p>Loading...</p>;
     }
-
-    // const props = { user: this.state.selectedUser };
 
     return (
       <section className="users">
         <h2 className="users__title">Musicians</h2>
         <div className="users__button">
+          {/* POST A GIG */}
           <button
             className="users__button-post"
             type="button"
@@ -135,6 +116,7 @@ export default class UsersPage extends Component {
           >
             Post a Gig
           </button>
+          {/* SIGN-UP */}
           <button
             className="users__button-signUp"
             type="button"
@@ -142,6 +124,7 @@ export default class UsersPage extends Component {
           >
             Sign-up
           </button>
+          {/* EDIT USER */}
           <button
             className="users__button-edit"
             type="button"

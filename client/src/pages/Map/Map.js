@@ -40,7 +40,9 @@ const center = {
 const apiURL = "http://localhost:8080";
 const gigsURL = `${apiURL}/gigs`;
 
-export default function ContactUsPage(props) {
+//TODO: sometimes the markers don't load right away on the map, try refreshing the page or navigating to another page, then back to maps and the markers should appear
+
+export default function Map(props) {
   const [data, setData] = useState({});
 
   useEffect(() => {

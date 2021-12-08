@@ -1,10 +1,9 @@
-import { withRouter } from "react-router-dom";
 import "./Hero.scss";
-import React, { useState } from "react";
+import { withRouter } from "react-router-dom";
+import React from "react";
 import Modal from "react-modal";
 import axios from "axios";
 const apiUrl = "http://localhost:8080";
-// import React from "react";
 
 const customStyles = {
   content: {
@@ -17,9 +16,7 @@ const customStyles = {
   },
 };
 
-function Hero({ user, users, history }) {
-  // console.log(...user);
-
+function Hero({ user, history }) {
   let subtitle;
   const [modalIsOpen, setIsOpen] = React.useState(false);
 
@@ -53,9 +50,7 @@ function Hero({ user, users, history }) {
       })
       .then(({ data }) => {
         console.log("Single Gig: ", data);
-        // this.setState({
-        //   selectedUser: data,
-        // });
+
         history.push("/users");
       })
       .catch((error) => {

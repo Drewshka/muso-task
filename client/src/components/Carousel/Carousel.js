@@ -1,4 +1,4 @@
-import "./Carousel.scss"; //will be added later
+import "./Carousel.scss";
 import React, { useState, useEffect } from "react";
 
 const Carousel = (props) => {
@@ -7,7 +7,7 @@ const Carousel = (props) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [length, setLength] = useState(children.length);
 
-  // Set the length to match current children from props
+  // *Set the length to match current children from props
   useEffect(() => {
     setLength(children.length);
   }, [children]);

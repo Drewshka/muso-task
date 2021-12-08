@@ -1,11 +1,10 @@
-import { withRouter } from "react-router-dom";
 import "./SignUpContent.scss";
+import { withRouter } from "react-router-dom";
 import { Component } from "react";
 import validator from "validator";
 
 import axios from "axios";
 const apiUrl = "http://localhost:8080";
-// import { Link } from "react-router-dom";
 
 const initialState = {
   name: "",
@@ -25,10 +24,6 @@ const initialState = {
   instrumentError: "",
   bioError: "",
 };
-
-// TODO: MAKE MODAL POSITION ABSOLUTE SO IT DOESN'T PUSH THE OTHER ELEMENTS BELOW IT.
-
-// function FormContent() {
 class SignUpContent extends Component {
   state = initialState;
 
@@ -115,14 +110,10 @@ class SignUpContent extends Component {
     let phone = event.target.phone.value;
     let email = event.target.email.value;
 
-    console.log(this.state);
-
     const isValid = this.validate();
     if (isValid) {
-      console.log(this.state);
-      // clear form
+      // *clear form
       this.setState(initialState);
-      // this.props.history.push("/");
     }
 
     const validatePhoneNumber = (number) => {
@@ -135,8 +126,6 @@ class SignUpContent extends Component {
       return false;
     }
 
-    console.log(validatePhoneNumber(phone));
-
     const validateEmail = (Email) => {
       const isValidEmail = validator.isEmail(Email);
       return isValidEmail;
@@ -146,8 +135,6 @@ class SignUpContent extends Component {
       alert("Please enter a valid email");
       return false;
     }
-
-    console.log(validateEmail(email));
 
     axios
 
@@ -163,9 +150,6 @@ class SignUpContent extends Component {
       })
       .then((response) => {
         console.log("response: ", response.data);
-        // this.setState({
-        //   users: response,
-        // });
 
         return axios.get(`${apiUrl}/users`);
       })
@@ -179,24 +163,10 @@ class SignUpContent extends Component {
         console.log(error.message);
       });
 
-    console.log("handle submit!");
-
-    //   this.props.history.push("/");
     window.location.reload(false);
   };
 
-  // componentDidUpdate(prevProps) {
-  //   if (prevProps.state.users !== this.props.state.users) {
-  //     this.setState({ users: this.props.state.users });
-  //   }
-
-  //   console.log(prevProps.state.users);
-  //   console.log(prevState);
-  //   console.log(this.props.state.users);
-  // }
-
   render() {
-    // console.log(this.props.state);
     return (
       <div className="signUp">
         <h1 className="signUp__header">User Sign-Up</h1>
@@ -208,6 +178,7 @@ class SignUpContent extends Component {
           onSubmit={this.handleSubmit}
         >
           <article id="signUp-container1">
+            {/* NAME */}
             <div className="signUp__container-name">
               <h4 className="signUp__container-name-title">Enter your name</h4>
               <input
@@ -227,6 +198,7 @@ class SignUpContent extends Component {
                 {this.state.nameError}
               </div>
             </div>
+            {/* ADDRESS */}
             <div className="signUp__container-address">
               <h4 className="signUp__container-address-title">
                 What's your address?
@@ -248,7 +220,7 @@ class SignUpContent extends Component {
                 {this.state.addressError}
               </div>
             </div>
-
+            {/* CITY */}
             <div className="signUp__container-city">
               <h4 className="signUp__container-city-title">
                 What's your city?
@@ -270,7 +242,7 @@ class SignUpContent extends Component {
                 {this.state.cityError}
               </div>
             </div>
-
+            {/* COUNTRY */}
             <div className="signUp__container-country">
               <h4 className="signUp__container-country-title">
                 Enter your country
@@ -295,6 +267,7 @@ class SignUpContent extends Component {
           </article>
 
           <article id="signUp-container2">
+            {/* PHONE */}
             <div className="signUp__container-phone">
               <h4 className="signUp__container-phone-title">Phone number</h4>
               <input
@@ -314,7 +287,7 @@ class SignUpContent extends Component {
                 {this.state.phoneError}
               </div>
             </div>
-
+            {/* EMAIL */}
             <div className="signUp__container-email">
               <h4 className="signUp__container-email-title">Email</h4>
               <label id="email"></label>
@@ -336,7 +309,7 @@ class SignUpContent extends Component {
                 {this.state.emailError}
               </div>
             </div>
-
+            {/* INSTRUMENT */}
             <div className="signUp__container-instrument">
               <h4 className="signUp__container-instrument-title">Instrument</h4>
               <label id="instrument"></label>
@@ -357,7 +330,7 @@ class SignUpContent extends Component {
                 {this.state.instrumentError}
               </div>
             </div>
-
+            {/* BIO */}
             <div className="signUp__container-bio">
               <h4 className="signUp__container-bio-title">A brief bio</h4>
               <textarea
@@ -377,7 +350,7 @@ class SignUpContent extends Component {
                 {this.state.bioError}
               </div>
             </div>
-
+            {/* BUTTONS */}
             <div className="signUp__container-button">
               <button
                 className="signUp__container-button-submit"
@@ -387,7 +360,6 @@ class SignUpContent extends Component {
               >
                 Submit
               </button>
-              {/* <Link to="/"> */}
               <button
                 onClick={this.props.hideModalHandler}
                 className="signUp__container-button-cancel"
@@ -397,7 +369,6 @@ class SignUpContent extends Component {
               >
                 Cancel
               </button>
-              {/* </Link> */}
             </div>
           </article>
         </form>

@@ -4,7 +4,6 @@ import React from "react";
 import Modal from "react-modal";
 import axios from "axios";
 const apiUrl = "http://localhost:8080";
-// import ReactDOM from "react-dom";
 
 const customStyles = {
   content: {
@@ -18,9 +17,6 @@ const customStyles = {
 };
 
 function HeroGig({ gig, history }) {
-  // this.props.history.push("/");
-  console.log(history);
-
   let subtitle;
   const [modalIsOpen, setIsOpen] = React.useState(false);
 
@@ -44,7 +40,6 @@ function HeroGig({ gig, history }) {
     event.preventDefault();
 
     let currGigId = gig[0].id;
-    // let commentId = event.target.id;
 
     axios
       .delete(`${apiUrl}/gigs/${currGigId}`)
@@ -55,16 +50,13 @@ function HeroGig({ gig, history }) {
       })
       .then(({ data }) => {
         console.log("Single Gig: ", data);
-        // this.setState({
-        //   selectedGig: data,
-        // });
+
         history.push("/gigs");
       })
       .catch((error) => {
         console.error("There was an error!", error);
       });
 
-    // history.push("/");
     alert("Deleted successfully");
     window.location.reload(false);
   };
@@ -74,7 +66,6 @@ function HeroGig({ gig, history }) {
       <section className="heroGig__curr-gig">
         <h3 className="heroGig__curr-gig-title">Current Gig</h3>
         {gig.map((gigProp, i) => {
-          console.log(gigProp);
           return (
             <article key={i} className="heroGig__curr-gig__card">
               <h2 className="heroGig__curr-gig__card-name">
@@ -109,7 +100,6 @@ function HeroGig({ gig, history }) {
                 <span id="heroGig__span">Get in touch: </span>
                 {gigProp.email}
               </p>
-              {/* <p>User ID: {gig.userID}</p> */}
 
               <button onClick={openModal}>Delete Gig</button>
               <Modal

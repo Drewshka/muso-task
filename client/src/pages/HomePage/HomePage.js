@@ -1,10 +1,6 @@
-// import { Link } from "react-router-dom";
 import "./HomePage.scss";
 import React from "react";
 import Carousel from "../../components/Carousel/Carousel";
-// import Photo from "../../assets/images/Upload-video-bike.jpg";
-// import axios from "axios";
-// const apiUrl = "http://localhost:8080";
 
 export default function HomePage() {
   return (

@@ -1,6 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { Component } from "react";
-// import FormContent from "../FormContent/FormContent";
 import SignUpContent from "../SignUpContent/SignUpContent";
 
 export default class FormModal extends Component {
@@ -9,7 +8,6 @@ export default class FormModal extends Component {
 
     const signUpContent = (
       <SignUpContent
-        // user={this.props.user}
         hideModalHandler={this.props.hideModalHandler}
         state={this.props.state}
       ></SignUpContent>

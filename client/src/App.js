@@ -5,20 +5,17 @@ import Header from "./components/Header/Header";
 import HomePage from "./pages/HomePage/HomePage";
 import GigsPage from "./pages/GigsPage/GigsPage";
 import UsersPage from "./pages/UsersPage/UsersPage";
-import ContactUsPage from "./pages/ContactUsPage/ContactUsPage";
+import EventsMap from "./pages/Map/Map";
 import PrivateRoute from "./components/OAuth/PrivateRoute";
 import AuthButton from "./components/OAuth/AuthButton";
 import Login from "./components/OAuth/Login";
 import PublicPage from "./components/OAuth/PublicPage";
 import ProtectedPage from "./components/OAuth/ProtectedPage";
+// import ContactUsPage from "./pages/ContactUsPage/ContactUsPage";
 // import Profile from "./pages/Profile/Profile";
 // import axios from "axios";
 
 export const API_URL = "http://localhost:8080";
-
-// const baseUrl = "http://localhost:8080";
-// const loginUrl = `${baseUrl}/login`;
-// const signupUrl = `${baseUrl}/signup`;
 
 function App() {
   return (
@@ -29,7 +26,6 @@ function App() {
             <Link to="/public" style={{ textDecoration: "none" }}>
               Public Page
             </Link>
-            {/* <Profile /> */}
           </li>
           <li className="App__ul-item">
             <Link to="/protected" style={{ textDecoration: "none" }}>
@@ -45,7 +41,8 @@ function App() {
           <Route path="/users/:id" component={UsersPage} />
           <Route path="/gigs" exact component={GigsPage} />
           <Route path="/gigs/:id" component={GigsPage} />
-          <Route path="/contact" component={ContactUsPage} />
+          <Route path="/map" component={EventsMap} />
+          {/* <Route path="/contact" component={ContactUsPage} /> */}
         </Switch>
         <Route path="/login" component={Login} />
         <Route path="/public" component={PublicPage} />
