@@ -15,12 +15,12 @@
 
   &__button {
     @include font("Avenir Next Regular", 600, 14px, 0px, $primary4);
-    height: 2rem;
-    min-width: 6rem;
+    height: 3rem;
+    min-width: 12rem;
     background-color: $primary2;
     padding: 0 8px;
     border-radius: 4px;
-    width: 10rem;
+    width: 12rem;
     border: 1px solid $primary;
     margin: 0 2px;
     margin-bottom: 1rem;

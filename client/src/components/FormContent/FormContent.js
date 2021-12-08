@@ -107,16 +107,16 @@ class FormContent extends Component {
     const isValid = this.validate();
     if (isValid) {
       console.log(this.state);
-      // clear form
+      // *clear form
       this.setState(initialState);
-      this.props.history.push("/");
+      // this.props.history.push("/");
       // this.props.history.push("/gigs");
     }
 
     axios
 
       .post(`${apiUrl}/gigs`, {
-        userName: this.props.user[0].name,
+        // userName: this.props.user[0].name,
         userID: this.props.user[0].id,
         gigName: event.target.name.value,
         description: event.target.description.value,
@@ -128,16 +128,17 @@ class FormContent extends Component {
       })
       .then((response) => {
         console.log("response: ", response.data);
+        window.location.reload(false);
       })
       .catch((error) => {
         console.log(error.message);
       });
 
-    console.log(event.target.venue.value);
+    // console.log(event.target.venue.value);
 
     console.log("handle submit!");
 
-    // this.props.history.push("/");
+    this.props.history.push("/gigs");
   };
 
   //* Google Auto complete input code
@@ -156,6 +157,7 @@ class FormContent extends Component {
           name="myForm"
           action="POST"
           onSubmit={this.handleSubmit}
+          autocomplete="off"
         >
           <article id="container1">
             <div className="form__container-name">

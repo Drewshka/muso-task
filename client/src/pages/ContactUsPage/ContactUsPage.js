@@ -76,18 +76,6 @@ export default function ContactUsPage(props) {
             console.log("Error", error);
           }
         });
-        // const results = await getGeocode({ address });
-        // const { lat, lng } = await getLatLng(results[0]);
-        // console.log(lat, lng);
-
-        // setMarkers((current) => [
-        //   ...current,
-        //   {
-        //     lat,
-        //     lng,
-        //     time: new Date(),
-        //   },
-        // ]);
         setData(response.data);
       })
       .catch(function (error) {

@@ -56,13 +56,14 @@ function Hero({ user, users, history }) {
         // this.setState({
         //   selectedUser: data,
         // });
-        history.push("/");
+        history.push("/users");
       })
       .catch((error) => {
         console.error("There was an error!", error);
       });
 
     alert("Deleted successfully");
+    window.location.reload(false);
   };
 
   return (

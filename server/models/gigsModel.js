@@ -31,6 +31,7 @@ class SingleGig {
     this.time = time;
   }
 }
+
 //* get with user info
 const getAll = async () => {
   try {

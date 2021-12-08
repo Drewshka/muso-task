@@ -96,6 +96,12 @@ export default class UsersPage extends Component {
     if (prevProps.match.params.id !== this.props.match.params.id) {
       this.fetchUserDetails();
     }
+    // if (prevState.users !== this.state.users) {
+    //   this.setState({ users: this.state.users });
+    // }
+
+    // console.log(prevState);
+    // console.log(this.state.users);
   }
 
   render() {
@@ -154,6 +160,7 @@ export default class UsersPage extends Component {
         <SignUpModal
           showSignUpModal={this.state.showSignUpModal}
           hideModalHandler={this.hideSignUpModalHandler}
+          state={this.state}
         ></SignUpModal>
 
         <EditUserModal
@@ -163,8 +170,6 @@ export default class UsersPage extends Component {
         ></EditUserModal>
 
         <Hero user={this.state.selectedUser} users={this.state.users} />
-
-        {/* <Hero {...props} /> */}
 
         <UsersList users={filteredUsers} />
       </section>
