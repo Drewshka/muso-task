@@ -11,4 +11,9 @@ module.exports = {
     host: "127.0.0.1",
     charset: "utf8",
   },
+  //* HEROKU
+  production: {
+    client: "mysql",
+    connection: process.env.JAWSDB_URL,
+  },
 };

@@ -7,7 +7,13 @@
 //   { v4: uuidv4 } = require("uuid");
 
 const database = require("../knexfile");
-const knex = require("knex")(database);
+// const knex = require("knex")(database);
+
+//* HEROKU CODE
+const knex =
+  process.env.NODE_ENV === "production"
+    ? require("knex")(database)(require("../knexfile").production)
+    : require("knex")(database)(require("../knexfile").development);
 
 class User {
   constructor(name, address, city, country, phone, email, instrument, bio) {
