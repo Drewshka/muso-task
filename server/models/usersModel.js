@@ -6,14 +6,14 @@
 //   gigsTestFile = path.join(__dirname, "../data/gigs-testing.json"),
 //   { v4: uuidv4 } = require("uuid");
 
-const database = require("../knexfile");
+// const database = require("../knexfile");
 // const knex = require("knex")(database);
 
 //* HEROKU CODE
 const knex =
   process.env.NODE_ENV === "production"
-    ? require("knex")(database)(require("../knexfile").production)
-    : require("knex")(database)(require("../knexfile").development);
+    ? require("knex")(require("../knexfile").production)
+    : require("knex")(require("../knexfile").development);
 
 class User {
   constructor(name, address, city, country, phone, email, instrument, bio) {
