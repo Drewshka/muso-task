@@ -25,7 +25,7 @@ const passportConfig = {
   callbackURL: process.env.CALLBACK_URL,
 };
 
-app.use(express.static(path.join(__dirname, "public")));
+// app.use(express.static(path.join(__dirname, "public")));
 
 app.use(express.static(path.join(__dirname, "../client/public")));
 //* HEROKU
