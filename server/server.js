@@ -28,7 +28,7 @@ const passportConfig = {
 app.use(express.static(path.join(__dirname, "public")));
 
 //* HEROKU
-app.use(express.static(__dirname + "./../build"));
+app.use(express.static(__dirname + "../client/build"));
 
 // Middleware
 app.use(express.json());
