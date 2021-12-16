@@ -27,12 +27,13 @@ const passportConfig = {
 
 app.use(express.static(path.join(__dirname, "public")));
 
+app.use(express.static(path.join(__dirname, "../client/public")));
 //* HEROKU
 app.use(express.static(__dirname + "../client/build"));
 
-app.get("*", function (request, response) {
-  response.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
-});
+// app.get("*", function (request, response) {
+//   response.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
+// });
 
 // Middleware
 app.use(express.json());
