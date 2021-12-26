@@ -19,6 +19,8 @@ const path = require("path");
 
 require("dotenv").config();
 
+console.log(process.env);
+
 const passportConfig = {
   clientID: process.env.CLIENT_ID,
   clientSecret: process.env.CLIENT_SECRET,
