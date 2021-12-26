@@ -31,7 +31,7 @@ process.on("uncaughtException", function (err) {
 
 // app.use(express.static(path.join(__dirname, "public")));
 
-app.use(express.static(path.join(__dirname, "../client/public")));
+// app.use(express.static(path.join(__dirname, "../client/public")));
 //* HEROKU
 app.use(express.static(__dirname + "../client/build"));
 
@@ -85,6 +85,10 @@ require("dotenv").config();
 app.use("/users", usersRoutes);
 app.use("/gigs", gigsRoutes);
 app.use("/", authRoutes);
+
+app.get("*", function (request, response) {
+  response.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
+});
 
 app.listen(PORT, () => {
   console.log(`Express server is up and running on Port ${PORT}!`);
