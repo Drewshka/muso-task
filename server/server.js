@@ -86,9 +86,9 @@ require("dotenv").config();
 // Routes
 app.use("/users", usersRoutes);
 app.use("/gigs", gigsRoutes);
-app.use("/", authRoutes);
+//app.use("/", authRoutes);
 
-app.get("*", function (request, response) {
+app.get("/*", function (request, response) {
   response.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
 });
 
