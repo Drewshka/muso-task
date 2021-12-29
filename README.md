@@ -16,6 +16,7 @@ My goal was to build a full stack application from scratch. To do this I used Re
 5. Gitflow and working with different branches while developing
 
 ## Installation
+test
 
 #### Clone
 
