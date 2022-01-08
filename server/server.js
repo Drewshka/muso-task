@@ -1,3 +1,4 @@
+if (process.env.NODE_ENV !== "production") require("dotenv").config();
 const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -32,8 +33,8 @@ process.on("uncaughtException", function (err) {
 });
 
 // app.use(express.static(path.join(__dirname, "public")));
-
 // app.use(express.static(path.join(__dirname, "../client/public")));
+
 //* HEROKU
 app.use(express.static(path.resolve(__dirname, "../client/build")));
 
@@ -79,19 +80,22 @@ passport.deserializeUser((user, cb) => {
 
 require("dotenv").config();
 
-// Routes
+// *Routes
 app.use("/users", usersRoutes);
 app.use("/gigs", gigsRoutes);
 app.use("/", authRoutes);
 
-// All remaining requests return the React app, so it can handle routing.
-app.get("*", function (request, response) {
-  response.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
-});
+// *All remaining requests return the React app, so it can handle routing.
+// app.get("*", function (request, response) {
+//   response.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
+// });
 
 //*trying new code
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
+  app.use(express.static("../client/build"));
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../client", "build", "index.html"));
+  });
 }
 
 app.listen(PORT, () => {
