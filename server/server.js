@@ -35,11 +35,7 @@ process.on("uncaughtException", function (err) {
 
 // app.use(express.static(path.join(__dirname, "../client/public")));
 //* HEROKU
-app.use(express.static(path.resolve(__dirname, '../client/build')));
-
-// app.get("*", function (request, response) {
-//   response.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
-// });
+app.use(express.static(path.resolve(__dirname, "../client/build")));
 
 // Middleware
 app.use(express.json());
@@ -89,9 +85,14 @@ app.use("/gigs", gigsRoutes);
 app.use("/", authRoutes);
 
 // All remaining requests return the React app, so it can handle routing.
-app.get('*', function (request, response) {
-  response.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
+app.get("*", function (request, response) {
+  response.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
 });
+
+//*trying new code
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
 
 app.listen(PORT, () => {
   console.log(`Express server is up and running on Port ${PORT}!`);
