@@ -40,11 +40,11 @@ app.use(express.static(path.resolve(__dirname, "../client/build")));
 
 // Middleware
 app.use(express.json());
-// app.use(cors());
 app.use(morgan("dev"));
 app.use(helmet());
 app.use(logger("dev"));
 app.use(cors({ origin: true, credentials: true }));
+// app.use(cors());
 
 app.use(
   session({
