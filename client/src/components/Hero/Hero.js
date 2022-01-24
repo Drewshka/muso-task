@@ -64,62 +64,62 @@ function Hero({ user, history }) {
   return (
     <section className="hero">
       <h3 className="hero__curr-user">Current User</h3>
-      {user.map((userProp, i) => {
-        return (
-          <article key={i} className="hero__curr-user__card">
-            <h3 className="hero__curr-user__card-name">
-              <span id="hero__span"></span>
-              {userProp.name}
-            </h3>
-            <p className="hero__curr-user__card-address">
-              <span id="hero__span">Address: </span>
-              {userProp.address}
-            </p>
-            <p className="hero__curr-user__card-city">
-              <span id="hero__span">City: </span>
-              {userProp.city}
-            </p>
-            <p className="hero__curr-user__card-country">
-              <span id="hero__span">Country: </span>
-              {userProp.country}
-            </p>
-            <p className="hero__curr-user__card-instrument">
-              <span id="hero__span">Instruments: </span>
-              {userProp.instrument}
-            </p>
-            <p className="hero__curr-user__card-email">
-              <span id="hero__span">Email: </span>
-              {userProp.email}
-            </p>
-            <p className="hero__curr-user__card-phone">
-              <span id="hero__span">Phone: </span>
-              {userProp.phone}
-            </p>
-            <p className="hero__curr-user__card-bio">
-              <span id="hero__span">About: </span>
-              {userProp.bio}
-            </p>
+      {/* {user.map((userProp, i) => {
+        return ( */}
+      <article className="hero__curr-user__card">
+        <h3 className="hero__curr-user__card-name">
+          <span id="hero__span"></span>
+          {user.name}
+        </h3>
+        <p className="hero__curr-user__card-address">
+          <span id="hero__span">Address: </span>
+          {user.address}
+        </p>
+        <p className="hero__curr-user__card-city">
+          <span id="hero__span">City: </span>
+          {user.city}
+        </p>
+        <p className="hero__curr-user__card-country">
+          <span id="hero__span">Country: </span>
+          {user.country}
+        </p>
+        <p className="hero__curr-user__card-instrument">
+          <span id="hero__span">Instruments: </span>
+          {user.instrument}
+        </p>
+        <p className="hero__curr-user__card-email">
+          <span id="hero__span">Email: </span>
+          {user.email}
+        </p>
+        <p className="hero__curr-user__card-phone">
+          <span id="hero__span">Phone: </span>
+          {user.phone}
+        </p>
+        <p className="hero__curr-user__card-bio">
+          <span id="hero__span">About: </span>
+          {user.bio}
+        </p>
 
-            <button onClick={openModal}>Delete User</button>
-            <Modal
-              isOpen={modalIsOpen}
-              onAfterOpen={afterOpenModal}
-              onRequestClose={closeModal}
-              style={customStyles}
-              contentLabel="Example Modal"
-            >
-              <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Delete User</h2>
-              <button onClick={closeModal}>close</button>
-              <div>
-                Are you sure you'd like to delete this user and relevent gigs?
-              </div>
-              <form>
-                <button onClick={handleClick}>Delete User</button>
-              </form>
-            </Modal>
-          </article>
-        );
-      })}
+        <button onClick={openModal}>Delete User</button>
+        <Modal
+          isOpen={modalIsOpen}
+          onAfterOpen={afterOpenModal}
+          onRequestClose={closeModal}
+          style={customStyles}
+          contentLabel="Example Modal"
+        >
+          <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Delete User</h2>
+          <button onClick={closeModal}>close</button>
+          <div>
+            Are you sure you'd like to delete this user and relevent gigs?
+          </div>
+          <form>
+            <button onClick={handleClick}>Delete User</button>
+          </form>
+        </Modal>
+      </article>
+      {/* );
+      })} */}
     </section>
   );
 }
