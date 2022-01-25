@@ -31,5 +31,16 @@
     "email": "jacky@test.com",
     "instrument": "Vocalist",
     "bio": "I'm a vocalist and write my own music."
+  },
+  {
+    "id": "d01c352f-e06e-441a-aea2-474354629d97",
+    "name": "James",
+    "address": "18 Randy Ave",
+    "city": "Mono",
+    "country": "Canada",
+    "phone": "5199423483",
+    "email": "james@example.com",
+    "instrument": "Trombone",
+    "bio": "I play trombone"
   }
 ]

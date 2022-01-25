@@ -1,9 +1,9 @@
 const fs = require("fs"),
   path = require("path"),
   usersFile = path.join(__dirname, "../data/users.json"),
-  usersTestFile = path.join(__dirname, "../data/users-testing.json"),
   gigsFile = path.join(__dirname, "../data/gigs.json"),
-  gigsTestFile = path.join(__dirname, "../data/gigs-testing.json"),
+  // usersFile = path.join(__dirname, "../data/users-testing.json"),
+  // gigsFile = path.join(__dirname, "../data/gigs-testing.json"),
   { v4: uuidv4 } = require("uuid");
 
 class User {
@@ -52,7 +52,7 @@ const add = (obj) => {
     // obj.time
   );
   usersArray.push(user);
-  fs.writeFileSync(usersTestFile, JSON.stringify(usersArray));
+  fs.writeFileSync(usersFile, JSON.stringify(usersArray));
   return usersArray;
 };
 
@@ -67,7 +67,7 @@ const getOneById = (id) => {
 //   const userIndex = usersArray.findIndex((user) => user.id === id);
 //   if (userIndex !== -1) {
 //     usersArray.splice(userIndex, 1);
-//     fs.writeFileSync(usersTestFile, JSON.stringify(usersArray));
+//     fs.writeFileSync(usersFile, JSON.stringify(usersArray));
 //     return usersArray;
 //   }
 // };
@@ -75,7 +75,7 @@ const getOneById = (id) => {
 const remove = (userID) => {
   getAllGigs();
   let newGigsData = gigsData.filter((gig) => gig.userID !== userID);
-  fs.writeFile(gigsTestFile, JSON.stringify(newGigsData), (err) => {
+  fs.writeFile(gigsFile, JSON.stringify(newGigsData), (err) => {
     if (err) {
       console.log(err);
       return;
@@ -88,7 +88,7 @@ const removeUserWithGigs = (userID) => {
   getAllUsers();
   let newUsersData = usersData.filter((user) => user.id !== userID);
 
-  fs.writeFile(usersTestFile, JSON.stringify(newUsersData), (err) => {
+  fs.writeFile(usersFile, JSON.stringify(newUsersData), (err) => {
     if (err) {
       console.log(err);
       return;
@@ -110,7 +110,7 @@ const update = (id, data) => {
       id: id,
       ...data,
     });
-    fs.writeFileSync(usersTestFile, JSON.stringify(usersArray));
+    fs.writeFileSync(usersFile, JSON.stringify(usersArray));
     return usersArray;
   }
 };

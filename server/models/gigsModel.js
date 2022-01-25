@@ -1,9 +1,9 @@
 const fs = require("fs"),
   path = require("path"),
   gigsFile = path.join(__dirname, "../data/gigs.json"),
-  gigsTestFile = path.join(__dirname, "../data/gigs-testing.json"),
   usersFile = path.join(__dirname, "../data/users.json"),
-  usersTestFile = path.join(__dirname, "../data/users-testing.json"),
+  // gigsTestFile = path.join(__dirname, "../data/gigs-testing.json"),
+  // usersTestFile = path.join(__dirname, "../data/users-testing.json"),
   { v4: uuidv4 } = require("uuid");
 
 class SingleGig {
@@ -40,10 +40,10 @@ class SingleGig {
 
 const getAll = () => {
   // var results = [];
-  // const gigsData = fs.readFileSync(gigsTestFile);
-  // const usersData = fs.readFileSync(usersTestFile);
-  const gigsData = JSON.parse(fs.readFileSync(gigsTestFile));
-  const usersData = JSON.parse(fs.readFileSync(usersTestFile));
+  const gigsData = JSON.parse(fs.readFileSync(gigsFile));
+  const usersData = JSON.parse(fs.readFileSync(usersFile));
+  // const gigsData = JSON.parse(fs.readFileSync(gigsTestFile));
+  // const usersData = JSON.parse(fs.readFileSync(usersTestFile));
 
   const result = gigsData.map((gig) => {
     const user = usersData.find((user) => {
@@ -126,7 +126,7 @@ const add = (obj) => {
     obj.time
   );
   gigsArray.push(gig);
-  fs.writeFileSync(gigsTestFile, JSON.stringify(gigsArray));
+  fs.writeFileSync(gigsFile, JSON.stringify(gigsArray));
   return gigsArray;
 };
 
@@ -147,7 +147,7 @@ const remove = (id) => {
   const gigIndex = gigsArray.findIndex((gig) => gig.id === id);
   if (gigIndex !== -1) {
     gigsArray.splice(gigIndex, 1);
-    fs.writeFileSync(gigsTestFile, JSON.stringify(gigsArray));
+    fs.writeFileSync(gigsFile, JSON.stringify(gigsArray));
     return gigsArray;
   }
 };
@@ -162,7 +162,7 @@ const update = (id, data) => {
       id: id,
       ...data,
     });
-    fs.writeFileSync(gigsTestFile, JSON.stringify(gigsArray));
+    fs.writeFileSync(gigsFile, JSON.stringify(gigsArray));
     return gigsArray;
   }
 };
