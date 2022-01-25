@@ -33,32 +33,57 @@ class SingleGig {
   }
 }
 
-const getAll = () => {
-  const data = fs.readFileSync(gigsTestFile);
-  return JSON.parse(data);
-  console.log(data);
-};
-
 // const getAll = () => {
-//   var results = [];
-//   const gigsData = fs.readFileSync(gigsTestFile);
-//   const usersData = fs.readFileSync(usersTestFile);
+//   const data = fs.readFileSync(gigsTestFile);
+//   return JSON.parse(data);
+// };
 
-//   for (var i = 0; i < gigsData.length; i++) {
-//     for (var j = 0; j < usersData.length; j++) {
-//       if (gigsData[i].userID === usersData[j].id) {
-//         results.push({
-//           gig_name: gigsData[i].gigName,
-//           gig_user_id: gigsData[i].userID,
-//           userID: usersData[j].id,
-//           user_name: usersData[j].name,
-//           user_email: usersData[j].email,
-//         });
-//         return JSON.parse(results);
-//       }
+const getAll = () => {
+  // var results = [];
+  // const gigsData = fs.readFileSync(gigsTestFile);
+  // const usersData = fs.readFileSync(usersTestFile);
+  const gigsData = JSON.parse(fs.readFileSync(gigsTestFile));
+  const usersData = JSON.parse(fs.readFileSync(usersTestFile));
+
+  const result = gigsData.map((gig) => {
+    const user = usersData.find((user) => {
+      return user.id === gig.userID;
+    });
+    return { ...gig, name: user.name, email: user.email };
+  });
+
+  return result;
+};
+// for (var i = 0; i < gigsData.length; i++) {
+//   for (var j = 0; j < usersData.length; j++) {
+//     if (gigsData[i].userID === usersData[j].id) {
+//       results.push({
+//         gig_name: gigsData[i].gigName,
+//         gig_user_id: gigsData[i].userID,
+//         userID: usersData[j].id,
+//         user_name: usersData[j].name,
+//         user_email: usersData[j].email,
+//       });
+//       return JSON.parse(results);
 //     }
 //   }
+// }
 // };
+
+// var results = [];
+// for (var i=0; i<employee.length; i++) {
+//     for (var j=0; j<department.length; j++) {
+//         if (employee[i].department_id === department[j].department_id) {
+//             results.push({
+//                 employee_name: employee[i].name,
+//                 employee_department_id: employee[i].department_id,
+//                 department_id: department[j].department_id,
+//                 department_name: department[j].name
+//             });
+//         }
+//     }
+// }
+
 // console.log(gigsData);
 
 // const getAll = () => {
