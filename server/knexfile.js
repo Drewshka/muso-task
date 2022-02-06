@@ -20,3 +20,20 @@ module.exports = {
     connection: process.env.JAWSDB_URL,
   },
 };
+
+// let sequelize;
+
+// if (process.env.JAWSDB_URL) {
+//   sequelize = new Sequelize(process.env.JAWSDB_URL);
+// } else {
+//   sequelize = new Sequelize(
+//     process.env.DB_NAME,
+//     process.env.DB_USER,
+//     process.env.DB_PW,
+//     {
+//       host: "ble5mmo2o5v9oouq.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+//       dialect: "mysql",
+//       port: 3306,
+//     }
+//   );
+// }

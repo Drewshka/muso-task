@@ -1,9 +1,3 @@
-// const fs = require("fs"),
-//   path = require("path"),
-//   gigsFile = path.join(__dirname, "../data/gigs.json"),
-//   gigsTestFile = path.join(__dirname, "../data/gigs-testing.json"),
-//   { v4: uuidv4 } = require("uuid");
-
 // const database = require("../knexfile");
 // const knex = require("knex")(database);
 
