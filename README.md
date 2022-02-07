@@ -1,7 +1,7 @@
 # About
 
 Muso-task is an application designed to help freelance musicians connect with eachother and to help them find gig opportunities in performing, recording or teaching.
-This application is a full-stack application using React, React-Router, SASS, Node, Express, mySQL, Knex, Passport OAuth, Google Map API as well as other front-end essentials.
+This is a full-stack application using React, React-Router, SASS, Node, Express, mySQL, Knex, Passport OAuth, Google Map API as well as other front-end essentials.
 
 ## Goals and Requirements
 
